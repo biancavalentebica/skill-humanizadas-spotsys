@@ -74,8 +74,8 @@ for e in m:
         if e.dxftype() in ('LINE', 'LWPOLYLINE', 'ARC', 'CIRCLE', 'HATCH', 'POLYLINE', 'ELLIPSE', 'SPLINE'): grupos['outros'].append(e)
         continue
     nome = re.sub(r'\[\d+\]', '', e.dxf.name)
-    if 'MARCENARIA' in e.dxf.layer.upper() and nome.startswith('Laje'):   # tampo das bancadas da cozinha
-        grupos['bancada'].append(e); continue
+    if 'MARCENARIA' in e.dxf.layer.upper() and nome.startswith('Laje'):   # tampo com cadeiras = mesa de madeira (lancamento)
+        grupos['mesa'].append(e); continue
     for k, rx, _ in CAT:
         if re.search(rx, nome): grupos[k].append(e); break
     else:
@@ -276,7 +276,16 @@ camadas = []
 for k, rx, cor in CAT:
     if cor is None or k == 'parede' or not grupos[k]: continue
     lin = render(grupos[k])
-    sil = preenche(lin) if k not in ('escada', 'guarda', 'porta', 'cortina', 'box') else (lin > 40)
+    if k in ('bancada', 'lavat', 'mesa', 'armario'):   # tampos: retangulo de cada contorno (bloco as vezes vem aberto)
+        kk_ = cv2.morphologyEx((lin > 25).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((px(6), px(6)), np.uint8))
+        cs_, _ = cv2.findContours(kk_, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        sil = np.zeros((H, W), np.uint8)
+        for c_ in cs_:
+            if cv2.contourArea(cv2.convexHull(c_)) < px(15) ** 2: continue
+            cv2.fillPoly(sil, [np.int32(cv2.boxPoints(cv2.minAreaRect(c_)))], 1)
+        sil = sil > 0
+    else:
+        sil = preenche(lin) if k not in ('escada', 'guarda', 'porta', 'cortina', 'box') else (lin > 40)
     camadas.append((k, lin, sil, cor))
     if k in ('armario', 'bancada', 'mesa', 'cadeira', 'tv'):   # cama/sofa/loucas: o sprite do lancamento ja tem sombra
         sombra += sil.astype(np.float32)
@@ -287,18 +296,24 @@ img = (img.astype(np.float32) * (1 - 0.28 * np.clip(sh, 0, 1)[..., None])).astyp
 OBJ = os.path.join(a.estilo, 'objetos') if a.estilo else ''
 def carrega(n):
     for f_ in (os.path.join(OBJ, n + '.png'), os.path.join(a.estilo, n + '.png') if a.estilo else ''):
-        if f_ and os.path.exists(f_): return cv2.imread(f_)
+        if f_ and os.path.exists(f_):
+            x_ = cv2.imread(f_, cv2.IMREAD_UNCHANGED)
+            if x_.ndim == 3 and x_.shape[2] == 4:
+                _alfa_png[id(x_[:, :, :3])] = None
+                x3 = np.ascontiguousarray(x_[:, :, :3]); _alfa_fix[id(x3)] = (x_[:, :, 3] / 255.0).astype(np.float32); return x3
+            return x_
     return None
+_alfa_png = {}; _alfa_fix = {}
 SPRITE = [  # (regex do bloco, sprite, orientacao, corpo (x0,x1,y0,y1), tamanho)
     (r'Cama', 'cama', 'detalhe_embaixo', (0.15, 0.845, 0.02, 0.945), 'dwg'),
     (r'Sof.', 'sofa', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'dwg'),
     (r'Poltrona', 'poltrona', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'dwg'),
     (r'Espregui', 'espreguicadeira', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'dwg'),
     (r'Mesa.*Redonda|Mesa de Jantar Redonda', 'mesa_redonda', 'livre', (0.0, 1.0, 0.0, 1.0), 'dwg'),
-    (r'^Vaso Sanit.rio(?! Acess)', 'vaso_sanitario', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'dwg'),
+    (r'^Vaso Sanit.rio(?! Acess)', 'vaso_sanitario', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'lancamento'),
     (r'Guarda-Roupa', 'armario_cabides', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'lancamento'),   # arara: medida do lancamento
-    (r'Balc.o Multi-Lavat', 'lavatorio_banheiro', 'detalhe_embaixo', (0.0, 1.0, 0.0, 1.0), 'dwg'),
-    (r'Cooktop', 'cooktop', 'livre', (0.0, 1.0, 0.0, 1.0), 'dwg'),
+    (r'Balc.o Multi-Lavat', 'cuba_redonda', 'livre', (0.0, 1.0, 0.0, 1.0), 'lancamento'),
+    (r'Cooktop', 'cooktop', 'livre', (0.0, 1.0, 0.0, 1.0), 'lancamento'),
 ]
 sprites = {r[1]: carrega(r[1]) for r in SPRITE}
 ESC_L = a.cm_px_estilo / a.cm_px   # px do lancamento -> px do quadro
@@ -308,12 +323,13 @@ _alfa = {}
 def alfa(sprite):
     """mascara do objeto: tira o piso do lancamento que veio junto no recorte (cor da borda do recorte)."""
     k = id(sprite)
+    if k in _alfa_fix: return _alfa_fix[k]
     if k not in _alfa:
         b = np.concatenate([sprite[0], sprite[-1], sprite[:, 0], sprite[:, -1]]).astype(np.float32)
         fundo = np.median(b, axis=0)
         dif = np.abs(sprite.astype(np.float32) - fundo).max(axis=2)
         # fundo = piso do lancamento ligado a borda do recorte (tolerancia 28): fica transparente
-        perto = (dif <= 28).astype(np.uint8)
+        perto = (dif <= 36).astype(np.uint8)
         hs_, ws_ = perto.shape; fl = perto.copy(); mk_ = np.zeros((hs_ + 2, ws_ + 2), np.uint8)
         for (xx, yy) in [(x_, 0) for x_ in range(0, ws_, 4)] + [(x_, hs_ - 1) for x_ in range(0, ws_, 4)] + [(0, y_) for y_ in range(0, hs_, 4)] + [(ws_ - 1, y_) for y_ in range(0, hs_, 4)]:
             if fl[yy, xx] == 1: cv2.floodFill(fl, mk_, (xx, yy), 2)
@@ -378,10 +394,16 @@ for e in todos:
     if u[0] * v[1] - u[1] * v[0] < 0:   # bloco espelhado no DWG: desespelha (logo e textos do lancamento legiveis)
         p0 = p0 + u * wd; u = -u
     tl = p0 - u * fx0 * wf - v * fy0 * hf
-    if regra[4] == 'lancamento':                       # medida do objeto no lancamento, base encostada no mesmo lado
+    if regra[4] == 'lancamento':                       # medida do objeto no lancamento (sem esticar)
         wl_, hl_ = spr.shape[1] * ESC_L, spr.shape[0] * ESC_L
-        base_ = p0 + u * wd / 2 + v * hd
-        tl = base_ - u * wl_ / 2 - v * hl_; wf, hf = wl_, hl_
+        if regra[2] == 'livre':                        # centrado no bloco, lado comprido do sprite no lado comprido do bloco
+            c0 = p0 + u * wd / 2 + v * hd / 2
+            if (wl_ >= hl_) != (wd >= hd): u, v = v, -u
+            tl = c0 - u * wl_ / 2 - v * hl_ / 2
+        else:                                          # base (caixa acoplada, fundo da arara) encostada no mesmo lado
+            base_ = p0 + u * wd / 2 + v * hd
+            tl = base_ - u * wl_ / 2 - v * hl_
+        wf, hf = wl_, hl_
     dst = [tl, tl + u * wf, tl + u * wf + v * hf]
     cc = (dst[0] + dst[2]) / 2
     cx_, cy_ = int(np.clip(cc[0], 0, W - 1)), int(np.clip(cc[1], 0, H - 1))
@@ -399,7 +421,9 @@ for e in todos:
             reg_ = np.zeros((hs_, ws_), np.uint8); reg_[int(ay0 * hs_):int(ay1 * hs_), int(ax0 * ws_):int(ax1 * ws_)] = 1
             mreg = cv2.warpAffine(reg_, Af_, (W, H), flags=cv2.INTER_NEAREST) > 0
             n_ = max(1, int(mreg.sum()))
-            fora = (mreg & paredes).sum() / n_ > 0.02 or (rec is not None and (mreg & (rec == 0)).sum() / n_ > 0.05)
+            vao = (_fech > 0) & ~paredes
+            fora = ((mreg & paredes).sum() / n_ > 0.02 or (rec is not None and (mreg & (rec == 0)).sum() / n_ > 0.05)
+                    or (mreg & vao).sum() / n_ > 0.02 or (mreg & fach).sum() / n_ > 0.02 or (mreg & ((comodo != lab_c) & (comodo > 0))).sum() / n_ > 0.02)
             if fora: alfa_mod[reg_ > 0] = 0
     coberto |= cola(spr, dst, rec, alfa_mod)
 
@@ -412,7 +436,7 @@ for e in grupos.get('cooktop', []):
         if bb_.has_data: cooks.append(np.array(para_img(bb_.center.x, bb_.center.y)))
 if cuba is not None:
     for e in grupos['bancada']:
-        if 'MARCENARIA' not in e.dxf.layer.upper() or not e.dxf.name.startswith('Laje'): continue
+        if not re.search(r'Arm.rio Baixo', e.dxf.name): continue
         bb_ = bbox.extents([e])
         if not bb_.has_data: continue
         (ax, ay), (bx, by) = para_img(bb_.extmin.x, bb_.extmax.y), para_img(bb_.extmax.x, bb_.extmin.y)
@@ -423,11 +447,85 @@ if cuba is not None:
         perto = min(cooks, key=lambda c: min(np.linalg.norm(c - e1), np.linalg.norm(c - e2))) if cooks else e1
         fim = e1 if np.linalg.norm(perto - e1) > np.linalg.norm(perto - e2) else e2
         dirv = (e2 - e1) / np.linalg.norm(e2 - e1); dentro = dirv if fim is e1 else -dirv
-        c_ = fim + dentro * px(40)
-        lado = larg * 0.85; nrm = np.array([-dirv[1], dirv[0]])
-        tl_ = c_ - dirv * lado / 2 - nrm * lado / 2
-        cola(cuba, [tl_, tl_ + dirv * lado, tl_ + dirv * lado + nrm * lado])
+        c_ = fim + dentro * px(35)
+        wl_, hl_ = cuba.shape[1] * ESC_L, cuba.shape[0] * ESC_L; nrm = np.array([-dirv[1], dirv[0]])
+        tl_ = c_ - dirv * wl_ / 2 - nrm * hl_ / 2
+        coberto |= cola(cuba, [tl_, tl_ + dirv * wl_, tl_ + dirv * wl_ + nrm * hl_])
 
+if a.hidro_lancamento and a.ocr_lancamento:
+    L_ = cv2.imread(a.hidro_lancamento, cv2.IMREAD_UNCHANGED)
+    if L_.shape[2] == 4:
+        al_ = L_[:, :, 3:] / 255.0; L_ = (L_[:, :, :3] * al_ + 255 * (1 - al_)).astype(np.uint8)
+    # posicao das unidades: OCR do lancamento x rotulos das zonas do DWG -> escala + deslocamento
+    oc = {}
+    for ln in json.load(open(a.ocr_lancamento, encoding='utf-8-sig')):
+        ws_ = ln['palavras'] if isinstance(ln['palavras'], list) else [ln['palavras']]
+        mm = re.search(r'\b(\d{3})\b', ' '.join(w['t'] for w in ws_))
+        if mm: oc.setdefault(mm.group(1), (np.mean([w['x'] + w['w'] / 2 for w in ws_]), np.mean([w['y'] + w['h'] / 2 for w in ws_])))
+    nv = {}
+    for txt, xw, yw in rot:
+        mm = re.match(r'\s*(\d{3})\b', txt)
+        if mm and not re.search('GARDEN|SACADA|TERRA', txt, re.I): nv.setdefault(mm.group(1), para_img(xw, yw))
+    ks = [k for k in oc if k in nv]
+    if len(ks) >= 3:
+        A_ = np.array([oc[k] for k in ks]); B_ = np.array([nv[k] for k in ks])
+        sc = float(np.sum((A_ - A_.mean(0)) * (B_ - B_.mean(0))) / np.sum((A_ - A_.mean(0)) ** 2)); tq = B_.mean(0) - sc * A_.mean(0)
+        gl = cv2.cvtColor(L_, cv2.COLOR_BGR2GRAY)
+        # banheiras do lancamento pela cor da agua (exclui a piscina, que e muito maior); cada uma recortada inteira
+        Lf_ = L_.astype(int)
+        agua = (Lf_[:, :, 1] > Lf_[:, :, 2] + 6) & (Lf_[:, :, 0] > Lf_[:, :, 2] + 4) & (Lf_[:, :, 2] > 120)
+        agua = cv2.morphologyEx(agua.astype(np.uint8), cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+        agua = cv2.morphologyEx(agua, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
+        na, la, sa, _ = cv2.connectedComponentsWithStats(agua, 8)
+        achados = []
+        for i_ in range(1, na):
+            x_, y_, w_, h_, ar_ = sa[i_]
+            if not (2500 < ar_ < 40000) or max(w_, h_) > 260: continue
+            comp = (la == i_).astype(np.uint8)
+            hull = cv2.convexHull(cv2.findContours(comp, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0][0])
+            m_ = np.zeros_like(comp); cv2.fillPoly(m_, [hull], 1); m_ = cv2.dilate(m_, np.ones((13, 13), np.uint8))   # borda branca da banheira
+            ys_, xs_ = np.where(m_ > 0); X0_, Y0_, X1_, Y1_ = xs_.min(), ys_.min(), xs_.max() + 1, ys_.max() + 1
+            tpl = np.ascontiguousarray(L_[Y0_:Y1_, X0_:X1_])
+            _alfa_fix[id(tpl)] = cv2.GaussianBlur(m_[Y0_:Y1_, X0_:X1_].astype(np.float32), (3, 3), 0)
+            achados.append(((X0_ + X1_) / 2, (Y0_ + Y1_) / 2, tpl, 1.0))
+        deck_ = cv2.dilate((zid > 0).astype(np.uint8), np.ones((px(20), px(20)), np.uint8)).astype(np.float32)
+        deck_[paredes | muro] = 0
+        # terracos do lancamento: madeira do deck, separados pelos muros
+        Lf = L_.astype(int); bb, gg, rr = Lf[:, :, 0], Lf[:, :, 1], Lf[:, :, 2]
+        madeira = ((rr - bb) > 30) & (rr > gg) & (gg > bb) & (rr > 70) & (rr < 215)
+        madeira = cv2.morphologyEx(madeira.astype(np.uint8), cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+        nL, labL, stL, _ = cv2.connectedComponentsWithStats(madeira, 4)
+        zdeck = [z for z in zonas if z['classe'] == 'deck']
+        n_h = 0
+        for cx, cy, tpl, sc_ in achados:
+            hs_, ws_ = tpl.shape[:2]
+            tx0, ty0, tx1, ty1 = cx - ws_ / 2, cy - hs_ / 2, cx + ws_ / 2, cy + hs_ / 2
+            # terraco do lancamento que mais envolve a banheira
+            win = labL[int(max(0, ty0 - 15)):int(ty1 + 15), int(max(0, tx0 - 15)):int(tx1 + 15)]
+            ids, cnt = np.unique(win[win > 0], return_counts=True)
+            if not len(ids): continue
+            lx, ly, lw, lh = stL[ids[np.argmax(cnt)], :4]
+            # terraco novo correspondente: o que contem (ou fica mais perto de) a posicao levada pela escala geral
+            c_ = np.array([cx, cy]) * sc + tq
+            # unidade do terraco: numero do lancamento dentro da faixa do terraco (eixo comprido), o mais proximo
+            longo_h = lw >= lh
+            cand_ = [(k_, q_) for k_, q_ in oc.items() if (lx <= q_[0] <= lx + lw if longo_h else ly <= q_[1] <= ly + lh)]
+            cod = min(cand_, key=lambda t: np.hypot(t[1][0] - cx, t[1][1] - cy))[0] if cand_ else None
+            zc = [z for z in zdeck if cod and z['texto'].strip().startswith(cod)]
+            z_ = (zc or zdeck)
+            z_ = max(z_, key=lambda z: cv2.pointPolygonTest(z['img'].astype(np.int32).reshape(-1, 1, 2), (float(c_[0]), float(c_[1])), True))
+            zx, zy, zw, zh = cv2.boundingRect(z_['img'].astype(np.int32))
+            wl_, hl_ = ws_ * ESC_L, hs_ * ESC_L
+            dl, dr = (tx0 - lx) * ESC_L, (lx + lw - tx1) * ESC_L
+            dt, db = (ty0 - ly) * ESC_L, (ly + lh - ty1) * ESC_L
+            nx = zx + max(0, dl) if dl <= dr else zx + zw - max(0, dr) - wl_
+            ny = zy + max(0, dt) if dt <= db else zy + zh - max(0, db) - hl_
+            nx = float(np.clip(nx, zx, zx + zw - wl_)); ny = float(np.clip(ny, zy, zy + zh - hl_))
+            mz = np.zeros((H, W), np.uint8); cv2.fillPoly(mz, [z_['img'].astype(np.int32)], 1)
+            rec_ = cv2.dilate(mz, np.ones((px(8), px(8)), np.uint8)).astype(np.float32); rec_[paredes | muro] = 0
+            tl_ = np.array([nx, ny])
+            coberto |= cola(tpl, [tl_, tl_ + [wl_, 0], tl_ + [wl_, hl_]], rec_); n_h += 1
+        print('banheiras na posicao do lancamento:', n_h, 'de', len(achados), '| escala lancamento->planta', round(sc, 3))
 # --- decoracao dos gardens/terracos como no lancamento (nao consta no projeto aprovado: so ambientacao) -----------
 decor = []
 hidro, palm, polt = carrega('hidro_redonda'), carrega('palmeira'), carrega('poltrona')
@@ -449,46 +547,6 @@ for k, z in enumerate(zonas, 1):
         cv2.circle(dist, (int(xx), int(yy)), r_ + px(40), 0, -1)
         dist = cv2.distanceTransform((dist > 0).astype(np.uint8), cv2.DIST_L2, 5)
         decor.append(nome_)
-if a.hidro_lancamento and a.ocr_lancamento:
-    L_ = cv2.imread(a.hidro_lancamento, cv2.IMREAD_UNCHANGED)
-    if L_.shape[2] == 4:
-        al_ = L_[:, :, 3:] / 255.0; L_ = (L_[:, :, :3] * al_ + 255 * (1 - al_)).astype(np.uint8)
-    # posicao das unidades: OCR do lancamento x rotulos das zonas do DWG -> escala + deslocamento
-    oc = {}
-    for ln in json.load(open(a.ocr_lancamento, encoding='utf-8-sig')):
-        ws_ = ln['palavras'] if isinstance(ln['palavras'], list) else [ln['palavras']]
-        mm = re.search(r'\b(\d{3})\b', ' '.join(w['t'] for w in ws_))
-        if mm: oc.setdefault(mm.group(1), (np.mean([w['x'] + w['w'] / 2 for w in ws_]), np.mean([w['y'] + w['h'] / 2 for w in ws_])))
-    nv = {}
-    for txt, xw, yw in rot:
-        mm = re.match(r'\s*(\d{3})\b', txt)
-        if mm and not re.search('GARDEN|SACADA|TERRA', txt, re.I): nv.setdefault(mm.group(1), para_img(xw, yw))
-    ks = [k for k in oc if k in nv]
-    if len(ks) >= 3:
-        A_ = np.array([oc[k] for k in ks]); B_ = np.array([nv[k] for k in ks])
-        sc = float(np.sum((A_ - A_.mean(0)) * (B_ - B_.mean(0))) / np.sum((A_ - A_.mean(0)) ** 2)); tq = B_.mean(0) - sc * A_.mean(0)
-        gl = cv2.cvtColor(L_, cv2.COLOR_BGR2GRAY)
-        achados = []
-        for nome_t in ('hidro_redonda', 'hidro_canto', 'hidro_canto2'):
-            t0 = carrega(nome_t)
-            if t0 is None: continue
-            for tpl in (t0, t0[:, ::-1], t0[::-1], t0[::-1, ::-1]):
-                r_ = cv2.matchTemplate(gl, cv2.cvtColor(tpl, cv2.COLOR_BGR2GRAY), cv2.TM_CCOEFF_NORMED)
-                ys_, xs_ = np.where(r_ > 0.62)
-                for yy, xx in sorted(zip(ys_, xs_), key=lambda q: -r_[q[0], q[1]]):
-                    cx = xx + tpl.shape[1] / 2; cy = yy + tpl.shape[0] / 2
-                    if all(np.hypot(cx - q[0], cy - q[1]) > 60 for q in achados):
-                        achados.append((cx, cy, tpl, float(r_[yy, xx])))
-        deck_ = cv2.dilate((zid > 0).astype(np.uint8), np.ones((px(20), px(20)), np.uint8)).astype(np.float32)
-        deck_[paredes | muro] = 0
-        n_h = 0
-        for cx, cy, tpl, sc_ in achados:
-            c_ = np.array([cx, cy]) * sc + tq
-            wl_, hl_ = tpl.shape[1] * ESC_L, tpl.shape[0] * ESC_L
-            tl_ = c_ - [wl_ / 2, hl_ / 2]
-            if not (0 <= c_[0] < W and 0 <= c_[1] < H) or deck_[int(c_[1]), int(c_[0])] == 0: continue
-            cola(tpl, [tl_, tl_ + [wl_, 0], tl_ + [wl_, hl_]], deck_); n_h += 1
-        print('banheiras na posicao do lancamento:', n_h, 'de', len(achados), '| escala lancamento->planta', round(sc, 3))
 print('decoracao gardens:', {n: decor.count(n) for n in set(decor)})
 
 # --- piscina: borda de pedra -------------------------------------------------------------------------------
@@ -507,7 +565,7 @@ for k, lin, sil, (fill, edge) in camadas:
         img[sil] = TEXOBJ[k][sil]
     else:
         img[sil] = fill
-    if k not in ('bancada', 'lavat'): img[lin > 70] = edge   # tampo de granito sem o traco interno do bloco
+    if k not in ('bancada', 'lavat', 'mesa'): img[lin > 70] = edge   # tampo de granito sem o traco interno do bloco
 img[muro] = (118, 118, 120)
 if a.vazios:
     com_zona = np.zeros((H, W), np.uint8)
