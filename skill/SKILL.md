@@ -14,6 +14,8 @@ description: Atualiza as plantas humanizadas de um empreendimento Seazone quando
 >
 > **REGRA FIXA 3: base de layout = humanizada do LANÇAMENTO.** O layout (mobiliário, banheiro, cozinha, pisos) vem sempre da humanizada usada no lançamento. A geometria vem do aprovado do Autodoc. Script: `gera_humanizada_lancamento_r06.py` (encaixe rígido por unidade, sem deformar). Onde o layout do lançamento não cabe no contorno aprovado, a unidade sai em cinza e vai para desenho humano: nada é inventado.
 >
+> **ETAPA OPCIONAL: IA só nas unidades sinalizadas.** `mobilia_ia.py` envia à IA (OpenAI `gpt-image-1`) apenas o recorte de cada unidade em cinza, com as paredes do R06 e uma máscara que libera só o interior. Se a IA alterar paredes ou divisas, o resultado é rejeitado automaticamente. A IA nunca define a geometria. A chave é lida só da variável de ambiente `OPENAI_API_KEY`, nunca em arquivo ou chat.
+>
 > **REGRA FIXA 2: primeiro atualizar a planta, depois cortar.** O foco da skill é **atualizar a planta humanizada de cada pavimento** de acordo com o projeto aprovado. A comparação é **humanizada do lançamento × projeto aprovado (Autodoc)**, pavimento a pavimento e unidade a unidade. **Nenhum recorte por unidade é feito antes de a planta geral atualizada ser validada.**
 
 
