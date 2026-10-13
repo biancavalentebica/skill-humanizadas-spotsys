@@ -1,0 +1,63 @@
+{
+ "empreendimento": "CACHOEIRA-SPOT",
+ "revisao": "R04",
+ "pdf_aprovado": "00_entradas/originais/projeto_aprovado/NAU-SEA-CCH_ARQ_PL_00_APROVADO_R00.pdf",
+ "spotsys_csv": "00_entradas/spotsys_cachoeira_units_2026-10-09.csv",
+ "quadro_areas": {
+  "xlsx": "00_entradas/originais/areas/AREAS CACHOEIRA SPOT - VERSÃO FINAL.xlsx",
+  "aba": "Planilha1"
+ },
+ "correcoes_rotulos": "skill/exemplos/cachoeira-spot_correcoes_rotulos.json",
+ "revisao_visual": "03_trabalho/revisao_visual_R01.json",
+ "trabalho": "03_trabalho/pipeline_R04",
+ "diagnostico": "01_diagnostico",
+ "registro": "05_qc/registro_R04",
+ "saida": "04_saida/CACHOEIRA-SPOT_R04",
+ "aceitar_ressalva": false,
+ "pavimentos": [
+  {
+   "id": "PAV-01",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/TERREO 1 PAV.png",
+   "pagina_pdf": 4,
+   "fundo_min": 60
+  },
+  {
+   "id": "MEZ",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/MEZANINO.png",
+   "pagina_pdf": 5,
+   "janela": "1240,1160,1715,1435",
+   "esc": 6,
+   "escala": 200
+  },
+  {
+   "id": "PAV-02",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/2 PAV.png",
+   "pagina_pdf": 6
+  },
+  {
+   "id": "PAV-03",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/3 PAV.png",
+   "pagina_pdf": 7
+  },
+  {
+   "id": "PAV-04",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/4 PAV.png",
+   "pagina_pdf": 8,
+   "caixas_manuais": "3600,1862,3668,1908"
+  },
+  {
+   "id": "COB",
+   "humanizada": "00_entradas/originais/humanizada_projeto_legal_2026-03/ROOFTOP.png",
+   "pagina_pdf": 9,
+   "fundo_min": 60,
+   "registro_de": "PAV-04"
+  }
+ ],
+ "duplex": [
+  {
+   "id": "PAV-01+MEZ",
+   "inferior": "PAV-01",
+   "superior": "MEZ"
+  }
+ ]
+}

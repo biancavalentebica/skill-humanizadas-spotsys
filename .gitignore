@@ -1,0 +1,17 @@
+# Arquivos de projeto, plantas e imagens geradas ficam fora do Git (grandes e internos)
+00_entradas/
+03_trabalho/
+05_qc/
+06_apresentacao/
+04_saida/**/*.png
+04_saida/**/*.jpg
+04_saida/**/04_PUBLICACAO/
+04_saida/*_R01/
+04_saida/*_R02/
+04_saida/*_R03/
+*.pdf
+*.png
+*.jpg
+*.xlsx
+__pycache__/
+plantas-humanizadas-auditoria-tati-*.html

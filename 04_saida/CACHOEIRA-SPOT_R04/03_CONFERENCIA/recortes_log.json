@@ -1,0 +1,5761 @@
+[
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "101",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.5263,
+    "y": 0.40463
+   },
+   {
+    "x": 0.5263,
+    "y": 0.57639
+   },
+   {
+    "x": 0.58203,
+    "y": 0.57639
+   },
+   {
+    "x": 0.58177,
+    "y": 0.40463
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.103,
+  "encaixe": "paredes",
+  "origem_px": [
+   1990,
+   855
+  ],
+  "largura_px": 562,
+  "altura_px": 415,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-101_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "101",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.59831,
+     "y": 0.62689
+    },
+    {
+     "x": 0.59831,
+     "y": 0.80966
+    },
+    {
+     "x": 0.67416,
+     "y": 0.80966
+    },
+    {
+     "x": 0.67416,
+     "y": 0.70928
+    },
+    {
+     "x": 0.6971,
+     "y": 0.70833
+    },
+    {
+     "x": 0.6971,
+     "y": 0.62689
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.025,
+   "encaixe": "paredes",
+   "origem_px": [
+    1267,
+    650
+   ],
+   "largura_px": 254,
+   "altura_px": 237,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.0
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "102",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.58203,
+    "y": 0.40463
+   },
+   {
+    "x": 0.58203,
+    "y": 0.57593
+   },
+   {
+    "x": 0.63438,
+    "y": 0.57546
+   },
+   {
+    "x": 0.63438,
+    "y": 0.41898
+   },
+   {
+    "x": 0.6112,
+    "y": 0.41898
+   },
+   {
+    "x": 0.61094,
+    "y": 0.40463
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.103,
+  "encaixe": "paredes",
+  "origem_px": [
+   2204,
+   855
+  ],
+  "largura_px": 548,
+  "altura_px": 410,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-102_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "102",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.6985,
+     "y": 0.62784
+    },
+    {
+     "x": 0.6985,
+     "y": 0.72538
+    },
+    {
+     "x": 0.72191,
+     "y": 0.72633
+    },
+    {
+     "x": 0.72191,
+     "y": 0.82008
+    },
+    {
+     "x": 0.79307,
+     "y": 0.82008
+    },
+    {
+     "x": 0.79307,
+     "y": 0.71307
+    },
+    {
+     "x": 0.78652,
+     "y": 0.71117
+    },
+    {
+     "x": 0.78652,
+     "y": 0.6572
+    },
+    {
+     "x": 0.75094,
+     "y": 0.6572
+    },
+    {
+     "x": 0.75,
+     "y": 0.62689
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.091,
+   "encaixe": "paredes",
+   "origem_px": [
+    1461,
+    648
+   ],
+   "largura_px": 252,
+   "altura_px": 250,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.011
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "103",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.6349,
+    "y": 0.41898
+   },
+   {
+    "x": 0.6349,
+    "y": 0.57546
+   },
+   {
+    "x": 0.71927,
+    "y": 0.57546
+   },
+   {
+    "x": 0.71953,
+    "y": 0.56852
+   },
+   {
+    "x": 0.72031,
+    "y": 0.57546
+   },
+   {
+    "x": 0.72188,
+    "y": 0.57546
+   },
+   {
+    "x": 0.72161,
+    "y": 0.56991
+   },
+   {
+    "x": 0.7224,
+    "y": 0.57407
+   },
+   {
+    "x": 0.72422,
+    "y": 0.57037
+   },
+   {
+    "x": 0.7237,
+    "y": 0.57546
+   },
+   {
+    "x": 0.72656,
+    "y": 0.57222
+   },
+   {
+    "x": 0.72682,
+    "y": 0.57546
+   },
+   {
+    "x": 0.79115,
+    "y": 0.575
+   },
+   {
+    "x": 0.79167,
+    "y": 0.47593
+   },
+   {
+    "x": 0.65443,
+    "y": 0.47593
+   },
+   {
+    "x": 0.65417,
+    "y": 0.41898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.096,
+  "encaixe": "paredes",
+  "origem_px": [
+   2407,
+   886
+  ],
+  "largura_px": 1076,
+  "altura_px": 382,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-103_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "103",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.79401,
+     "y": 0.94697
+    },
+    {
+     "x": 0.90964,
+     "y": 0.94697
+    },
+    {
+     "x": 0.90964,
+     "y": 0.82481
+    },
+    {
+     "x": 0.95552,
+     "y": 0.82292
+    },
+    {
+     "x": 0.95552,
+     "y": 0.80019
+    },
+    {
+     "x": 0.95318,
+     "y": 0.79924
+    },
+    {
+     "x": 0.95552,
+     "y": 0.79451
+    },
+    {
+     "x": 0.95552,
+     "y": 0.78314
+    },
+    {
+     "x": 0.87781,
+     "y": 0.78409
+    },
+    {
+     "x": 0.87734,
+     "y": 0.77746
+    },
+    {
+     "x": 0.82912,
+     "y": 0.77746
+    },
+    {
+     "x": 0.82818,
+     "y": 0.77083
+    },
+    {
+     "x": 0.79401,
+     "y": 0.77083
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.126,
+   "encaixe": "paredes",
+   "origem_px": [
+    1676,
+    783
+   ],
+   "largura_px": 397,
+   "altura_px": 249,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.005
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "104",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.65339,
+    "y": 0.38241
+   },
+   {
+    "x": 0.65469,
+    "y": 0.475
+   },
+   {
+    "x": 0.79167,
+    "y": 0.475
+   },
+   {
+    "x": 0.79219,
+    "y": 0.38287
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.115,
+  "encaixe": "paredes",
+  "origem_px": [
+   2478,
+   805
+  ],
+  "largura_px": 931,
+  "altura_px": 252,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-104_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "104",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.82631,
+     "y": 0.57955
+    },
+    {
+     "x": 0.82631,
+     "y": 0.64678
+    },
+    {
+     "x": 0.82912,
+     "y": 0.64773
+    },
+    {
+     "x": 0.83099,
+     "y": 0.66477
+    },
+    {
+     "x": 0.83333,
+     "y": 0.64773
+    },
+    {
+     "x": 0.83848,
+     "y": 0.64773
+    },
+    {
+     "x": 0.83848,
+     "y": 0.67614
+    },
+    {
+     "x": 0.83474,
+     "y": 0.67614
+    },
+    {
+     "x": 0.83474,
+     "y": 0.65814
+    },
+    {
+     "x": 0.83287,
+     "y": 0.67614
+    },
+    {
+     "x": 0.83006,
+     "y": 0.67803
+    },
+    {
+     "x": 0.82912,
+     "y": 0.6733
+    },
+    {
+     "x": 0.82912,
+     "y": 0.77557
+    },
+    {
+     "x": 0.91948,
+     "y": 0.77557
+    },
+    {
+     "x": 0.91948,
+     "y": 0.67708
+    },
+    {
+     "x": 0.91526,
+     "y": 0.66856
+    },
+    {
+     "x": 0.91526,
+     "y": 0.65625
+    },
+    {
+     "x": 0.91948,
+     "y": 0.64678
+    },
+    {
+     "x": 0.91948,
+     "y": 0.62784
+    },
+    {
+     "x": 0.95552,
+     "y": 0.62595
+    },
+    {
+     "x": 0.95552,
+     "y": 0.61269
+    },
+    {
+     "x": 0.95178,
+     "y": 0.60322
+    },
+    {
+     "x": 0.95225,
+     "y": 0.59848
+    },
+    {
+     "x": 0.95552,
+     "y": 0.60322
+    },
+    {
+     "x": 0.95552,
+     "y": 0.58523
+    },
+    {
+     "x": 0.86891,
+     "y": 0.58617
+    },
+    {
+     "x": 0.86798,
+     "y": 0.57955
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.134,
+   "encaixe": "paredes",
+   "origem_px": [
+    1753,
+    592
+   ],
+   "largura_px": 320,
+   "altura_px": 244,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.013
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "105",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.63385,
+    "y": 0.29491
+   },
+   {
+    "x": 0.63385,
+    "y": 0.38426
+   },
+   {
+    "x": 0.64583,
+    "y": 0.38426
+   },
+   {
+    "x": 0.64661,
+    "y": 0.39491
+   },
+   {
+    "x": 0.6526,
+    "y": 0.39491
+   },
+   {
+    "x": 0.65286,
+    "y": 0.38194
+   },
+   {
+    "x": 0.79219,
+    "y": 0.38194
+   },
+   {
+    "x": 0.79245,
+    "y": 0.30463
+   },
+   {
+    "x": 0.65286,
+    "y": 0.30463
+   },
+   {
+    "x": 0.6526,
+    "y": 0.29398
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.115,
+  "encaixe": "paredes",
+  "origem_px": [
+   2415,
+   616
+  ],
+  "largura_px": 936,
+  "altura_px": 257,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-105_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "105",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.7912,
+     "y": 0.40814
+    },
+    {
+     "x": 0.7912,
+     "y": 0.58523
+    },
+    {
+     "x": 0.82584,
+     "y": 0.58428
+    },
+    {
+     "x": 0.82631,
+     "y": 0.5786
+    },
+    {
+     "x": 0.86798,
+     "y": 0.5786
+    },
+    {
+     "x": 0.86891,
+     "y": 0.53125
+    },
+    {
+     "x": 0.89232,
+     "y": 0.53125
+    },
+    {
+     "x": 0.89232,
+     "y": 0.46496
+    },
+    {
+     "x": 0.88858,
+     "y": 0.46591
+    },
+    {
+     "x": 0.88436,
+     "y": 0.45833
+    },
+    {
+     "x": 0.88483,
+     "y": 0.44508
+    },
+    {
+     "x": 0.89232,
+     "y": 0.44129
+    },
+    {
+     "x": 0.89232,
+     "y": 0.41667
+    },
+    {
+     "x": 0.82631,
+     "y": 0.41667
+    },
+    {
+     "x": 0.82584,
+     "y": 0.40814
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.071,
+   "encaixe": "paredes",
+   "origem_px": [
+    1678,
+    417
+   ],
+   "largura_px": 260,
+   "altura_px": 212,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.006
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "106",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.65469,
+    "y": 0.21157
+   },
+   {
+    "x": 0.65339,
+    "y": 0.30417
+   },
+   {
+    "x": 0.79245,
+    "y": 0.30417
+   },
+   {
+    "x": 0.79297,
+    "y": 0.21157
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.118,
+  "encaixe": "paredes",
+  "origem_px": [
+   2478,
+   426
+  ],
+  "largura_px": 854,
+  "altura_px": 263,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-106_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "106",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.82631,
+     "y": 0.2178
+    },
+    {
+     "x": 0.82631,
+     "y": 0.41477
+    },
+    {
+     "x": 0.86798,
+     "y": 0.41477
+    },
+    {
+     "x": 0.86891,
+     "y": 0.36458
+    },
+    {
+     "x": 0.91807,
+     "y": 0.36458
+    },
+    {
+     "x": 0.91807,
+     "y": 0.2178
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.047,
+   "encaixe": "paredes",
+   "origem_px": [
+    1753,
+    211
+   ],
+   "largura_px": 240,
+   "altura_px": 242,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.012
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "107",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.79401,
+    "y": 0.03333
+   },
+   {
+    "x": 0.63516,
+    "y": 0.03519
+   },
+   {
+    "x": 0.63516,
+    "y": 0.11065
+   },
+   {
+    "x": 0.73906,
+    "y": 0.11111
+   },
+   {
+    "x": 0.73854,
+    "y": 0.12546
+   },
+   {
+    "x": 0.63516,
+    "y": 0.12546
+   },
+   {
+    "x": 0.63516,
+    "y": 0.26019
+   },
+   {
+    "x": 0.65417,
+    "y": 0.26019
+   },
+   {
+    "x": 0.65443,
+    "y": 0.21065
+   },
+   {
+    "x": 0.79297,
+    "y": 0.21065
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.1,
+  "encaixe": "paredes",
+  "origem_px": [
+   2408,
+   41
+  ],
+  "largura_px": 987,
+  "altura_px": 543,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-107_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "107",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.79401,
+     "y": 0.03598
+    },
+    {
+     "x": 0.79401,
+     "y": 0.21686
+    },
+    {
+     "x": 0.87734,
+     "y": 0.21686
+    },
+    {
+     "x": 0.87781,
+     "y": 0.16951
+    },
+    {
+     "x": 0.90684,
+     "y": 0.16951
+    },
+    {
+     "x": 0.90637,
+     "y": 0.03598
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.121,
+   "encaixe": "paredes",
+   "origem_px": [
+    1665,
+    19
+   ],
+   "largura_px": 303,
+   "altura_px": 242,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.004
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "108",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.7388,
+    "y": 0.11157
+   },
+   {
+    "x": 0.6349,
+    "y": 0.11157
+   },
+   {
+    "x": 0.63464,
+    "y": 0.03519
+   },
+   {
+    "x": 0.58281,
+    "y": 0.03565
+   },
+   {
+    "x": 0.58281,
+    "y": 0.26019
+   },
+   {
+    "x": 0.63464,
+    "y": 0.26019
+   },
+   {
+    "x": 0.6349,
+    "y": 0.125
+   },
+   {
+    "x": 0.73854,
+    "y": 0.125
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.125,
+  "encaixe": "paredes",
+  "origem_px": [
+   2207,
+   57
+  ],
+  "largura_px": 923,
+  "altura_px": 525,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-108_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "108",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.69944,
+     "y": 0.15625
+    },
+    {
+     "x": 0.69897,
+     "y": 0.32292
+    },
+    {
+     "x": 0.7926,
+     "y": 0.32386
+    },
+    {
+     "x": 0.7926,
+     "y": 0.25758
+    },
+    {
+     "x": 0.76966,
+     "y": 0.25663
+    },
+    {
+     "x": 0.76966,
+     "y": 0.20644
+    },
+    {
+     "x": 0.76685,
+     "y": 0.20644
+    },
+    {
+     "x": 0.76966,
+     "y": 0.15625
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.073,
+   "encaixe": "paredes",
+   "origem_px": [
+    1473,
+    134
+   ],
+   "largura_px": 241,
+   "altura_px": 215,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.011
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "109",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.58203,
+    "y": 0.03565
+   },
+   {
+    "x": 0.52995,
+    "y": 0.03657
+   },
+   {
+    "x": 0.52995,
+    "y": 0.25694
+   },
+   {
+    "x": 0.53125,
+    "y": 0.25694
+   },
+   {
+    "x": 0.53177,
+    "y": 0.26019
+   },
+   {
+    "x": 0.58203,
+    "y": 0.26019
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.096,
+  "encaixe": "paredes",
+  "origem_px": [
+   2004,
+   58
+  ],
+  "largura_px": 533,
+  "altura_px": 524,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-109_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "109",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.62875,
+     "y": 0.1553
+    },
+    {
+     "x": 0.62875,
+     "y": 0.18277
+    },
+    {
+     "x": 0.63343,
+     "y": 0.18371
+    },
+    {
+     "x": 0.63296,
+     "y": 0.1875
+    },
+    {
+     "x": 0.62734,
+     "y": 0.1875
+    },
+    {
+     "x": 0.62734,
+     "y": 0.19223
+    },
+    {
+     "x": 0.63249,
+     "y": 0.19318
+    },
+    {
+     "x": 0.62734,
+     "y": 0.19602
+    },
+    {
+     "x": 0.62734,
+     "y": 0.2017
+    },
+    {
+     "x": 0.63343,
+     "y": 0.20265
+    },
+    {
+     "x": 0.63296,
+     "y": 0.20739
+    },
+    {
+     "x": 0.62875,
+     "y": 0.20739
+    },
+    {
+     "x": 0.62875,
+     "y": 0.25568
+    },
+    {
+     "x": 0.60487,
+     "y": 0.25758
+    },
+    {
+     "x": 0.60487,
+     "y": 0.32386
+    },
+    {
+     "x": 0.6985,
+     "y": 0.32292
+    },
+    {
+     "x": 0.69803,
+     "y": 0.1553
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.069,
+   "encaixe": "paredes",
+   "origem_px": [
+    1274,
+    133
+   ],
+   "largura_px": 238,
+   "altura_px": 218,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.011
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "110",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.47604,
+    "y": 0.0375
+   },
+   {
+    "x": 0.47604,
+    "y": 0.10278
+   },
+   {
+    "x": 0.47474,
+    "y": 0.10324
+   },
+   {
+    "x": 0.47604,
+    "y": 0.10509
+   },
+   {
+    "x": 0.47604,
+    "y": 0.28148
+   },
+   {
+    "x": 0.50391,
+    "y": 0.28148
+   },
+   {
+    "x": 0.50443,
+    "y": 0.30602
+   },
+   {
+    "x": 0.53125,
+    "y": 0.30602
+   },
+   {
+    "x": 0.53125,
+    "y": 0.25833
+   },
+   {
+    "x": 0.52969,
+    "y": 0.25787
+   },
+   {
+    "x": 0.52969,
+    "y": 0.03657
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.093,
+  "encaixe": "paredes",
+  "origem_px": [
+   1797,
+   60
+  ],
+  "largura_px": 554,
+  "altura_px": 621,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-110_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "110",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.50749,
+     "y": 0.16098
+    },
+    {
+     "x": 0.50749,
+     "y": 0.36648
+    },
+    {
+     "x": 0.6044,
+     "y": 0.36742
+    },
+    {
+     "x": 0.60346,
+     "y": 0.27557
+    },
+    {
+     "x": 0.58006,
+     "y": 0.27367
+    },
+    {
+     "x": 0.58006,
+     "y": 0.20833
+    },
+    {
+     "x": 0.57631,
+     "y": 0.19602
+    },
+    {
+     "x": 0.57631,
+     "y": 0.20928
+    },
+    {
+     "x": 0.5735,
+     "y": 0.20928
+    },
+    {
+     "x": 0.57397,
+     "y": 0.18561
+    },
+    {
+     "x": 0.58006,
+     "y": 0.19886
+    },
+    {
+     "x": 0.58006,
+     "y": 0.16098
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.113,
+   "encaixe": "paredes",
+   "origem_px": [
+    1063,
+    139
+   ],
+   "largura_px": 247,
+   "altura_px": 270,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.005
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "111",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.47552,
+    "y": 0.0375
+   },
+   {
+    "x": 0.42083,
+    "y": 0.03796
+   },
+   {
+    "x": 0.42083,
+    "y": 0.25046
+   },
+   {
+    "x": 0.39479,
+    "y": 0.25093
+   },
+   {
+    "x": 0.39505,
+    "y": 0.28194
+   },
+   {
+    "x": 0.47552,
+    "y": 0.28148
+   },
+   {
+    "x": 0.47552,
+    "y": 0.10602
+   },
+   {
+    "x": 0.47422,
+    "y": 0.10556
+   },
+   {
+    "x": 0.47422,
+    "y": 0.10278
+   },
+   {
+    "x": 0.47552,
+    "y": 0.10231
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.095,
+  "encaixe": "paredes",
+  "origem_px": [
+   1485,
+   62
+  ],
+  "largura_px": 668,
+  "altura_px": 566,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-111_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "111",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.43118,
+     "y": 0.16098
+    },
+    {
+     "x": 0.43118,
+     "y": 0.27367
+    },
+    {
+     "x": 0.40777,
+     "y": 0.27557
+    },
+    {
+     "x": 0.4073,
+     "y": 0.36648
+    },
+    {
+     "x": 0.50609,
+     "y": 0.36648
+    },
+    {
+     "x": 0.50609,
+     "y": 0.16098
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.104,
+   "encaixe": "paredes",
+   "origem_px": [
+    839,
+    139
+   ],
+   "largura_px": 263,
+   "altura_px": 268,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.006
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "112",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.42005,
+    "y": 0.03796
+   },
+   {
+    "x": 0.36589,
+    "y": 0.03889
+   },
+   {
+    "x": 0.36589,
+    "y": 0.26343
+   },
+   {
+    "x": 0.37786,
+    "y": 0.26343
+   },
+   {
+    "x": 0.37839,
+    "y": 0.25231
+   },
+   {
+    "x": 0.42005,
+    "y": 0.25
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.109,
+  "encaixe": "paredes",
+  "origem_px": [
+   1374,
+   63
+  ],
+  "largura_px": 550,
+  "altura_px": 526,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-112_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "112",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.33193,
+     "y": 0.14299
+    },
+    {
+     "x": 0.33193,
+     "y": 0.16477
+    },
+    {
+     "x": 0.3338,
+     "y": 0.1553
+    },
+    {
+     "x": 0.33708,
+     "y": 0.1572
+    },
+    {
+     "x": 0.33708,
+     "y": 0.17992
+    },
+    {
+     "x": 0.33427,
+     "y": 0.17898
+    },
+    {
+     "x": 0.33427,
+     "y": 0.16572
+    },
+    {
+     "x": 0.33193,
+     "y": 0.18087
+    },
+    {
+     "x": 0.33193,
+     "y": 0.25663
+    },
+    {
+     "x": 0.30852,
+     "y": 0.25852
+    },
+    {
+     "x": 0.30852,
+     "y": 0.30492
+    },
+    {
+     "x": 0.40684,
+     "y": 0.30492
+    },
+    {
+     "x": 0.40637,
+     "y": 0.17992
+    },
+    {
+     "x": 0.40122,
+     "y": 0.17992
+    },
+    {
+     "x": 0.39888,
+     "y": 0.1733
+    },
+    {
+     "x": 0.39934,
+     "y": 0.16098
+    },
+    {
+     "x": 0.40637,
+     "y": 0.1553
+    },
+    {
+     "x": 0.40637,
+     "y": 0.14299
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.115,
+   "encaixe": "paredes",
+   "origem_px": [
+    639,
+    120
+   ],
+   "largura_px": 247,
+   "altura_px": 234,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.011
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "113",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.3651,
+    "y": 0.03889
+   },
+   {
+    "x": 0.31094,
+    "y": 0.03981
+   },
+   {
+    "x": 0.31094,
+    "y": 0.26343
+   },
+   {
+    "x": 0.3651,
+    "y": 0.26343
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.095,
+  "encaixe": "paredes",
+  "origem_px": [
+   1163,
+   65
+  ],
+  "largura_px": 553,
+  "altura_px": 524,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-113_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "113",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.23315,
+     "y": 0.15814
+    },
+    {
+     "x": 0.23315,
+     "y": 0.17235
+    },
+    {
+     "x": 0.23596,
+     "y": 0.15814
+    },
+    {
+     "x": 0.2397,
+     "y": 0.16004
+    },
+    {
+     "x": 0.2397,
+     "y": 0.18277
+    },
+    {
+     "x": 0.23642,
+     "y": 0.18182
+    },
+    {
+     "x": 0.23642,
+     "y": 0.16951
+    },
+    {
+     "x": 0.23502,
+     "y": 0.18277
+    },
+    {
+     "x": 0.23315,
+     "y": 0.18371
+    },
+    {
+     "x": 0.23315,
+     "y": 0.25568
+    },
+    {
+     "x": 0.21021,
+     "y": 0.25758
+    },
+    {
+     "x": 0.21021,
+     "y": 0.32765
+    },
+    {
+     "x": 0.30758,
+     "y": 0.32765
+    },
+    {
+     "x": 0.30758,
+     "y": 0.18371
+    },
+    {
+     "x": 0.30384,
+     "y": 0.18277
+    },
+    {
+     "x": 0.30103,
+     "y": 0.17519
+    },
+    {
+     "x": 0.30243,
+     "y": 0.16193
+    },
+    {
+     "x": 0.30758,
+     "y": 0.15814
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.091,
+   "encaixe": "paredes",
+   "origem_px": [
+    427,
+    136
+   ],
+   "largura_px": 250,
+   "altura_px": 222,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.014
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "114",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.31016,
+    "y": 0.03981
+   },
+   {
+    "x": 0.25599,
+    "y": 0.04028
+   },
+   {
+    "x": 0.25599,
+    "y": 0.26065
+   },
+   {
+    "x": 0.31016,
+    "y": 0.26343
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.102,
+  "encaixe": "paredes",
+  "origem_px": [
+   952,
+   67
+  ],
+  "largura_px": 551,
+  "altura_px": 522,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-114_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "114",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.11096,
+     "y": 0.15814
+    },
+    {
+     "x": 0.11096,
+     "y": 0.32102
+    },
+    {
+     "x": 0.12453,
+     "y": 0.32102
+    },
+    {
+     "x": 0.12547,
+     "y": 0.32765
+    },
+    {
+     "x": 0.2088,
+     "y": 0.32765
+    },
+    {
+     "x": 0.2088,
+     "y": 0.25758
+    },
+    {
+     "x": 0.18493,
+     "y": 0.25568
+    },
+    {
+     "x": 0.18493,
+     "y": 0.18371
+    },
+    {
+     "x": 0.18024,
+     "y": 0.16951
+    },
+    {
+     "x": 0.18024,
+     "y": 0.18277
+    },
+    {
+     "x": 0.17697,
+     "y": 0.18182
+    },
+    {
+     "x": 0.17697,
+     "y": 0.16004
+    },
+    {
+     "x": 0.17978,
+     "y": 0.15814
+    },
+    {
+     "x": 0.18446,
+     "y": 0.1733
+    },
+    {
+     "x": 0.18493,
+     "y": 0.15814
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.073,
+   "encaixe": "paredes",
+   "origem_px": [
+    218,
+    136
+   ],
+   "largura_px": 248,
+   "altura_px": 225,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.016
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "115",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.25521,
+    "y": 0.04028
+   },
+   {
+    "x": 0.20547,
+    "y": 0.0412
+   },
+   {
+    "x": 0.20339,
+    "y": 0.30787
+   },
+   {
+    "x": 0.28229,
+    "y": 0.30787
+   },
+   {
+    "x": 0.28255,
+    "y": 0.26157
+   },
+   {
+    "x": 0.25521,
+    "y": 0.26111
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.078,
+  "encaixe": "paredes",
+  "origem_px": [
+   766,
+   68
+  ],
+  "largura_px": 656,
+  "altura_px": 629,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-115_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "115",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.01779,
+     "y": 0.19886
+    },
+    {
+     "x": 0.01639,
+     "y": 0.41951
+    },
+    {
+     "x": 0.12406,
+     "y": 0.41951
+    },
+    {
+     "x": 0.12453,
+     "y": 0.32292
+    },
+    {
+     "x": 0.10955,
+     "y": 0.32197
+    },
+    {
+     "x": 0.10955,
+     "y": 0.2803
+    },
+    {
+     "x": 0.08614,
+     "y": 0.27936
+    },
+    {
+     "x": 0.08614,
+     "y": 0.19886
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.065,
+   "encaixe": "paredes",
+   "origem_px": [
+    24,
+    179
+   ],
+   "largura_px": 275,
+   "altura_px": 289,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.01
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "L1",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.30938,
+    "y": 0.40509
+   },
+   {
+    "x": 0.30938,
+    "y": 0.56806
+   },
+   {
+    "x": 0.3651,
+    "y": 0.56806
+   },
+   {
+    "x": 0.3651,
+    "y": 0.40509
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.072,
+  "encaixe": "paredes",
+  "origem_px": [
+   1157,
+   864
+  ],
+  "largura_px": 544,
+  "altura_px": 393,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-L1_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "L1",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.21021,
+     "y": 0.63352
+    },
+    {
+     "x": 0.21021,
+     "y": 0.70928
+    },
+    {
+     "x": 0.21676,
+     "y": 0.70928
+    },
+    {
+     "x": 0.21723,
+     "y": 0.69697
+    },
+    {
+     "x": 0.22051,
+     "y": 0.69792
+    },
+    {
+     "x": 0.2191,
+     "y": 0.70928
+    },
+    {
+     "x": 0.22566,
+     "y": 0.70928
+    },
+    {
+     "x": 0.22472,
+     "y": 0.69697
+    },
+    {
+     "x": 0.228,
+     "y": 0.69792
+    },
+    {
+     "x": 0.228,
+     "y": 0.70928
+    },
+    {
+     "x": 0.23034,
+     "y": 0.70928
+    },
+    {
+     "x": 0.23081,
+     "y": 0.69697
+    },
+    {
+     "x": 0.23876,
+     "y": 0.69792
+    },
+    {
+     "x": 0.2383,
+     "y": 0.7017
+    },
+    {
+     "x": 0.23268,
+     "y": 0.7017
+    },
+    {
+     "x": 0.23268,
+     "y": 0.70644
+    },
+    {
+     "x": 0.23876,
+     "y": 0.70739
+    },
+    {
+     "x": 0.23268,
+     "y": 0.71023
+    },
+    {
+     "x": 0.23268,
+     "y": 0.71591
+    },
+    {
+     "x": 0.23876,
+     "y": 0.71686
+    },
+    {
+     "x": 0.23923,
+     "y": 0.72064
+    },
+    {
+     "x": 0.23221,
+     "y": 0.72159
+    },
+    {
+     "x": 0.23221,
+     "y": 0.81629
+    },
+    {
+     "x": 0.30712,
+     "y": 0.81629
+    },
+    {
+     "x": 0.30712,
+     "y": 0.63352
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.076,
+   "encaixe": "paredes",
+   "origem_px": [
+    432,
+    649
+   ],
+   "largura_px": 246,
+   "altura_px": 245,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.005
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "L2",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.36589,
+    "y": 0.40509
+   },
+   {
+    "x": 0.36589,
+    "y": 0.56806
+   },
+   {
+    "x": 0.41927,
+    "y": 0.56806
+   },
+   {
+    "x": 0.41927,
+    "y": 0.40509
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.106,
+  "encaixe": "paredes",
+  "origem_px": [
+   1383,
+   844
+  ],
+  "largura_px": 538,
+  "altura_px": 413,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-L2_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "L2",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.30899,
+     "y": 0.63352
+    },
+    {
+     "x": 0.30899,
+     "y": 0.70739
+    },
+    {
+     "x": 0.31461,
+     "y": 0.70739
+    },
+    {
+     "x": 0.31507,
+     "y": 0.70265
+    },
+    {
+     "x": 0.3221,
+     "y": 0.70739
+    },
+    {
+     "x": 0.32303,
+     "y": 0.70265
+    },
+    {
+     "x": 0.32631,
+     "y": 0.70739
+    },
+    {
+     "x": 0.32865,
+     "y": 0.70265
+    },
+    {
+     "x": 0.33708,
+     "y": 0.70455
+    },
+    {
+     "x": 0.33333,
+     "y": 0.70833
+    },
+    {
+     "x": 0.33661,
+     "y": 0.71402
+    },
+    {
+     "x": 0.33333,
+     "y": 0.72254
+    },
+    {
+     "x": 0.33708,
+     "y": 0.72443
+    },
+    {
+     "x": 0.33333,
+     "y": 0.72727
+    },
+    {
+     "x": 0.33333,
+     "y": 0.8267
+    },
+    {
+     "x": 0.40496,
+     "y": 0.8267
+    },
+    {
+     "x": 0.40496,
+     "y": 0.63352
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.057,
+   "encaixe": "paredes",
+   "origem_px": [
+    640,
+    650
+   ],
+   "largura_px": 247,
+   "altura_px": 255,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.0
+  }
+ },
+ {
+  "pavimento": "PAV-01+MEZ",
+  "unidade": "L3",
+  "cm_por_px": 1.615,
+  "anisotropia_pavimento": 1.0345,
+  "chamfer_mediana_cm_pavimento": 25.8,
+  "poligono_norm": [
+   {
+    "x": 0.4737,
+    "y": 0.40509
+   },
+   {
+    "x": 0.42005,
+    "y": 0.40509
+   },
+   {
+    "x": 0.41953,
+    "y": 0.56944
+   },
+   {
+    "x": 0.34063,
+    "y": 0.56991
+   },
+   {
+    "x": 0.34036,
+    "y": 0.57546
+   },
+   {
+    "x": 0.33958,
+    "y": 0.56991
+   },
+   {
+    "x": 0.30964,
+    "y": 0.56944
+   },
+   {
+    "x": 0.30964,
+    "y": 0.57639
+   },
+   {
+    "x": 0.49219,
+    "y": 0.57639
+   },
+   {
+    "x": 0.48151,
+    "y": 0.57639
+   },
+   {
+    "x": 0.48411,
+    "y": 0.56944
+   },
+   {
+    "x": 0.4737,
+    "y": 0.56898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-01.png",
+  "encaixe_razao_area": 1.189,
+  "encaixe": "paredes",
+  "origem_px": [
+   1170,
+   856
+  ],
+  "largura_px": 1016,
+  "altura_px": 412,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-01+MEZ/CACHOEIRA-SPOT_PAV-01+MEZ_UN-L3_HUM-SEM-TEXTO_R04.png",
+  "nivel_superior": {
+   "pavimento": "MEZ",
+   "unidade": "L3",
+   "cm_por_px": 1.585,
+   "anisotropia_pavimento": 1.0001,
+   "chamfer_mediana_cm_pavimento": 4.8,
+   "poligono_norm": [
+    {
+     "x": 0.40637,
+     "y": 0.63352
+    },
+    {
+     "x": 0.40684,
+     "y": 0.8267
+    },
+    {
+     "x": 0.48081,
+     "y": 0.8267
+    },
+    {
+     "x": 0.48081,
+     "y": 0.72159
+    },
+    {
+     "x": 0.47472,
+     "y": 0.70739
+    },
+    {
+     "x": 0.47472,
+     "y": 0.7197
+    },
+    {
+     "x": 0.47191,
+     "y": 0.7197
+    },
+    {
+     "x": 0.47191,
+     "y": 0.69886
+    },
+    {
+     "x": 0.47425,
+     "y": 0.69697
+    },
+    {
+     "x": 0.47846,
+     "y": 0.71023
+    },
+    {
+     "x": 0.4794,
+     "y": 0.69697
+    },
+    {
+     "x": 0.48174,
+     "y": 0.69792
+    },
+    {
+     "x": 0.48221,
+     "y": 0.70928
+    },
+    {
+     "x": 0.48689,
+     "y": 0.69697
+    },
+    {
+     "x": 0.4911,
+     "y": 0.69697
+    },
+    {
+     "x": 0.49157,
+     "y": 0.70076
+    },
+    {
+     "x": 0.48689,
+     "y": 0.7017
+    },
+    {
+     "x": 0.48596,
+     "y": 0.70928
+    },
+    {
+     "x": 0.49204,
+     "y": 0.70928
+    },
+    {
+     "x": 0.49204,
+     "y": 0.69981
+    },
+    {
+     "x": 0.49485,
+     "y": 0.70928
+    },
+    {
+     "x": 0.50234,
+     "y": 0.70928
+    },
+    {
+     "x": 0.50234,
+     "y": 0.63352
+    }
+   ],
+   "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\MEZ.png",
+   "encaixe_razao_area": 1.053,
+   "encaixe": "paredes",
+   "origem_px": [
+    848,
+    651
+   ],
+   "largura_px": 244,
+   "altura_px": 254,
+   "partes_descartadas": 0,
+   "frac_mascara_fora_da_imagem": 0.0
+  }
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "201",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.59505,
+    "y": 0.59954
+   },
+   {
+    "x": 0.59505,
+    "y": 0.89074
+   },
+   {
+    "x": 0.63047,
+    "y": 0.89074
+   },
+   {
+    "x": 0.63099,
+    "y": 0.92315
+   },
+   {
+    "x": 0.68958,
+    "y": 0.92315
+   },
+   {
+    "x": 0.68958,
+    "y": 0.59954
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.104,
+  "encaixe": "paredes",
+  "origem_px": [
+   2228,
+   1260
+  ],
+  "largura_px": 478,
+  "altura_px": 765,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-201_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "202",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.69036,
+    "y": 0.59954
+   },
+   {
+    "x": 0.69036,
+    "y": 0.92315
+   },
+   {
+    "x": 0.74896,
+    "y": 0.92315
+   },
+   {
+    "x": 0.74922,
+    "y": 0.89074
+   },
+   {
+    "x": 0.78281,
+    "y": 0.89074
+   },
+   {
+    "x": 0.78281,
+    "y": 0.6412
+   },
+   {
+    "x": 0.74635,
+    "y": 0.6412
+   },
+   {
+    "x": 0.74609,
+    "y": 0.59954
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.111,
+  "encaixe": "paredes",
+  "origem_px": [
+   2594,
+   1260
+  ],
+  "largura_px": 462,
+  "altura_px": 763,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-202_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "203",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.78385,
+    "y": 0.6412
+   },
+   {
+    "x": 0.78385,
+    "y": 0.89074
+   },
+   {
+    "x": 0.8625,
+    "y": 0.89074
+   },
+   {
+    "x": 0.86302,
+    "y": 0.92361
+   },
+   {
+    "x": 0.98177,
+    "y": 0.92361
+   },
+   {
+    "x": 0.98177,
+    "y": 0.74398
+   },
+   {
+    "x": 0.81823,
+    "y": 0.74398
+   },
+   {
+    "x": 0.81797,
+    "y": 0.6412
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.087,
+  "encaixe": "paredes",
+  "origem_px": [
+   2953,
+   1350
+  ],
+  "largura_px": 852,
+  "altura_px": 678,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-203_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "204",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.81589,
+    "y": 0.57546
+   },
+   {
+    "x": 0.81641,
+    "y": 0.63935
+   },
+   {
+    "x": 0.81901,
+    "y": 0.64028
+   },
+   {
+    "x": 0.81901,
+    "y": 0.74306
+   },
+   {
+    "x": 0.96094,
+    "y": 0.74306
+   },
+   {
+    "x": 0.96094,
+    "y": 0.575
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.136,
+  "encaixe": "paredes",
+  "origem_px": [
+   3076,
+   1198
+  ],
+  "largura_px": 672,
+  "altura_px": 447,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-204_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "205",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.78151,
+    "y": 0.42824
+   },
+   {
+    "x": 0.78151,
+    "y": 0.57778
+   },
+   {
+    "x": 0.81536,
+    "y": 0.57778
+   },
+   {
+    "x": 0.81563,
+    "y": 0.57361
+   },
+   {
+    "x": 0.96094,
+    "y": 0.57361
+   },
+   {
+    "x": 0.96094,
+    "y": 0.43287
+   },
+   {
+    "x": 0.81563,
+    "y": 0.43287
+   },
+   {
+    "x": 0.81536,
+    "y": 0.42824
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.146,
+  "encaixe": "paredes",
+  "origem_px": [
+   2966,
+   868
+  ],
+  "largura_px": 782,
+  "altura_px": 434,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-205_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "206",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.81901,
+    "y": 0.26389
+   },
+   {
+    "x": 0.81641,
+    "y": 0.43148
+   },
+   {
+    "x": 0.96094,
+    "y": 0.43148
+   },
+   {
+    "x": 0.96094,
+    "y": 0.26389
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.137,
+  "encaixe": "paredes",
+  "origem_px": [
+   3078,
+   521
+  ],
+  "largura_px": 670,
+  "altura_px": 469,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-206_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "207",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.78385,
+    "y": 0.10602
+   },
+   {
+    "x": 0.78385,
+    "y": 0.35139
+   },
+   {
+    "x": 0.81797,
+    "y": 0.35139
+   },
+   {
+    "x": 0.81823,
+    "y": 0.26204
+   },
+   {
+    "x": 0.96094,
+    "y": 0.26204
+   },
+   {
+    "x": 0.96094,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.098,
+  "encaixe": "paredes",
+  "origem_px": [
+   2953,
+   194
+  ],
+  "largura_px": 795,
+  "altura_px": 601,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-207_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "208",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.69089,
+    "y": 0.10602
+   },
+   {
+    "x": 0.69141,
+    "y": 0.35139
+   },
+   {
+    "x": 0.78281,
+    "y": 0.35139
+   },
+   {
+    "x": 0.78281,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.126,
+  "encaixe": "paredes",
+  "origem_px": [
+   2596,
+   194
+  ],
+  "largura_px": 468,
+  "altura_px": 601,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-208_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "209",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.59844,
+    "y": 0.10602
+   },
+   {
+    "x": 0.59844,
+    "y": 0.34583
+   },
+   {
+    "x": 0.61536,
+    "y": 0.34583
+   },
+   {
+    "x": 0.61615,
+    "y": 0.35139
+   },
+   {
+    "x": 0.69036,
+    "y": 0.35139
+   },
+   {
+    "x": 0.69036,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.13,
+  "encaixe": "paredes",
+  "origem_px": [
+   2241,
+   194
+  ],
+  "largura_px": 468,
+  "altura_px": 601,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-209_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "210",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.50313,
+    "y": 0.10602
+   },
+   {
+    "x": 0.50313,
+    "y": 0.39306
+   },
+   {
+    "x": 0.55234,
+    "y": 0.39306
+   },
+   {
+    "x": 0.55312,
+    "y": 0.43472
+   },
+   {
+    "x": 0.6151,
+    "y": 0.43472
+   },
+   {
+    "x": 0.6151,
+    "y": 0.34769
+   },
+   {
+    "x": 0.5974,
+    "y": 0.34722
+   },
+   {
+    "x": 0.5974,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.118,
+  "encaixe": "paredes",
+  "origem_px": [
+   1875,
+   194
+  ],
+  "largura_px": 545,
+  "altura_px": 783,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-210_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "211",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.40521,
+    "y": 0.10602
+   },
+   {
+    "x": 0.40521,
+    "y": 0.3338
+   },
+   {
+    "x": 0.35833,
+    "y": 0.33426
+   },
+   {
+    "x": 0.35833,
+    "y": 0.33889
+   },
+   {
+    "x": 0.35547,
+    "y": 0.33981
+   },
+   {
+    "x": 0.35547,
+    "y": 0.39306
+   },
+   {
+    "x": 0.50208,
+    "y": 0.39306
+   },
+   {
+    "x": 0.50208,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.107,
+  "encaixe": "paredes",
+  "origem_px": [
+   1317,
+   194
+  ],
+  "largura_px": 669,
+  "altura_px": 713,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-211_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "212",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.30833,
+    "y": 0.10602
+   },
+   {
+    "x": 0.30833,
+    "y": 0.33796
+   },
+   {
+    "x": 0.40417,
+    "y": 0.33333
+   },
+   {
+    "x": 0.40417,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.143,
+  "encaixe": "paredes",
+  "origem_px": [
+   1127,
+   194
+  ],
+  "largura_px": 483,
+  "altura_px": 572,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-212_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "213",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.2112,
+    "y": 0.10602
+   },
+   {
+    "x": 0.2112,
+    "y": 0.33796
+   },
+   {
+    "x": 0.30729,
+    "y": 0.33796
+   },
+   {
+    "x": 0.30729,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.122,
+  "encaixe": "paredes",
+  "origem_px": [
+   754,
+   194
+  ],
+  "largura_px": 484,
+  "altura_px": 572,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-213_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "214",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.11406,
+    "y": 0.10602
+   },
+   {
+    "x": 0.11406,
+    "y": 0.33333
+   },
+   {
+    "x": 0.21016,
+    "y": 0.33796
+   },
+   {
+    "x": 0.21016,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.123,
+  "encaixe": "paredes",
+  "origem_px": [
+   381,
+   194
+  ],
+  "largura_px": 484,
+  "altura_px": 573,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-214_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "215",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.02396,
+    "y": 0.10602
+   },
+   {
+    "x": 0.02161,
+    "y": 0.41343
+   },
+   {
+    "x": 0.1125,
+    "y": 0.41343
+   },
+   {
+    "x": 0.11276,
+    "y": 0.40833
+   },
+   {
+    "x": 0.1625,
+    "y": 0.40833
+   },
+   {
+    "x": 0.1625,
+    "y": 0.33426
+   },
+   {
+    "x": 0.11302,
+    "y": 0.33333
+   },
+   {
+    "x": 0.11302,
+    "y": 0.10602
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.093,
+  "encaixe": "paredes",
+  "origem_px": [
+   52,
+   193
+  ],
+  "largura_px": 630,
+  "altura_px": 758,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-215_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "216",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.02161,
+    "y": 0.41481
+   },
+   {
+    "x": 0.02057,
+    "y": 0.53981
+   },
+   {
+    "x": 0.11328,
+    "y": 0.53981
+   },
+   {
+    "x": 0.11354,
+    "y": 0.54491
+   },
+   {
+    "x": 0.17135,
+    "y": 0.54491
+   },
+   {
+    "x": 0.17161,
+    "y": 0.54954
+   },
+   {
+    "x": 0.31016,
+    "y": 0.54954
+   },
+   {
+    "x": 0.3099,
+    "y": 0.40463
+   },
+   {
+    "x": 0.16354,
+    "y": 0.40463
+   },
+   {
+    "x": 0.16276,
+    "y": 0.41019
+   },
+   {
+    "x": 0.11354,
+    "y": 0.41019
+   },
+   {
+    "x": 0.11328,
+    "y": 0.41481
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.125,
+  "encaixe": "paredes",
+  "origem_px": [
+   53,
+   820
+  ],
+  "largura_px": 1174,
+  "altura_px": 412,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-216_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "217",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.17109,
+    "y": 0.54583
+   },
+   {
+    "x": 0.11276,
+    "y": 0.54583
+   },
+   {
+    "x": 0.1125,
+    "y": 0.5412
+   },
+   {
+    "x": 0.02057,
+    "y": 0.5412
+   },
+   {
+    "x": 0.01771,
+    "y": 0.92361
+   },
+   {
+    "x": 0.07474,
+    "y": 0.92361
+   },
+   {
+    "x": 0.075,
+    "y": 0.89074
+   },
+   {
+    "x": 0.11302,
+    "y": 0.89074
+   },
+   {
+    "x": 0.11302,
+    "y": 0.61759
+   },
+   {
+    "x": 0.17109,
+    "y": 0.61667
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.079,
+  "encaixe": "paredes",
+  "origem_px": [
+   39,
+   1112
+  ],
+  "largura_px": 676,
+  "altura_px": 919,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-217_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "218",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.21016,
+    "y": 0.61296
+   },
+   {
+    "x": 0.17161,
+    "y": 0.61296
+   },
+   {
+    "x": 0.17109,
+    "y": 0.61852
+   },
+   {
+    "x": 0.11406,
+    "y": 0.61852
+   },
+   {
+    "x": 0.11406,
+    "y": 0.92361
+   },
+   {
+    "x": 0.17266,
+    "y": 0.92361
+   },
+   {
+    "x": 0.17292,
+    "y": 0.89074
+   },
+   {
+    "x": 0.21016,
+    "y": 0.89074
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.114,
+  "encaixe": "paredes",
+  "origem_px": [
+   381,
+   1285
+  ],
+  "largura_px": 484,
+  "altura_px": 746,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-218_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "219",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.2112,
+    "y": 0.61296
+   },
+   {
+    "x": 0.2112,
+    "y": 0.89074
+   },
+   {
+    "x": 0.24818,
+    "y": 0.89074
+   },
+   {
+    "x": 0.2487,
+    "y": 0.92361
+   },
+   {
+    "x": 0.30729,
+    "y": 0.92361
+   },
+   {
+    "x": 0.30729,
+    "y": 0.61296
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.103,
+  "encaixe": "paredes",
+  "origem_px": [
+   754,
+   1289
+  ],
+  "largura_px": 484,
+  "altura_px": 741,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-219_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "220",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.40286,
+    "y": 0.59954
+   },
+   {
+    "x": 0.35443,
+    "y": 0.59954
+   },
+   {
+    "x": 0.35417,
+    "y": 0.61296
+   },
+   {
+    "x": 0.30833,
+    "y": 0.61296
+   },
+   {
+    "x": 0.30833,
+    "y": 0.92361
+   },
+   {
+    "x": 0.36693,
+    "y": 0.92361
+   },
+   {
+    "x": 0.36719,
+    "y": 0.89074
+   },
+   {
+    "x": 0.40286,
+    "y": 0.89074
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.112,
+  "encaixe": "paredes",
+  "origem_px": [
+   1127,
+   1260
+  ],
+  "largura_px": 478,
+  "altura_px": 771,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-220_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "221",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.40365,
+    "y": 0.59954
+   },
+   {
+    "x": 0.40365,
+    "y": 0.89074
+   },
+   {
+    "x": 0.43958,
+    "y": 0.89074
+   },
+   {
+    "x": 0.4401,
+    "y": 0.92361
+   },
+   {
+    "x": 0.4987,
+    "y": 0.92361
+   },
+   {
+    "x": 0.49818,
+    "y": 0.61528
+   },
+   {
+    "x": 0.4526,
+    "y": 0.61528
+   },
+   {
+    "x": 0.45234,
+    "y": 0.59954
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.112,
+  "encaixe": "paredes",
+  "origem_px": [
+   1493,
+   1260
+  ],
+  "largura_px": 480,
+  "altura_px": 766,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-221_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-02",
+  "unidade": "222",
+  "cm_por_px": 0.9,
+  "anisotropia_pavimento": 1.0019,
+  "chamfer_mediana_cm_pavimento": 7.2,
+  "poligono_norm": [
+   {
+    "x": 0.49922,
+    "y": 0.59954
+   },
+   {
+    "x": 0.49922,
+    "y": 0.92361
+   },
+   {
+    "x": 0.55781,
+    "y": 0.92361
+   },
+   {
+    "x": 0.55807,
+    "y": 0.89074
+   },
+   {
+    "x": 0.59401,
+    "y": 0.89074
+   },
+   {
+    "x": 0.59401,
+    "y": 0.59954
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-02.png",
+  "encaixe_razao_area": 1.116,
+  "encaixe": "paredes",
+  "origem_px": [
+   1860,
+   1260
+  ],
+  "largura_px": 479,
+  "altura_px": 771,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-02/CACHOEIRA-SPOT_PAV-02_UN-222_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "301",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.5888,
+    "y": 0.60093
+   },
+   {
+    "x": 0.5888,
+    "y": 0.87917
+   },
+   {
+    "x": 0.62448,
+    "y": 0.87917
+   },
+   {
+    "x": 0.62474,
+    "y": 0.89491
+   },
+   {
+    "x": 0.62786,
+    "y": 0.89491
+   },
+   {
+    "x": 0.62865,
+    "y": 0.90139
+   },
+   {
+    "x": 0.62474,
+    "y": 0.91019
+   },
+   {
+    "x": 0.67969,
+    "y": 0.91019
+   },
+   {
+    "x": 0.67969,
+    "y": 0.60093
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.103,
+  "encaixe": "paredes",
+  "origem_px": [
+   2206,
+   1264
+  ],
+  "largura_px": 460,
+  "altura_px": 737,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-301_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "302",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.68047,
+    "y": 0.60093
+   },
+   {
+    "x": 0.68047,
+    "y": 0.91019
+   },
+   {
+    "x": 0.73464,
+    "y": 0.91019
+   },
+   {
+    "x": 0.7349,
+    "y": 0.87917
+   },
+   {
+    "x": 0.76927,
+    "y": 0.87917
+   },
+   {
+    "x": 0.76927,
+    "y": 0.64074
+   },
+   {
+    "x": 0.73464,
+    "y": 0.64074
+   },
+   {
+    "x": 0.73438,
+    "y": 0.60093
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.116,
+  "encaixe": "paredes",
+  "origem_px": [
+   2558,
+   1264
+  ],
+  "largura_px": 452,
+  "altura_px": 737,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-302_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "303",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.77031,
+    "y": 0.64074
+   },
+   {
+    "x": 0.77031,
+    "y": 0.87917
+   },
+   {
+    "x": 0.9401,
+    "y": 0.87917
+   },
+   {
+    "x": 0.9401,
+    "y": 0.73889
+   },
+   {
+    "x": 0.80312,
+    "y": 0.73889
+   },
+   {
+    "x": 0.80286,
+    "y": 0.64074
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.121,
+  "encaixe": "paredes",
+  "origem_px": [
+   2903,
+   1350
+  ],
+  "largura_px": 763,
+  "altura_px": 605,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-303_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "304",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.80104,
+    "y": 0.57778
+   },
+   {
+    "x": 0.8013,
+    "y": 0.63889
+   },
+   {
+    "x": 0.80391,
+    "y": 0.63935
+   },
+   {
+    "x": 0.80391,
+    "y": 0.7375
+   },
+   {
+    "x": 0.9401,
+    "y": 0.7375
+   },
+   {
+    "x": 0.9401,
+    "y": 0.57731
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.128,
+  "encaixe": "paredes",
+  "origem_px": [
+   3021,
+   1217
+  ],
+  "largura_px": 645,
+  "altura_px": 421,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-304_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "305",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.76797,
+    "y": 0.43935
+   },
+   {
+    "x": 0.76797,
+    "y": 0.58009
+   },
+   {
+    "x": 0.80026,
+    "y": 0.58009
+   },
+   {
+    "x": 0.80052,
+    "y": 0.57593
+   },
+   {
+    "x": 0.9401,
+    "y": 0.57593
+   },
+   {
+    "x": 0.93984,
+    "y": 0.44167
+   },
+   {
+    "x": 0.80052,
+    "y": 0.44167
+   },
+   {
+    "x": 0.8,
+    "y": 0.41389
+   },
+   {
+    "x": 0.79297,
+    "y": 0.41389
+   },
+   {
+    "x": 0.79193,
+    "y": 0.43935
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.158,
+  "encaixe": "paredes",
+  "origem_px": [
+   2915,
+   860
+  ],
+  "largura_px": 751,
+  "altura_px": 445,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-305_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "306",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.80391,
+    "y": 0.27963
+   },
+   {
+    "x": 0.8013,
+    "y": 0.44028
+   },
+   {
+    "x": 0.93984,
+    "y": 0.44028
+   },
+   {
+    "x": 0.93984,
+    "y": 0.27963
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.123,
+  "encaixe": "paredes",
+  "origem_px": [
+   3022,
+   549
+  ],
+  "largura_px": 643,
+  "altura_px": 440,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-306_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "307",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.76771,
+    "y": 0.10417
+   },
+   {
+    "x": 0.76771,
+    "y": 0.12731
+   },
+   {
+    "x": 0.77031,
+    "y": 0.12778
+   },
+   {
+    "x": 0.77031,
+    "y": 0.36343
+   },
+   {
+    "x": 0.79245,
+    "y": 0.36389
+   },
+   {
+    "x": 0.79297,
+    "y": 0.4125
+   },
+   {
+    "x": 0.80026,
+    "y": 0.41296
+   },
+   {
+    "x": 0.80026,
+    "y": 0.36389
+   },
+   {
+    "x": 0.80286,
+    "y": 0.36343
+   },
+   {
+    "x": 0.80312,
+    "y": 0.27824
+   },
+   {
+    "x": 0.93984,
+    "y": 0.27824
+   },
+   {
+    "x": 0.93984,
+    "y": 0.21713
+   },
+   {
+    "x": 0.95286,
+    "y": 0.21667
+   },
+   {
+    "x": 0.95286,
+    "y": 0.10417
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.1,
+  "encaixe": "paredes",
+  "origem_px": [
+   2898,
+   191
+  ],
+  "largura_px": 796,
+  "altura_px": 757,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-307_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "308",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.68099,
+    "y": 0.12917
+   },
+   {
+    "x": 0.68125,
+    "y": 0.36343
+   },
+   {
+    "x": 0.76927,
+    "y": 0.36343
+   },
+   {
+    "x": 0.76927,
+    "y": 0.12917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.124,
+  "encaixe": "paredes",
+  "origem_px": [
+   2560,
+   245
+  ],
+  "largura_px": 450,
+  "altura_px": 575,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-308_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "309",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.59219,
+    "y": 0.12917
+   },
+   {
+    "x": 0.59219,
+    "y": 0.35833
+   },
+   {
+    "x": 0.61589,
+    "y": 0.35833
+   },
+   {
+    "x": 0.61615,
+    "y": 0.36343
+   },
+   {
+    "x": 0.68047,
+    "y": 0.36343
+   },
+   {
+    "x": 0.68047,
+    "y": 0.12917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.135,
+  "encaixe": "paredes",
+  "origem_px": [
+   2219,
+   245
+  ],
+  "largura_px": 450,
+  "altura_px": 575,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-309_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "310",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.50078,
+    "y": 0.12917
+   },
+   {
+    "x": 0.50078,
+    "y": 0.40324
+   },
+   {
+    "x": 0.54818,
+    "y": 0.40324
+   },
+   {
+    "x": 0.5487,
+    "y": 0.44306
+   },
+   {
+    "x": 0.6125,
+    "y": 0.44306
+   },
+   {
+    "x": 0.6151,
+    "y": 0.43981
+   },
+   {
+    "x": 0.61536,
+    "y": 0.36019
+   },
+   {
+    "x": 0.59115,
+    "y": 0.35972
+   },
+   {
+    "x": 0.59115,
+    "y": 0.12917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.116,
+  "encaixe": "paredes",
+  "origem_px": [
+   1868,
+   245
+  ],
+  "largura_px": 551,
+  "altura_px": 768,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-310_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "311",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.40703,
+    "y": 0.12917
+   },
+   {
+    "x": 0.40703,
+    "y": 0.34676
+   },
+   {
+    "x": 0.36198,
+    "y": 0.34722
+   },
+   {
+    "x": 0.36198,
+    "y": 0.35139
+   },
+   {
+    "x": 0.35938,
+    "y": 0.35278
+   },
+   {
+    "x": 0.35938,
+    "y": 0.40324
+   },
+   {
+    "x": 0.49974,
+    "y": 0.40324
+   },
+   {
+    "x": 0.49974,
+    "y": 0.12917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.105,
+  "encaixe": "paredes",
+  "origem_px": [
+   1333,
+   245
+  ],
+  "largura_px": 642,
+  "altura_px": 682,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-311_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "312",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.3138,
+    "y": 0.12917
+   },
+   {
+    "x": 0.3138,
+    "y": 0.35093
+   },
+   {
+    "x": 0.40599,
+    "y": 0.3463
+   },
+   {
+    "x": 0.40599,
+    "y": 0.12917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.143,
+  "encaixe": "paredes",
+  "origem_px": [
+   1150,
+   244
+  ],
+  "largura_px": 465,
+  "altura_px": 549,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-312_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "313",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.22083,
+    "y": 0.12963
+   },
+   {
+    "x": 0.22083,
+    "y": 0.3463
+   },
+   {
+    "x": 0.2388,
+    "y": 0.3463
+   },
+   {
+    "x": 0.23906,
+    "y": 0.35093
+   },
+   {
+    "x": 0.31276,
+    "y": 0.35093
+   },
+   {
+    "x": 0.31276,
+    "y": 0.12963
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.127,
+  "encaixe": "paredes",
+  "origem_px": [
+   793,
+   242
+  ],
+  "largura_px": 464,
+  "altura_px": 562,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-313_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "314",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.04115,
+    "y": 0.12963
+   },
+   {
+    "x": 0.0388,
+    "y": 0.41852
+   },
+   {
+    "x": 0.23802,
+    "y": 0.41759
+   },
+   {
+    "x": 0.23802,
+    "y": 0.34722
+   },
+   {
+    "x": 0.21979,
+    "y": 0.34676
+   },
+   {
+    "x": 0.21979,
+    "y": 0.12963
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.068,
+  "encaixe": "paredes",
+  "origem_px": [
+   119,
+   242
+  ],
+  "largura_px": 851,
+  "altura_px": 697,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-314_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "315",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.31536,
+    "y": 0.41435
+   },
+   {
+    "x": 0.23906,
+    "y": 0.41435
+   },
+   {
+    "x": 0.23828,
+    "y": 0.41944
+   },
+   {
+    "x": 0.13099,
+    "y": 0.41944
+   },
+   {
+    "x": 0.13099,
+    "y": 0.54815
+   },
+   {
+    "x": 0.2401,
+    "y": 0.54815
+   },
+   {
+    "x": 0.24063,
+    "y": 0.55278
+   },
+   {
+    "x": 0.31536,
+    "y": 0.55278
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.144,
+  "encaixe": "paredes",
+  "origem_px": [
+   448,
+   851
+  ],
+  "largura_px": 798,
+  "altura_px": 389,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-315_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "316",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.03776,
+    "y": 0.54907
+   },
+   {
+    "x": 0.03516,
+    "y": 0.8787
+   },
+   {
+    "x": 0.13073,
+    "y": 0.87917
+   },
+   {
+    "x": 0.13099,
+    "y": 0.91019
+   },
+   {
+    "x": 0.18125,
+    "y": 0.91019
+   },
+   {
+    "x": 0.18151,
+    "y": 0.87917
+   },
+   {
+    "x": 0.21979,
+    "y": 0.87917
+   },
+   {
+    "x": 0.21979,
+    "y": 0.61806
+   },
+   {
+    "x": 0.23698,
+    "y": 0.61713
+   },
+   {
+    "x": 0.23698,
+    "y": 0.61296
+   },
+   {
+    "x": 0.23958,
+    "y": 0.61157
+   },
+   {
+    "x": 0.23958,
+    "y": 0.54954
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.067,
+  "encaixe": "paredes",
+  "origem_px": [
+   104,
+   1146
+  ],
+  "largura_px": 872,
+  "altura_px": 855,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-316_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "317",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.22083,
+    "y": 0.61852
+   },
+   {
+    "x": 0.22083,
+    "y": 0.87917
+   },
+   {
+    "x": 0.25807,
+    "y": 0.87917
+   },
+   {
+    "x": 0.25833,
+    "y": 0.91019
+   },
+   {
+    "x": 0.31276,
+    "y": 0.91019
+   },
+   {
+    "x": 0.31276,
+    "y": 0.61343
+   },
+   {
+    "x": 0.23802,
+    "y": 0.61343
+   },
+   {
+    "x": 0.2375,
+    "y": 0.61852
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.102,
+  "encaixe": "paredes",
+  "origem_px": [
+   803,
+   1275
+  ],
+  "largura_px": 454,
+  "altura_px": 726,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-317_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "318",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.40469,
+    "y": 0.60093
+   },
+   {
+    "x": 0.35833,
+    "y": 0.60093
+   },
+   {
+    "x": 0.35807,
+    "y": 0.61343
+   },
+   {
+    "x": 0.3138,
+    "y": 0.61343
+   },
+   {
+    "x": 0.3138,
+    "y": 0.91019
+   },
+   {
+    "x": 0.36849,
+    "y": 0.91019
+   },
+   {
+    "x": 0.36745,
+    "y": 0.90278
+   },
+   {
+    "x": 0.37031,
+    "y": 0.9037
+   },
+   {
+    "x": 0.36849,
+    "y": 0.89954
+   },
+   {
+    "x": 0.36875,
+    "y": 0.87917
+   },
+   {
+    "x": 0.40469,
+    "y": 0.87917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.106,
+  "encaixe": "paredes",
+  "origem_px": [
+   1150,
+   1264
+  ],
+  "largura_px": 460,
+  "altura_px": 737,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-318_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "319",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.40521,
+    "y": 0.60093
+   },
+   {
+    "x": 0.40521,
+    "y": 0.87917
+   },
+   {
+    "x": 0.44141,
+    "y": 0.87917
+   },
+   {
+    "x": 0.44167,
+    "y": 0.89259
+   },
+   {
+    "x": 0.44505,
+    "y": 0.89491
+   },
+   {
+    "x": 0.44427,
+    "y": 0.90509
+   },
+   {
+    "x": 0.44167,
+    "y": 0.90509
+   },
+   {
+    "x": 0.44167,
+    "y": 0.91019
+   },
+   {
+    "x": 0.49635,
+    "y": 0.91019
+   },
+   {
+    "x": 0.49609,
+    "y": 0.60093
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.109,
+  "encaixe": "paredes",
+  "origem_px": [
+   1501,
+   1264
+  ],
+  "largura_px": 461,
+  "altura_px": 737,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-319_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-03",
+  "unidade": "320",
+  "cm_por_px": 0.94,
+  "anisotropia_pavimento": 1.0059,
+  "chamfer_mediana_cm_pavimento": 8.5,
+  "poligono_norm": [
+   {
+    "x": 0.49714,
+    "y": 0.60093
+   },
+   {
+    "x": 0.49714,
+    "y": 0.91019
+   },
+   {
+    "x": 0.55208,
+    "y": 0.91019
+   },
+   {
+    "x": 0.55234,
+    "y": 0.87917
+   },
+   {
+    "x": 0.58802,
+    "y": 0.87917
+   },
+   {
+    "x": 0.58802,
+    "y": 0.60093
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-03.png",
+  "encaixe_razao_area": 1.103,
+  "encaixe": "paredes",
+  "origem_px": [
+   1854,
+   1264
+  ],
+  "largura_px": 460,
+  "altura_px": 737,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-03/CACHOEIRA-SPOT_PAV-03_UN-320_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "401",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.55807,
+    "y": 0.5787
+   },
+   {
+    "x": 0.55807,
+    "y": 0.91296
+   },
+   {
+    "x": 0.65573,
+    "y": 0.91296
+   },
+   {
+    "x": 0.65573,
+    "y": 0.5787
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.102,
+  "encaixe": "paredes",
+  "origem_px": [
+   2084,
+   1214
+  ],
+  "largura_px": 494,
+  "altura_px": 795,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-401_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "402",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.65651,
+    "y": 0.5787
+   },
+   {
+    "x": 0.65651,
+    "y": 0.91296
+   },
+   {
+    "x": 0.77943,
+    "y": 0.91296
+   },
+   {
+    "x": 0.77917,
+    "y": 0.88009
+   },
+   {
+    "x": 0.75208,
+    "y": 0.88056
+   },
+   {
+    "x": 0.75208,
+    "y": 0.62176
+   },
+   {
+    "x": 0.71458,
+    "y": 0.62176
+   },
+   {
+    "x": 0.71406,
+    "y": 0.5787
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.116,
+  "encaixe": "paredes",
+  "origem_px": [
+   2462,
+   1214
+  ],
+  "largura_px": 591,
+  "altura_px": 795,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.001,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-402_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "403",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.75313,
+    "y": 0.62176
+   },
+   {
+    "x": 0.75313,
+    "y": 0.87917
+   },
+   {
+    "x": 0.77943,
+    "y": 0.87917
+   },
+   {
+    "x": 0.78047,
+    "y": 0.91481
+   },
+   {
+    "x": 0.8375,
+    "y": 0.91296
+   },
+   {
+    "x": 0.84141,
+    "y": 0.9162
+   },
+   {
+    "x": 0.85365,
+    "y": 0.9162
+   },
+   {
+    "x": 0.85391,
+    "y": 0.91296
+   },
+   {
+    "x": 0.85964,
+    "y": 0.9162
+   },
+   {
+    "x": 0.89141,
+    "y": 0.91481
+   },
+   {
+    "x": 0.89089,
+    "y": 0.87917
+   },
+   {
+    "x": 0.93568,
+    "y": 0.87917
+   },
+   {
+    "x": 0.93568,
+    "y": 0.72778
+   },
+   {
+    "x": 0.78854,
+    "y": 0.72778
+   },
+   {
+    "x": 0.78828,
+    "y": 0.62176
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.1,
+  "encaixe": "paredes",
+  "origem_px": [
+   2833,
+   1307
+  ],
+  "largura_px": 820,
+  "altura_px": 704,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-403_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "404",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.7862,
+    "y": 0.5537
+   },
+   {
+    "x": 0.78646,
+    "y": 0.61991
+   },
+   {
+    "x": 0.78932,
+    "y": 0.62037
+   },
+   {
+    "x": 0.78932,
+    "y": 0.72639
+   },
+   {
+    "x": 0.93568,
+    "y": 0.72639
+   },
+   {
+    "x": 0.93568,
+    "y": 0.55324
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.124,
+  "encaixe": "paredes",
+  "origem_px": [
+   2960,
+   1156
+  ],
+  "largura_px": 693,
+  "altura_px": 460,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-404_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "405",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.75078,
+    "y": 0.40417
+   },
+   {
+    "x": 0.75078,
+    "y": 0.55648
+   },
+   {
+    "x": 0.78542,
+    "y": 0.55648
+   },
+   {
+    "x": 0.78568,
+    "y": 0.55185
+   },
+   {
+    "x": 0.93568,
+    "y": 0.55185
+   },
+   {
+    "x": 0.93568,
+    "y": 0.40648
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.138,
+  "encaixe": "paredes",
+  "origem_px": [
+   2847,
+   814
+  ],
+  "largura_px": 806,
+  "altura_px": 442,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-405_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "406",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.78932,
+    "y": 0.23194
+   },
+   {
+    "x": 0.78932,
+    "y": 0.32315
+   },
+   {
+    "x": 0.78646,
+    "y": 0.32407
+   },
+   {
+    "x": 0.78646,
+    "y": 0.40509
+   },
+   {
+    "x": 0.93568,
+    "y": 0.40509
+   },
+   {
+    "x": 0.93568,
+    "y": 0.23194
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.122,
+  "encaixe": "paredes",
+  "origem_px": [
+   2961,
+   442
+  ],
+  "largura_px": 692,
+  "altura_px": 473,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-406_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "407",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.75313,
+    "y": 0.06898
+   },
+   {
+    "x": 0.75313,
+    "y": 0.32222
+   },
+   {
+    "x": 0.78828,
+    "y": 0.32222
+   },
+   {
+    "x": 0.78854,
+    "y": 0.23009
+   },
+   {
+    "x": 0.93568,
+    "y": 0.23009
+   },
+   {
+    "x": 0.93568,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.113,
+  "encaixe": "paredes",
+  "origem_px": [
+   2833,
+   90
+  ],
+  "largura_px": 820,
+  "altura_px": 643,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-407_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "408",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.65729,
+    "y": 0.06898
+   },
+   {
+    "x": 0.65755,
+    "y": 0.32222
+   },
+   {
+    "x": 0.75208,
+    "y": 0.32222
+   },
+   {
+    "x": 0.75208,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.126,
+  "encaixe": "paredes",
+  "origem_px": [
+   2465,
+   113
+  ],
+  "largura_px": 483,
+  "altura_px": 620,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-408_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "409",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.56172,
+    "y": 0.06898
+   },
+   {
+    "x": 0.56172,
+    "y": 0.31667
+   },
+   {
+    "x": 0.58698,
+    "y": 0.31667
+   },
+   {
+    "x": 0.58724,
+    "y": 0.32222
+   },
+   {
+    "x": 0.65651,
+    "y": 0.32222
+   },
+   {
+    "x": 0.65651,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.137,
+  "encaixe": "paredes",
+  "origem_px": [
+   2098,
+   113
+  ],
+  "largura_px": 483,
+  "altura_px": 620,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-409_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "410",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.46328,
+    "y": 0.06898
+   },
+   {
+    "x": 0.46328,
+    "y": 0.36528
+   },
+   {
+    "x": 0.51406,
+    "y": 0.36528
+   },
+   {
+    "x": 0.51458,
+    "y": 0.40833
+   },
+   {
+    "x": 0.5862,
+    "y": 0.40833
+   },
+   {
+    "x": 0.58672,
+    "y": 0.31852
+   },
+   {
+    "x": 0.56068,
+    "y": 0.31806
+   },
+   {
+    "x": 0.56068,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.117,
+  "encaixe": "paredes",
+  "origem_px": [
+   1720,
+   113
+  ],
+  "largura_px": 593,
+  "altura_px": 829,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-410_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "411",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.3625,
+    "y": 0.06898
+   },
+   {
+    "x": 0.3625,
+    "y": 0.30417
+   },
+   {
+    "x": 0.31406,
+    "y": 0.30509
+   },
+   {
+    "x": 0.31406,
+    "y": 0.30926
+   },
+   {
+    "x": 0.3112,
+    "y": 0.31065
+   },
+   {
+    "x": 0.3112,
+    "y": 0.36481
+   },
+   {
+    "x": 0.46224,
+    "y": 0.36528
+   },
+   {
+    "x": 0.46224,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.114,
+  "encaixe": "paredes",
+  "origem_px": [
+   1145,
+   113
+  ],
+  "largura_px": 690,
+  "altura_px": 735,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-411_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "412",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.2625,
+    "y": 0.06898
+   },
+   {
+    "x": 0.2625,
+    "y": 0.3088
+   },
+   {
+    "x": 0.36146,
+    "y": 0.3037
+   },
+   {
+    "x": 0.36146,
+    "y": 0.06898
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.143,
+  "encaixe": "paredes",
+  "origem_px": [
+   949,
+   113
+  ],
+  "largura_px": 499,
+  "altura_px": 591,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-412_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "413",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.16224,
+    "y": 0.06991
+   },
+   {
+    "x": 0.16224,
+    "y": 0.3037
+   },
+   {
+    "x": 0.18177,
+    "y": 0.3037
+   },
+   {
+    "x": 0.18203,
+    "y": 0.3088
+   },
+   {
+    "x": 0.26146,
+    "y": 0.3088
+   },
+   {
+    "x": 0.26146,
+    "y": 0.06991
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.125,
+  "encaixe": "paredes",
+  "origem_px": [
+   564,
+   115
+  ],
+  "largura_px": 500,
+  "altura_px": 606,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-413_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "414",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.06563,
+    "y": 0.06991
+   },
+   {
+    "x": 0.06563,
+    "y": 0.38102
+   },
+   {
+    "x": 0.18099,
+    "y": 0.38102
+   },
+   {
+    "x": 0.18099,
+    "y": 0.30509
+   },
+   {
+    "x": 0.1612,
+    "y": 0.30463
+   },
+   {
+    "x": 0.1612,
+    "y": 0.06991
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.112,
+  "encaixe": "paredes",
+  "origem_px": [
+   216,
+   115
+  ],
+  "largura_px": 539,
+  "altura_px": 745,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-414_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "415",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.26406,
+    "y": 0.37731
+   },
+   {
+    "x": 0.18203,
+    "y": 0.37731
+   },
+   {
+    "x": 0.18125,
+    "y": 0.38287
+   },
+   {
+    "x": 0.06563,
+    "y": 0.38287
+   },
+   {
+    "x": 0.06563,
+    "y": 0.52176
+   },
+   {
+    "x": 0.18307,
+    "y": 0.52176
+   },
+   {
+    "x": 0.18359,
+    "y": 0.52685
+   },
+   {
+    "x": 0.26406,
+    "y": 0.52685
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.137,
+  "encaixe": "paredes",
+  "origem_px": [
+   216,
+   768
+  ],
+  "largura_px": 835,
+  "altura_px": 419,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-415_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "416",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.06563,
+    "y": 0.52315
+   },
+   {
+    "x": 0.06563,
+    "y": 0.87917
+   },
+   {
+    "x": 0.12031,
+    "y": 0.87917
+   },
+   {
+    "x": 0.12083,
+    "y": 0.88704
+   },
+   {
+    "x": 0.12422,
+    "y": 0.88333
+   },
+   {
+    "x": 0.12422,
+    "y": 0.89537
+   },
+   {
+    "x": 0.12214,
+    "y": 0.89537
+   },
+   {
+    "x": 0.12214,
+    "y": 0.88889
+   },
+   {
+    "x": 0.12083,
+    "y": 0.91296
+   },
+   {
+    "x": 0.15286,
+    "y": 0.91296
+   },
+   {
+    "x": 0.15495,
+    "y": 0.90602
+   },
+   {
+    "x": 0.15937,
+    "y": 0.90602
+   },
+   {
+    "x": 0.16146,
+    "y": 0.91296
+   },
+   {
+    "x": 0.1638,
+    "y": 0.90417
+   },
+   {
+    "x": 0.16146,
+    "y": 0.90278
+   },
+   {
+    "x": 0.1612,
+    "y": 0.89537
+   },
+   {
+    "x": 0.15781,
+    "y": 0.89491
+   },
+   {
+    "x": 0.16146,
+    "y": 0.88611
+   },
+   {
+    "x": 0.1612,
+    "y": 0.59722
+   },
+   {
+    "x": 0.17995,
+    "y": 0.5963
+   },
+   {
+    "x": 0.17995,
+    "y": 0.59167
+   },
+   {
+    "x": 0.18255,
+    "y": 0.59074
+   },
+   {
+    "x": 0.18255,
+    "y": 0.52315
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.108,
+  "encaixe": "paredes",
+  "origem_px": [
+   216,
+   1092
+  ],
+  "largura_px": 545,
+  "altura_px": 919,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-416_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "417",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.16224,
+    "y": 0.59815
+   },
+   {
+    "x": 0.16224,
+    "y": 0.90185
+   },
+   {
+    "x": 0.16484,
+    "y": 0.90324
+   },
+   {
+    "x": 0.16224,
+    "y": 0.91296
+   },
+   {
+    "x": 0.26146,
+    "y": 0.91296
+   },
+   {
+    "x": 0.26146,
+    "y": 0.59259
+   },
+   {
+    "x": 0.18099,
+    "y": 0.59259
+   },
+   {
+    "x": 0.18021,
+    "y": 0.59815
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.096,
+  "encaixe": "paredes",
+  "origem_px": [
+   564,
+   1230
+  ],
+  "largura_px": 500,
+  "altura_px": 778,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-417_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "418",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.2625,
+    "y": 0.59259
+   },
+   {
+    "x": 0.2625,
+    "y": 0.91296
+   },
+   {
+    "x": 0.36016,
+    "y": 0.91296
+   },
+   {
+    "x": 0.36016,
+    "y": 0.5787
+   },
+   {
+    "x": 0.31016,
+    "y": 0.5787
+   },
+   {
+    "x": 0.30964,
+    "y": 0.59259
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.102,
+  "encaixe": "paredes",
+  "origem_px": [
+   949,
+   1214
+  ],
+  "largura_px": 494,
+  "altura_px": 794,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-418_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "419",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.36068,
+    "y": 0.5787
+   },
+   {
+    "x": 0.36068,
+    "y": 0.87917
+   },
+   {
+    "x": 0.37943,
+    "y": 0.87917
+   },
+   {
+    "x": 0.38073,
+    "y": 0.91389
+   },
+   {
+    "x": 0.45885,
+    "y": 0.91296
+   },
+   {
+    "x": 0.45833,
+    "y": 0.5787
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.107,
+  "encaixe": "paredes",
+  "origem_px": [
+   1326,
+   1214
+  ],
+  "largura_px": 496,
+  "altura_px": 794,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-419_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "PAV-04",
+  "unidade": "420",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 10.5,
+  "poligono_norm": [
+   {
+    "x": 0.45937,
+    "y": 0.5787
+   },
+   {
+    "x": 0.45937,
+    "y": 0.91296
+   },
+   {
+    "x": 0.55703,
+    "y": 0.91296
+   },
+   {
+    "x": 0.55703,
+    "y": 0.5787
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\PAV-04.png",
+  "encaixe_razao_area": 1.106,
+  "encaixe": "paredes",
+  "origem_px": [
+   1705,
+   1214
+  ],
+  "largura_px": 494,
+  "altura_px": 795,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/PAV-04/CACHOEIRA-SPOT_PAV-04_UN-420_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "501",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.31328,
+    "y": 0.06944
+   },
+   {
+    "x": 0.06563,
+    "y": 0.06944
+   },
+   {
+    "x": 0.06563,
+    "y": 0.36574
+   },
+   {
+    "x": 0.26849,
+    "y": 0.36574
+   },
+   {
+    "x": 0.26901,
+    "y": 0.37083
+   },
+   {
+    "x": 0.31328,
+    "y": 0.37083
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.077,
+  "encaixe": "paredes",
+  "origem_px": [
+   211,
+   112
+  ],
+  "largura_px": 1052,
+  "altura_px": 749,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-501_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "502",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.06563,
+    "y": 0.36713
+   },
+   {
+    "x": 0.0651,
+    "y": 0.4463
+   },
+   {
+    "x": 0.06797,
+    "y": 0.45324
+   },
+   {
+    "x": 0.06563,
+    "y": 0.45694
+   },
+   {
+    "x": 0.0651,
+    "y": 0.5287
+   },
+   {
+    "x": 0.26849,
+    "y": 0.52731
+   },
+   {
+    "x": 0.26823,
+    "y": 0.36713
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.131,
+  "encaixe": "paredes",
+  "origem_px": [
+   214,
+   734
+  ],
+  "largura_px": 854,
+  "altura_px": 469,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-502_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "503",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.06563,
+    "y": 0.57917
+   },
+   {
+    "x": 0.06563,
+    "y": 0.86944
+   },
+   {
+    "x": 0.33594,
+    "y": 0.86944
+   },
+   {
+    "x": 0.33594,
+    "y": 0.59491
+   },
+   {
+    "x": 0.26901,
+    "y": 0.59491
+   },
+   {
+    "x": 0.26823,
+    "y": 0.57917
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.062,
+  "encaixe": "paredes",
+  "origem_px": [
+   208,
+   1192
+  ],
+  "largura_px": 1142,
+  "altura_px": 730,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-503_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "504",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.33672,
+    "y": 0.59491
+   },
+   {
+    "x": 0.33672,
+    "y": 0.86944
+   },
+   {
+    "x": 0.49505,
+    "y": 0.86944
+   },
+   {
+    "x": 0.49505,
+    "y": 0.57917
+   },
+   {
+    "x": 0.37812,
+    "y": 0.57917
+   },
+   {
+    "x": 0.37708,
+    "y": 0.59491
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.107,
+  "encaixe": "paredes",
+  "origem_px": [
+   1234,
+   1215
+  ],
+  "largura_px": 727,
+  "altura_px": 708,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-504_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "505",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.68802,
+    "y": 0.53056
+   },
+   {
+    "x": 0.6125,
+    "y": 0.53056
+   },
+   {
+    "x": 0.6125,
+    "y": 0.57824
+   },
+   {
+    "x": 0.49583,
+    "y": 0.57917
+   },
+   {
+    "x": 0.49583,
+    "y": 0.86944
+   },
+   {
+    "x": 0.68828,
+    "y": 0.86944
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.08,
+  "encaixe": "paredes",
+  "origem_px": [
+   1845,
+   1110
+  ],
+  "largura_px": 858,
+  "altura_px": 816,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-505_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "506",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.87552,
+    "y": 0.53009
+   },
+   {
+    "x": 0.68932,
+    "y": 0.53056
+   },
+   {
+    "x": 0.6888,
+    "y": 0.86991
+   },
+   {
+    "x": 0.7987,
+    "y": 0.86852
+   },
+   {
+    "x": 0.79896,
+    "y": 0.75463
+   },
+   {
+    "x": 0.87604,
+    "y": 0.75463
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.098,
+  "encaixe": "paredes",
+  "origem_px": [
+   2586,
+   1086
+  ],
+  "largura_px": 838,
+  "altura_px": 841,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.0,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-506_HUM-SEM-TEXTO_R04.png"
+ },
+ {
+  "pavimento": "COB",
+  "unidade": "507",
+  "cm_por_px": 0.872,
+  "anisotropia_pavimento": 1.0012,
+  "chamfer_mediana_cm_pavimento": 35.8,
+  "poligono_norm": [
+   {
+    "x": 0.6888,
+    "y": 0.25231
+   },
+   {
+    "x": 0.6888,
+    "y": 0.41157
+   },
+   {
+    "x": 0.66484,
+    "y": 0.45509
+   },
+   {
+    "x": 0.65859,
+    "y": 0.45509
+   },
+   {
+    "x": 0.65807,
+    "y": 0.46574
+   },
+   {
+    "x": 0.63099,
+    "y": 0.51481
+   },
+   {
+    "x": 0.61172,
+    "y": 0.51481
+   },
+   {
+    "x": 0.61172,
+    "y": 0.57917
+   },
+   {
+    "x": 0.6125,
+    "y": 0.52917
+   },
+   {
+    "x": 0.68802,
+    "y": 0.52917
+   },
+   {
+    "x": 0.6888,
+    "y": 0.55787
+   },
+   {
+    "x": 0.68932,
+    "y": 0.52917
+   },
+   {
+    "x": 0.87656,
+    "y": 0.53102
+   },
+   {
+    "x": 0.8763,
+    "y": 0.75556
+   },
+   {
+    "x": 0.79948,
+    "y": 0.75602
+   },
+   {
+    "x": 0.7987,
+    "y": 0.87037
+   },
+   {
+    "x": 0.68932,
+    "y": 0.87037
+   },
+   {
+    "x": 0.6888,
+    "y": 0.91435
+   },
+   {
+    "x": 0.94948,
+    "y": 0.91343
+   },
+   {
+    "x": 0.94974,
+    "y": 0.53102
+   },
+   {
+    "x": 0.93646,
+    "y": 0.52963
+   },
+   {
+    "x": 0.93568,
+    "y": 0.40139
+   },
+   {
+    "x": 0.75521,
+    "y": 0.40231
+   },
+   {
+    "x": 0.75469,
+    "y": 0.2537
+   }
+  ],
+  "imagem_pavimento": "03_trabalho/pipeline_R04\\sem_texto\\COB.png",
+  "encaixe_razao_area": 1.135,
+  "encaixe": "paredes",
+  "origem_px": [
+   2289,
+   509
+  ],
+  "largura_px": 1395,
+  "altura_px": 1503,
+  "partes_descartadas": 0,
+  "frac_mascara_fora_da_imagem": 0.004,
+  "arquivo": "04_saida/CACHOEIRA-SPOT_R04\\02_UNIDADES/COB/CACHOEIRA-SPOT_COB_UN-507_HUM-SEM-TEXTO_R04.png"
+ }
+]
