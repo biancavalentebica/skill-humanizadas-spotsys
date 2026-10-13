@@ -1,0 +1,52 @@
+{
+ "pdf": "00_entradas/originais/projeto_aprovado/CACHOEIRASPOT-PL-ARQ-DCT-GER-XXX-000-R06.pdf",
+ "pdf_sha256": "5c8235cd541dc7eb00500995ccbb5c334c28c1c7cd5d1dacc22b1ea0bd4b0343",
+ "spotsys_csv": "00_entradas/spotsys_cachoeira_units_2026-10-09.csv",
+ "paginas": "4,5,6,7,8,9",
+ "saida": "04_saida/CACHOEIRA-SPOT_COMPATIBILIZADA",
+ "trabalho": "03_trabalho/ocr_lancamento",
+ "pavimentos": [
+  {
+   "id": "PAV-01",
+   "celulas": "03_trabalho/pipeline_R04/celulas/PAV-01.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/1 - terreo.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/PAV-01.png",
+   "escala": 100
+  },
+  {
+   "id": "MEZ",
+   "celulas": "03_trabalho/pipeline_R04/celulas/MEZ.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/2 - Mezanino_.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/MEZ.png",
+   "escala": 200
+  },
+  {
+   "id": "PAV-02",
+   "celulas": "03_trabalho/pipeline_R04/celulas/PAV-02.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/3 - Segundo pavimento.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/PAV-02.png",
+   "escala": 100
+  },
+  {
+   "id": "PAV-03",
+   "celulas": "03_trabalho/pipeline_R04/celulas/PAV-03.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/4 - Terceiro pavimento.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/PAV-03.png",
+   "escala": 100
+  },
+  {
+   "id": "PAV-04",
+   "celulas": "03_trabalho/pipeline_R04/celulas/PAV-04.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/5 - Quarto pavimento.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/PAV-04.png",
+   "escala": 100
+  },
+  {
+   "id": "COB",
+   "celulas": "03_trabalho/pipeline_R04/celulas/COB.json",
+   "lancamento_com_texto": "00_entradas/originais/humanizada_lancamento_2024/6 - Rooftop.png",
+   "lancamento_sem_texto": "03_trabalho/lancamento_sem_texto/COB.png",
+   "escala": 100
+  }
+ ]
+}

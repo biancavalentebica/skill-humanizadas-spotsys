@@ -1,5 +1,11 @@
 # Desafio: atualização de plantas humanizadas (SpotSys), teste Cachoeira Spot
 
+> **ATUALIZAÇÃO 13/10/2026 (fim do dia): a entrega vigente está em [09_ENTREGA_2026-10-13/](09_ENTREGA_2026-10-13/LEIA-ME.md).**
+> Método atual: planta do pavimento desenhada a partir do **DWG do projeto aprovado** (paredes, banheiros, cozinhas e móveis na medida do projeto), com o **acabamento da humanizada de lançamento**. Antes de gerar, as áreas do DWG são conferidas com o PDF aprovado R06 do Autodoc (`skill/scripts/confere_areas_base_x_aprovado.py`). Gerador: `skill/scripts/gera_humanizada_dwg.py`.
+> São **6 plantas para 5 pavimentos**: o pavimento 1 tem térreo e mezanino (duplex 101–115 e lojas).
+> Apresentação: https://claude.ai/artifact/EMSV1uUntghT3YXAVPFBCA
+> Pastas e zips marcados `_SUBSTITUIDO` ou `NAO-ENVIAR` são versões anteriores (colagem/IA), mantidas só como registro. O conteúdo abaixo é o histórico até a R04.
+
 Situação em 13/10/2026. Prazo: 13/10/2026. Nada foi publicado no SpotSys, no 360 ou no Drive.
 
 ## Entregáveis
