@@ -1,0 +1,642 @@
+{
+ "planta": "<PASTA DAS PLANTAS>/Imbassaí Spot/IMBASSAISPOT-DC-ARQ-IMG-01P-000-R00 (1).png",
+ "saida": "<PASTA DAS PLANTAS>/Imbassaí Spot/Plantas unidades",
+ "nome": "Imbassaí Spot - {id}.png",
+ "angulo": 0,
+ "ampliar_ia": false,
+ "letra_max_larg": 28,
+ "letra_max_alt": 28,
+ "unidades": {
+  "109": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       294,
+       815
+      ],
+      [
+       617,
+       815
+      ],
+      [
+       617,
+       940
+      ],
+      [
+       294,
+       940
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       410,
+       940
+      ],
+      [
+       617,
+       940
+      ],
+      [
+       617,
+       1030
+      ],
+      [
+       410,
+       1030
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       294,
+       758
+      ],
+      [
+       617,
+       758
+      ],
+      [
+       617,
+       815
+      ],
+      [
+       294,
+       815
+      ]
+     ]
+    }
+   ]
+  },
+  "103": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1352,
+       480
+      ],
+      [
+       1567,
+       480
+      ],
+      [
+       1567,
+       641
+      ],
+      [
+       1352,
+       641
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1295,
+       480
+      ],
+      [
+       1352,
+       480
+      ],
+      [
+       1352,
+       641
+      ],
+      [
+       1295,
+       641
+      ]
+     ]
+    }
+   ]
+  },
+  "104": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1352,
+       641
+      ],
+      [
+       1567,
+       641
+      ],
+      [
+       1567,
+       803
+      ],
+      [
+       1352,
+       803
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1295,
+       641
+      ],
+      [
+       1352,
+       641
+      ],
+      [
+       1352,
+       803
+      ],
+      [
+       1295,
+       803
+      ]
+     ]
+    }
+   ]
+  },
+  "102": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1662,
+       425
+      ],
+      [
+       1830,
+       425
+      ],
+      [
+       1830,
+       633
+      ],
+      [
+       1662,
+       633
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1830,
+       425
+      ],
+      [
+       1882,
+       425
+      ],
+      [
+       1882,
+       633
+      ],
+      [
+       1830,
+       633
+      ]
+     ]
+    }
+   ]
+  },
+  "101": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1662,
+       633
+      ],
+      [
+       1830,
+       633
+      ],
+      [
+       1830,
+       840
+      ],
+      [
+       1662,
+       840
+      ]
+     ]
+    },
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1830,
+       633
+      ],
+      [
+       1882,
+       633
+      ],
+      [
+       1882,
+       840
+      ],
+      [
+       1830,
+       840
+      ]
+     ]
+    }
+   ]
+  },
+  "108": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       617,
+       758
+      ],
+      [
+       779,
+       758
+      ],
+      [
+       779,
+       1030
+      ],
+      [
+       617,
+       1030
+      ]
+     ]
+    }
+   ]
+  },
+  "107": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       779,
+       758
+      ],
+      [
+       940,
+       758
+      ],
+      [
+       940,
+       1030
+      ],
+      [
+       779,
+       1030
+      ]
+     ]
+    }
+   ]
+  },
+  "106": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       940,
+       758
+      ],
+      [
+       1101,
+       758
+      ],
+      [
+       1101,
+       1030
+      ],
+      [
+       940,
+       1030
+      ]
+     ]
+    }
+   ]
+  },
+  "105": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1101,
+       758
+      ],
+      [
+       1263,
+       758
+      ],
+      [
+       1263,
+       1030
+      ],
+      [
+       1101,
+       1030
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "apagar": [
+  {
+   "frame": "o",
+   "centro": [
+    515,
+    920
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 109"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    702,
+    920
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 108"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    852,
+    920
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 107"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1020,
+    920
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 106"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1176,
+    920
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 105"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1421,
+    573
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 103"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1421,
+    732
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 104"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1757,
+    553
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 102"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1757,
+    752
+   ],
+   "largura": 104,
+   "altura": 28,
+   "obs": "area 101"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    506,
+    772
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 109"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    506,
+    801
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 109"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    703,
+    772
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 108"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    703,
+    801
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 108"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    853,
+    772
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 107"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    853,
+    801
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 107"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1021,
+    772
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 106"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1021,
+    801
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 106"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1176,
+    772
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 105"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1176,
+    801
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 105"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1300,
+    548
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 103",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1329,
+    548
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 103",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1300,
+    706
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 104",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1329,
+    706
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 104",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1848,
+    530
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 102",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1877,
+    530
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 102",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1848,
+    728
+   ],
+   "largura": 116,
+   "altura": 22,
+   "obs": "garden 101",
+   "vertical": true
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1877,
+    728
+   ],
+   "largura": 100,
+   "altura": 22,
+   "obs": "garden m2 101",
+   "vertical": true
+  }
+ ]
+}

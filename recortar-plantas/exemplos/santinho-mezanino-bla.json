@@ -1,0 +1,1042 @@
+{
+ "planta": "<PASTA DAS PLANTAS>/Santinho Spot/SANTINHOSPOT-DC-ARQ-IMG-02P-BLA-000-R00.png",
+ "saida": "<PASTA DAS PLANTAS>/Santinho Spot/Plantas unidades",
+ "nome": "Santinho Spot - {id}.png",
+ "angulo": 0,
+ "ampliar_ia": false,
+ "limiar_escuro": 62,
+ "unidades": {
+  "101 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       410,
+       185
+      ],
+      [
+       510,
+       185
+      ],
+      [
+       510,
+       357
+      ],
+      [
+       410,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "102 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       510,
+       185
+      ],
+      [
+       604,
+       185
+      ],
+      [
+       604,
+       357
+      ],
+      [
+       510,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "103 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       604,
+       185
+      ],
+      [
+       704,
+       185
+      ],
+      [
+       704,
+       357
+      ],
+      [
+       604,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "104 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       704,
+       185
+      ],
+      [
+       799,
+       185
+      ],
+      [
+       799,
+       357
+      ],
+      [
+       704,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "105 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       799,
+       185
+      ],
+      [
+       896,
+       185
+      ],
+      [
+       896,
+       357
+      ],
+      [
+       799,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "106 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       896,
+       185
+      ],
+      [
+       993,
+       185
+      ],
+      [
+       993,
+       357
+      ],
+      [
+       896,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "107 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       993,
+       185
+      ],
+      [
+       1090,
+       185
+      ],
+      [
+       1090,
+       357
+      ],
+      [
+       993,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "108 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1090,
+       185
+      ],
+      [
+       1187,
+       185
+      ],
+      [
+       1187,
+       357
+      ],
+      [
+       1090,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "109 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1187,
+       185
+      ],
+      [
+       1288,
+       185
+      ],
+      [
+       1288,
+       357
+      ],
+      [
+       1187,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "110 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1288,
+       185
+      ],
+      [
+       1382,
+       185
+      ],
+      [
+       1382,
+       357
+      ],
+      [
+       1288,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "111 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1382,
+       185
+      ],
+      [
+       1476,
+       185
+      ],
+      [
+       1476,
+       357
+      ],
+      [
+       1382,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "112 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1476,
+       185
+      ],
+      [
+       1573,
+       185
+      ],
+      [
+       1573,
+       357
+      ],
+      [
+       1476,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "113 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1573,
+       185
+      ],
+      [
+       1670,
+       185
+      ],
+      [
+       1670,
+       357
+      ],
+      [
+       1573,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "114 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1670,
+       185
+      ],
+      [
+       1772,
+       185
+      ],
+      [
+       1772,
+       357
+      ],
+      [
+       1670,
+       357
+      ]
+     ]
+    }
+   ]
+  },
+  "115 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1772,
+       210
+      ],
+      [
+       1980,
+       210
+      ],
+      [
+       1980,
+       305
+      ],
+      [
+       1772,
+       305
+      ]
+     ]
+    }
+   ]
+  },
+  "116 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1822,
+       305
+      ],
+      [
+       1980,
+       305
+      ],
+      [
+       1980,
+       405
+      ],
+      [
+       1822,
+       405
+      ]
+     ]
+    }
+   ]
+  },
+  "117 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1772,
+       405
+      ],
+      [
+       1980,
+       405
+      ],
+      [
+       1980,
+       498
+      ],
+      [
+       1772,
+       498
+      ]
+     ]
+    }
+   ]
+  },
+  "122 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       405,
+       407
+      ],
+      [
+       612,
+       407
+      ],
+      [
+       612,
+       498
+      ],
+      [
+       405,
+       498
+      ]
+     ]
+    }
+   ]
+  },
+  "121 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       612,
+       407
+      ],
+      [
+       820,
+       407
+      ],
+      [
+       820,
+       498
+      ],
+      [
+       612,
+       498
+      ]
+     ]
+    }
+   ]
+  },
+  "120 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       820,
+       407
+      ],
+      [
+       1030,
+       407
+      ],
+      [
+       1030,
+       498
+      ],
+      [
+       820,
+       498
+      ]
+     ]
+    }
+   ]
+  },
+  "119 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1349,
+       407
+      ],
+      [
+       1560,
+       407
+      ],
+      [
+       1560,
+       498
+      ],
+      [
+       1349,
+       498
+      ]
+     ]
+    }
+   ]
+  },
+  "118 A - Mezanino": {
+   "poligonos": [
+    {
+     "frame": "o",
+     "pts": [
+      [
+       1560,
+       407
+      ],
+      [
+       1772,
+       407
+      ],
+      [
+       1772,
+       498
+      ],
+      [
+       1560,
+       498
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ "apagar": [
+  {
+   "frame": "o",
+   "centro": [
+    246.1,
+    180.8
+   ],
+   "largura": 50.2,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: LOJA 02"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1241.8,
+    261.6
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 109 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1321.3,
+    261.6
+   ],
+   "largura": 44.8,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 110 A A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1129.0,
+    263.1
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 108 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1630.8,
+    263.1
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 113 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1049.9,
+    263.2
+   ],
+   "largura": 44.8,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 107 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    661.3,
+    264.6
+   ],
+   "largura": 44.8,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 103 3 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    852.5,
+    264.6
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 105 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    938.2,
+    264.6
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 106 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1512.5,
+    264.6
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 112 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    543.0,
+    264.8
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 102 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    740.0,
+    264.8
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 104 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1440.0,
+    264.8
+   ],
+   "largura": 44.8,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 111 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    464.6,
+    266.1
+   ],
+   "largura": 44.9,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 101 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    246.8,
+    269.8
+   ],
+   "largura": 50.1,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: LOJA 01"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1909.1,
+    280.9
+   ],
+   "largura": 45.3,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 115 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1913.8,
+    446.9
+   ],
+   "largura": 45.3,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "area de: UN 117 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    543.5,
+    466.7
+   ],
+   "largura": 45.3,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 122 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    702.5,
+    466.7
+   ],
+   "largura": 45.2,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 121 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1481.5,
+    466.7
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    971.5,
+    468.1
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 120 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1630.0,
+    469.6
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "area de: UN 118 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    246.1,
+    180.8
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: LOJA 02"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1241.8,
+    261.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 109 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1321.3,
+    261.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 110 A A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1129.0,
+    263.1
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 108 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1630.8,
+    263.1
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 113 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1049.9,
+    263.2
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 107 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    661.3,
+    264.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 103 3 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    852.5,
+    264.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 105 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    938.2,
+    264.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 106 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1512.5,
+    264.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 112 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    543.0,
+    264.8
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 102 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    740.0,
+    264.8
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 104 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1440.0,
+    264.8
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 111 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    464.6,
+    266.1
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 101 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    246.8,
+    269.8
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: LOJA 01"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1909.1,
+    280.9
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 115 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1913.8,
+    446.9
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 117 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    543.5,
+    466.7
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 122 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    702.5,
+    466.7
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 121 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1481.5,
+    466.7
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    971.5,
+    468.1
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 120 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1630.0,
+    469.6
+   ],
+   "bloco": "linha",
+   "obs": "bloco area de: UN 118 A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1708.8,
+    263.3
+   ],
+   "largura": 44.5,
+   "altura": 11.5,
+   "caixa": true,
+   "obs": "corr 114 A - Mezanino: area de: UN 114A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1708.8,
+    263.3
+   ],
+   "obs": "corr 114 A - Mezanino: bloco3 area de: UN 114A",
+   "bloco": "linha"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1930.5,
+    345.7
+   ],
+   "largura": 44.9,
+   "altura": 11.1,
+   "caixa": true,
+   "obs": "corr 116 A - Mezanino: area de: UN 116A"
+  },
+  {
+   "frame": "o",
+   "centro": [
+    1930.5,
+    345.7
+   ],
+   "obs": "corr 116 A - Mezanino: bloco3 area de: UN 116A",
+   "bloco": "linha"
+  }
+ ]
+}

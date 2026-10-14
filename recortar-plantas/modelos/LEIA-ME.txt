@@ -1,0 +1,6 @@
+Modelo de IA (opcional) - so para ampliar planta pequena com "ampliar_ia": true (scripts/esrgan.py).
+Nao vai no pacote (64 MB). Se precisar, baixe:
+  https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth
+e salve NESTA pasta, com este nome:
+  %USERPROFILE%\.claude\skills\recortar-plantas\modelos\RealESRGAN_x4plus.pth
+Requer tambem: pip install torch
