@@ -1,0 +1,423 @@
+{
+ "fonte": "Drive: 'Tipologias - Cachoeira Spot' (19py2fdU9YarVyOHeyX6QkroUPnfpMmx18b059Rlut84), aba VERSÃO PROJETO LEGAL",
+ "obs": "As letras ainda nao foram definidas nessa aba; G01..G37 sao rotulos PROVISORIOS de grupo (nao inventar letra).",
+ "grupos": [
+  {
+   "grupo": "G01",
+   "letra": null,
+   "unidades": [
+    "101"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G02",
+   "letra": null,
+   "unidades": [
+    "102"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G03",
+   "letra": null,
+   "unidades": [
+    "103"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 5
+  },
+  {
+   "grupo": "G04",
+   "letra": null,
+   "unidades": [
+    "104",
+    "106"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G05",
+   "letra": null,
+   "unidades": [
+    "105"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 5
+  },
+  {
+   "grupo": "G06",
+   "letra": null,
+   "unidades": [
+    "107"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 5
+  },
+  {
+   "grupo": "G07",
+   "letra": null,
+   "unidades": [
+    "108",
+    "109"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G08",
+   "letra": null,
+   "unidades": [
+    "110"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G09",
+   "letra": null,
+   "unidades": [
+    "111"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G10",
+   "letra": null,
+   "unidades": [
+    "112"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G11",
+   "letra": null,
+   "unidades": [
+    "113",
+    "114"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G12",
+   "letra": null,
+   "unidades": [
+    "115"
+   ],
+   "terraco": "GARDEN",
+   "tipo": "MEZANINO",
+   "capacidade": 5
+  },
+  {
+   "grupo": "G13",
+   "letra": null,
+   "unidades": [
+    "201",
+    "220",
+    "221",
+    "222",
+    "301",
+    "320",
+    "401",
+    "420"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G14",
+   "letra": null,
+   "unidades": [
+    "202",
+    "302",
+    "402"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G15",
+   "letra": null,
+   "unidades": [
+    "218",
+    "219"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 3
+  },
+  {
+   "grupo": "G16",
+   "letra": null,
+   "unidades": [
+    "203",
+    "207",
+    "303",
+    "307",
+    "403",
+    "407"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G17",
+   "letra": null,
+   "unidades": [
+    "204",
+    "206",
+    "304",
+    "306",
+    "404",
+    "406"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 3
+  },
+  {
+   "grupo": "G18",
+   "letra": null,
+   "unidades": [
+    "205",
+    "305",
+    "405"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 3
+  },
+  {
+   "grupo": "G19",
+   "letra": null,
+   "unidades": [
+    "208",
+    "209",
+    "212",
+    "213",
+    "214",
+    "308",
+    "309",
+    "312",
+    "313",
+    "408",
+    "409",
+    "412",
+    "413"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G20",
+   "letra": null,
+   "unidades": [
+    "210",
+    "310",
+    "410"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G21",
+   "letra": null,
+   "unidades": [
+    "211",
+    "311",
+    "411"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G22",
+   "letra": null,
+   "unidades": [
+    "215"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G23",
+   "letra": null,
+   "unidades": [
+    "216"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G24",
+   "letra": null,
+   "unidades": [
+    "217"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G25",
+   "letra": null,
+   "unidades": [
+    "315",
+    "415"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G26",
+   "letra": null,
+   "unidades": [
+    "317",
+    "417"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 3
+  },
+  {
+   "grupo": "G27",
+   "letra": null,
+   "unidades": [
+    "318",
+    "319",
+    "418",
+    "419"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G28",
+   "letra": null,
+   "unidades": [
+    "314"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G29",
+   "letra": null,
+   "unidades": [
+    "414"
+   ],
+   "terraco": "SEM SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G30",
+   "letra": null,
+   "unidades": [
+    "316"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G31",
+   "letra": null,
+   "unidades": [
+    "416"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G32",
+   "letra": null,
+   "unidades": [
+    "501"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G33",
+   "letra": null,
+   "unidades": [
+    "502"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 3
+  },
+  {
+   "grupo": "G34",
+   "letra": null,
+   "unidades": [
+    "503"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  },
+  {
+   "grupo": "G35",
+   "letra": null,
+   "unidades": [
+    "504",
+    "505"
+   ],
+   "terraco": "SACADA",
+   "tipo": "PADRÃO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G36",
+   "letra": null,
+   "unidades": [
+    "506"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 2
+  },
+  {
+   "grupo": "G37",
+   "letra": null,
+   "unidades": [
+    "507"
+   ],
+   "terraco": "SACADA",
+   "tipo": "ÚNICO",
+   "capacidade": 4
+  }
+ ]
+}

@@ -29,6 +29,8 @@ ap.add_argument('--hidro-gardens', action='store_true', help='coloca hidromassag
 ap.add_argument('--vazios', action='store_true', help='mezanino: area sem zona = vazio do pe-direito duplo, desenhado com X')
 ap.add_argument('--hidro-lancamento', default='', help='humanizada de lancamento SEM texto do pavimento: banheiras na mesma posicao do lancamento')
 ap.add_argument('--ocr-lancamento', default='', help='OCR do lancamento (ocr_windows.ps1) para levar posicoes do lancamento para a planta nova')
+ap.add_argument('--transform-cm-px', type=float, default=0.6, help='cm/px da planta usada no registro (transform.json)')
+ap.add_argument('--fundo-transparente', action='store_true', help='fora do predio (paredes, fachada e zonas do aprovado) = transparente, como o render do D5')
 ap.add_argument('--transform', default='', help='transform.json do registro DWG x PDF (registra_pdf_imagem.py) para levar posicoes do PDF ao quadro')
 a = ap.parse_args()
 
@@ -154,7 +156,7 @@ print('zonas:', {c: sum(z['classe'] == c for z in zonas) for c in set(z['classe'
 extras = []
 if a.pdf_aprovado and a.transform:
     import fitz
-    T = json.load(open(a.transform, encoding='utf-8')); A = np.array(T['A_pdfpx_para_img'] + [[0, 0, 1]])
+    T = json.load(open(a.transform, encoding='utf-8')); A = np.array(T['A_pdfpx_para_img'] + [[0, 0, 1]]); A[:2] *= a.transform_cm_px / a.cm_px
     pg = fitz.open(a.pdf_aprovado)[T['pagina'] - 1]
     for rotulo in ('PISCINA',):
         for r in pg.search_for(rotulo):
@@ -526,6 +528,82 @@ if a.hidro_lancamento and a.ocr_lancamento:
             tl_ = np.array([nx, ny])
             coberto |= cola(tpl, [tl_, tl_ + [wl_, 0], tl_ + [wl_, hl_]], rec_); n_h += 1
         print('banheiras na posicao do lancamento:', n_h, 'de', len(achados), '| escala lancamento->planta', round(sc, 3))
+# --- elementos que o DWG nao desenha, posicionados pelo PDF APROVADO e desenhados com o objeto do lancamento ---
+#     bicicletas (etiquetas BR/BV/BC de cada vaga), elevadores (texto ELEVADORES), lixeiras (zona DEPOSITO ... LIXO)
+if a.pdf_aprovado and a.transform:
+    import fitz
+    T2 = json.load(open(a.transform, encoding='utf-8')); A2 = np.array(T2['A_pdfpx_para_img'] + [[0, 0, 1]]); A2[:2] *= a.transform_cm_px / a.cm_px
+    clip2 = T2['clip_pt']
+    pdf2img = lambda x, y: (A2 @ [(x - clip2[0]) * T2['esc'], (y - clip2[1]) * T2['esc'], 1])[:2]
+    dentro_clip = lambda x, y: clip2[0] <= x <= clip2[2] and clip2[1] <= y <= clip2[3]
+    pg2 = fitz.open(a.pdf_aprovado)[T2['pagina'] - 1]
+    ws = pg2.get_text('words')
+    # bicicletas
+    bike = carrega('bicicleta'); n_b = 0
+    if bike is not None:
+        nums = [w for w in ws if re.fullmatch(r'\d{2}', w[4])]
+        for w in ws:
+            if not re.fullmatch(r'B[RVC]', w[4]): continue
+            cx, cy = (w[0] + w[2]) / 2, (w[1] + w[3]) / 2
+            if not dentro_clip(cx, cy) or not nums: continue
+            nb = min(nums, key=lambda q: np.hypot((q[0] + q[2]) / 2 - cx, (q[1] + q[3]) / 2 - cy))
+            nx_, ny_ = (nb[0] + nb[2]) / 2, (nb[1] + nb[3]) / 2
+            if np.hypot(nx_ - cx, ny_ - cy) > 25: continue
+            c_ = (np.array(pdf2img(cx, cy)) + np.array(pdf2img(nx_, ny_))) / 2
+            d_ = np.array(pdf2img(nx_, ny_)) - np.array(pdf2img(cx, cy)); d_ /= (np.linalg.norm(d_) + 1e-9)   # eixo da etiqueta = eixo da bicicleta
+            L_ = px(180); Wb = L_ * bike.shape[1] / bike.shape[0]
+            v_ = d_; u_ = np.array([-v_[1], v_[0]])
+            tl_ = c_ - u_ * Wb / 2 - v_ * L_ / 2
+            # suporte (como no lancamento): traco da vaga em todas; bicicleta em ~metade (vagas pares)
+            p1, p2 = c_ - v_ * px(70), c_ + v_ * px(70)
+            cv2.line(img, tuple(int(q) for q in p1), tuple(int(q) for q in p2), (90, 92, 95), max(2, px(3)))
+            nnum = int(re.sub(r'\D', '', nb[4]) or 0)
+            if nnum % 2 == 0:
+                cola(bike, [tl_, tl_ + u_ * Wb, tl_ + u_ * Wb + v_ * L_])
+            n_b += 1
+    # elevadores: comodo fechado ~1,3-2,6 m perto do texto ELEVADORES
+    elev = carrega('elevador'); n_e = 0
+    if elev is not None:
+        usados_e = []
+        for r in pg2.search_for('ELEVADORES'):
+            cx, cy = (r.x0 + r.x1) / 2, (r.y0 + r.y1) / 2
+            if not dentro_clip(cx, cy) or any(np.hypot(cx - u, cy - v) < 70 for u, v in usados_e): continue
+            usados_e.append((cx, cy))
+            e0 = np.array(pdf2img(cx, cy))
+            # area hachurada do aprovado: 2 cabines lado a lado (~2,0 x 2,05 m cada) centradas no texto
+            for sx in (-1, 1):
+                c_ = e0 + [sx * px(100), 0]
+                x0_, x1_ = int(c_[0] - px(95)), int(c_[0] + px(95)); y0_, y1_ = int(c_[1] - px(100)), int(c_[1] + px(100))
+                livre = (~paredes[y0_:y1_, x0_:x1_]).astype(np.uint8)
+                n_, lb_ = cv2.connectedComponents(livre, connectivity=4)
+                cy_, cx_ = (y1_ - y0_) // 2, (x1_ - x0_) // 2
+                if lb_[cy_, cx_] > 0:
+                    ys_, xs_ = np.where(lb_ == lb_[cy_, cx_])
+                    bx0, by0, bx1, by1 = x0_ + xs_.min(), y0_ + ys_.min(), x0_ + xs_.max(), y0_ + ys_.max()
+                    if (bx1 - bx0) * a.cm_px > 110 and (by1 - by0) * a.cm_px > 110: x0_, y0_, x1_, y1_ = bx0, by0, bx1, by1
+                # porta da cabine do lado em que a parede tem o vao (lancamento: porta embaixo no sprite)
+                fx_ = slice(max(0, x0_), x1_); topo = paredes[max(0, y0_ - px(20)):y0_, fx_].mean() if y0_ > 0 else 1
+                base = paredes[y1_ + 1:y1_ + px(20), fx_].mean()
+                spr_e = elev[::-1] if topo < base else elev
+                coberto |= cola(spr_e, [(x0_, y0_), (x1_, y0_), (x1_, y1_)], (~paredes).astype(np.float32)); n_e += 1
+    # lixeiras: fileira encostada na parede comprida da zona de deposito de lixo
+    lix = carrega('lixeira'); n_l = 0
+    if lix is not None:
+        for z in zonas:
+            if not re.search(r'DEP.SITO.*LIXO|LIXEIRA', z['texto'], re.I): continue
+            mz = np.zeros((H, W), np.uint8); cv2.fillPoly(mz, [z['img'].astype(np.int32)], 1)
+            x_, y_, w_, h_ = cv2.boundingRect(mz)
+            lw_, lh_ = lix.shape[1] * ESC_L, lix.shape[0] * ESC_L
+            horiz = w_ >= h_
+            n = int((w_ if horiz else h_) // (lw_ * 1.05))
+            for i in range(n):
+                if horiz:
+                    tl_ = np.array([x_ + i * lw_ * 1.05 + lw_ * 0.05, y_ + px(8)]); dst_ = [tl_, tl_ + [lw_, 0], tl_ + [lw_, lh_]]
+                else:
+                    tl_ = np.array([x_ + px(8), y_ + i * lw_ * 1.05 + lw_ * 0.05]); dst_ = [tl_ + [lh_, 0], tl_ + [lh_, lw_], tl_ + [0, lw_]]
+                cola(lix, dst_, mz.astype(np.float32)); n_l += 1
+    print('do PDF aprovado: bicicletas', n_b, '| elevadores', n_e, '| lixeiras', n_l)
+
 # --- decoracao dos gardens/terracos como no lancamento (nao consta no projeto aprovado: so ambientacao) -----------
 decor = []
 hidro, palm, polt = carrega('hidro_redonda'), carrega('palmeira'), carrega('poltrona')
@@ -584,7 +662,16 @@ if a.vazios:
         cv2.rectangle(xis, (int(x_), int(y_)), (int(x_ + w_), int(y_ + h_)), 1, max(2, px(2.5)))
         img[(xis > 0) & mk] = (95, 95, 97)
 img[paredes] = (66, 66, 68)
-ok_ = cv2.imwrite(a.saida, img)
+filete = (cv2.dilate(paredes.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0) & ~paredes & ~coberto
+img[filete] = (228, 229, 230)   # contorno claro das paredes, como no lancamento
+if a.fundo_transparente:
+    dentro = (paredes | fach | coberto).astype(np.uint8)
+    for z in zonas + extras: cv2.fillPoly(dentro, [z['img'].astype(np.int32)], 1)
+    dentro = cv2.morphologyEx(dentro, cv2.MORPH_CLOSE, np.ones((px(25), px(25)), np.uint8))
+    cs_, _ = cv2.findContours(dentro, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    dentro = np.zeros_like(dentro); cv2.drawContours(dentro, cs_, -1, 1, -1)
+    img = np.dstack([img, (dentro * 255).astype(np.uint8)])
+ok_, buf_ = cv2.imencode('.png', img); ok_ = ok_ and buf_.tofile(a.saida) is None   # aceita acentos no caminho
 if not ok_: raise SystemExit("ERRO: nao consegui gravar " + a.saida + " (arquivo aberto em outro programa?)")
 json.dump(dict(dxf=a.dxf, X0=X0, Y1=Y1, px_por_mm=s, largura=W, altura=H), open(a.saida[:-4] + '_quadro.json', 'w'))
 cv2.imwrite(a.saida[:-4] + '_paredes_qc.png', cv2.cvtColor(np.where(paredes, 0, 255).astype(np.uint8), cv2.COLOR_GRAY2BGR))   # so para a conferencia com o R06

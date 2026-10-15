@@ -1,0 +1,44 @@
+{
+ "saida": "04_saida/CACHOEIRA-SPOT_UNIFICADO_3SKILLS",
+ "dxf_dir": "<pasta com os DXF do DWG aprovado: PAV-01.dxf, MEZ.dxf, ...>",
+ "pdf": "00_entradas/originais/projeto_aprovado/CACHOEIRASPOT-PL-ARQ-DCT-GER-XXX-000-R06.pdf",
+ "rotulos": "03_trabalho/rotulos_aprovado.json",
+ "transform_dir": "05_qc/humanizada_dwg",
+ "spotsys_csv": "00_entradas/spotsys_cachoeira_units_2026-10-09.csv",
+ "tipologias": "skill/exemplos/cachoeira-spot_tipologias_legal.json",
+ "estilo": "skill/estilo/lancamento",
+ "raquel_scripts": "<clone de seazone-tech/plantas-humanizadas>/skill/plantas-humanizadas/scripts",
+ "arthur_pipeline": "<clone de seazone-tech/szi-planta-humanizada (branch feature/planta-viva-bot)>/pipeline",
+ "pavimentos": [
+  {
+   "id": "PAV-02",
+   "texto": true
+  },
+  {
+   "id": "PAV-03"
+  },
+  {
+   "id": "PAV-04"
+  },
+  {
+   "id": "COB",
+   "extra": [
+    "--hidro-gardens",
+    "--hidro-lancamento",
+    "03_trabalho/lancamento_sem_texto/COB.png",
+    "--ocr-lancamento",
+    "03_trabalho/ocr_lancamento/COB.json"
+   ]
+  },
+  {
+   "id": "MEZ",
+   "extra": [
+    "--vazios"
+   ]
+  },
+  {
+   "id": "PAV-01"
+  }
+ ],
+ "_obs": "transform_dir: usar 05_qc/pavimento_final (registro sobre a planta a 0,9 cm/px; terreo por registra_translacao.py)"
+}

@@ -19,6 +19,10 @@ description: Atualiza as plantas humanizadas de um empreendimento Seazone quando
 > - **NAO_BATE**: o arquivo não é o aprovado. Procurar o arquivo técnico da mesma revisão do PDF (Autodoc → 2.1.c Projeto Legal → DWG; time de projetos). Sem ele, corrigir no arquivo base as unidades divergentes até a área bater e registrar cada correção. Nenhuma unidade com área diferente do aprovado vai para validação ou publicação.
 > - Registrar no diagnóstico: arquivo base, revisão, data, origem (Autodoc/Drive) e o resultado da conferência.
 >
+> **REGRA FIXA 5: o que o DWG não desenha vem do PDF aprovado, nunca é inventado.** Vagas de bicicleta (etiquetas BR/BV/BC), elevadores (hachura ELEVADORES), lixeiras (zona DEPÓSITO … LIXO) e piscina são posicionados pelas etiquetas do PDF assinado e desenhados com o objeto da humanizada de lançamento. O alinhamento PDF→planta é refeito sobre a planta gerada (`registra_pdf_imagem.py`; com escala fixa, `registra_translacao.py`).
+>
+> **UNIFICAÇÃO:** recorte por tipologia, cotas e texto/capacidade/solar usam a skill `seazone-tech/plantas-humanizadas`, com o `cfg` gerado do DWG por `gera_cfg_recorte.py`. Bot, painel, planta de tipologias e estudo solar usam a Planta Viva (`seazone-tech/szi-planta-humanizada`). Detalhes em `UNIFICACAO_PLANTAS_HUMANIZADAS.md`; executor de teste em `scripts/roda_unificado.py`.
+>
 > **REGRA FIXA 2: primeiro atualizar a planta, depois cortar.** O foco da skill é **atualizar a planta humanizada de cada pavimento** de acordo com o projeto aprovado. A comparação é **humanizada do lançamento × projeto aprovado (Autodoc)**, pavimento a pavimento e unidade a unidade. **Nenhum recorte por unidade é feito antes de a planta geral atualizada ser validada.**
 
 
