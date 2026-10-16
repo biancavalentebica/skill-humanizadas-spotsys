@@ -7,7 +7,7 @@ Busca até 4 níveis e até 45 pastas por Spot, só nas pastas de arquitetura (s
 | # | Spot | Arquivo base do aprovado ou posterior | Etapa(s) encontrada(s) | Serve como base? |
 |---|---|---|---|---|
 | 1 | Barra Spot | DWG (16) + IFC + RVT do **Projeto Legal** (R21–R22); Pré-Executivo e Executivo | Legal, Pré-Exec, Exec | **Sim** |
-| 2 | Batel Spot | — | Estudo Preliminar, Anteprojeto | Não |
+| 2 | Batel Spot | — (revisto em 15/10: há `BATELSPOT-PL-ARQ-DCT-GER-XXX-003-R04.DWG` em 2.1.c › DWG, mas é a prancha importada de PDF, sem blocos). Layout: projeto de interiores no Drive (AP R03 + RVT das unidades) | Estudo Preliminar, Anteprojeto, Legal | Só o PDF aprovado + interiores |
 | 3 | Cachoeira Spot | — (pastas DWG do Legal e do Básico vazias). O DWG usado veio do **Drive** | Estudo Preliminar | Não no Autodoc |
 | 4 | Cachoeira Beach Spot | DWG (11) + IFC do **Pré-Executivo** (R02/R05) | EP, Anteprojeto, Pré-Exec | **Sim** (conferir áreas) |
 | 5 | Campeche Spot | DWG (34) + IFC do **Executivo** | EP, Anteprojeto, Executivo | **Sim** (conferir áreas) |
