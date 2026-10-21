@@ -2,7 +2,7 @@
 usando o registro de sobrepoe_aprovado.py. Corta em mosaico para inspecao zona a zona (o QC por chamfer nao ve
 ambientes, equipamentos e acessos que mudaram; essa leitura e visual).
 
-Uso: py overlay_alta.py <registro.json> <render_cheio.png> <largura_render_do_registro> <x0,y0,x1,y1 pt> <saida_prefixo> [--tiles 3x2]
+Uso: py overlay_alta.py <registro.json> <render_cheio.png> <largura_render_do_registro> <x0,y0,x1,y1 pt> <saida_prefixo> --pdf <aprovado.pdf> [--tiles 3x2]
 """
 import argparse, json
 import fitz, cv2, numpy as np
@@ -10,7 +10,7 @@ import fitz, cv2, numpy as np
 ap = argparse.ArgumentParser()
 ap.add_argument('registro'); ap.add_argument('render'); ap.add_argument('larg_reg', type=float)
 ap.add_argument('clip'); ap.add_argument('prefixo'); ap.add_argument('--tiles', default='3x2')
-ap.add_argument('--pdf', default='00_entradas/originais/projeto_aprovado/BATELSPOT-PL-ARQ-DCT-GER-ASS-001-R04.pdf')
+ap.add_argument('--pdf', required=True, help='PDF aprovado (Autodoc 2.1.c.a) do mesmo registro')
 a = ap.parse_args()
 T = json.load(open(a.registro))
 (sx, _, tx), (_, sy, ty) = T['A']; fat = T['fator_reducao']; cx, cy = T['clip_pt'][:2]; zoom = 2.0

@@ -4,7 +4,18 @@ Gera a **planta humanizada do pavimento inteiro de acordo com o projeto aprovado
 - a geometria vem do **arquivo técnico do aprovado** (DWG/IFC/RVT), conferido contra o PDF assinado do **Autodoc** (2.1.c.a);
 - o acabamento é o da **humanizada de lançamento**.
 
-## Método atual (14/10/2026)
+## Procedimento vigente (16/10/2026)
+
+O passo a passo está em [skill/SKILL.md](skill/SKILL.md):
+- dois cenários: **A**, corrigir a humanizada existente quando a mudança é pontual (caso [Batel](skill/CASO_BATEL_SPOT.md)); **B**, do zero sobre o aprovado com o layout do interiores (Cachoeira, Campeche);
+- hierarquia de referências;
+- 14 etapas, com entrada, ação, validação e saída, e travas entre elas;
+- checklist de qualidade, numa ficha por pavimento ([skill/modelos/CHECKLIST_PAVIMENTO.md](skill/modelos/CHECKLIST_PAVIMENTO.md));
+- comparação com a skill da Carol: [skill/COMPARACAO_SKILL_CAROL.md](skill/COMPARACAO_SKILL_CAROL.md).
+
+A seção abaixo é o histórico do método de 14/10.
+
+## Método de 14/10/2026 (histórico)
 
 1. **Projeto aprovado:** PDF assinado do Autodoc (versão de referência).
 2. **Arquivo base:** DWG/IFC/RVT do aprovado. Antes de gerar, confere unidade por unidade se as áreas batem com o PDF aprovado (`confere_areas_base_x_aprovado.py`). Não precisa de Revit: o DWG vira DXF no AutoCAD ou no ODA File Converter.

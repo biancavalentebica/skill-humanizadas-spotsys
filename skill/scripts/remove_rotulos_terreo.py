@@ -16,6 +16,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('entrada'); ap.add_argument('saida')
 ap.add_argument('--dx', type=int, default=0); ap.add_argument('--dy', type=int, default=0)
 ap.add_argument('--debug', default='')
+ap.add_argument('--caixas', default='', help='JSON {manter: [[x0,y0,x1,y1]], remover: [[x0,y0,x1,y1,tipo]]} para outros pavimentos')
 ap.add_argument('--so-113', action='store_true', help='processa so o rotulo da garden 113 (deck | grama)')
 ap.add_argument('--manter-und', action='store_true', help='mantem so a numeracao das unidades (linha UND. xxx); tira areas e demais rotulos')
 a = ap.parse_args()
@@ -47,6 +48,11 @@ linhas.sort(key=lambda r: r[4] in ('claro_v', 'claro_g'))                     # 
 linhas += [(4405, 4385, 4820, 4480, 'escuro'),                                   # RECEPCAO
            (5870, 2828, 6630, 2930, 'escuro'),                                   # CIRCULACAO COMUM
            (515, 2400, 705, 4140, 'claro')]                                      # Av. Visc. de Guarapuava (vertical)
+if a.caixas:                                                                     # outro pavimento: caixas do JSON
+    cx_ = json.load(open(a.caixas))
+    linhas = [tuple(r[:5]) for r in cx_['remover']]
+    und = [tuple(r[:4]) for r in cx_['manter']]
+    a.manter_und = bool(und)
 linhas.sort(key=lambda r: r[4] in ('claro_v', 'claro_g'))
 if a.so_113:
     linhas = [r for r in linhas if r[4] in ('claro_v', 'claro_g')]
@@ -61,7 +67,7 @@ for (x0, y0, x1, y1, k) in linhas:
     if k.startswith('claro'):
         m = (g > max(bg + 45, 205)).astype(np.uint8)
     else:
-        m = (g < bg - 16).astype(np.uint8)
+        m = (g < bg - 16).astype(np.uint8)  # escuro / escuro_h
     m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
     # letra + sombra (rotulos brancos) ou + halo claro (rotulos cinza)
     m = cv2.dilate(m, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (19, 19) if k.startswith('claro') else (17, 17)))
@@ -99,6 +105,12 @@ for (x0, y0, x1, y1, k) in linhas:
     if k == 'escuro':                                                            # porcelanato: so multiplos da placa
         P = 187.5
         cands = [(int(round(i * P)), int(round(j * P))) for i in range(-7, 8) for j in range(-3, 4) if (i, j) != (0, 0)]
+    elif k == 'escuro_h':                                                        # piso em placas: mesma fileira, so na horizontal
+        passo = cx_.get('passo_placa', 0) if a.caixas else 0
+        if passo:                                                                # multiplos exatos da placa
+            cands = [(int(round(i * passo)), 0) for i in range(-7, 8) if abs(i * passo) >= bw * 0.6 + 8]
+        else:
+            cands = [(dx, 0) for dx in range(-1400, 1401, 2) if abs(dx) >= bw * 0.6 + 8]
     elif k == 'claro_v':
         cands = [(0, dy) for dy in range(-420, 421, 4) if abs(dy) >= bh * 0.6 + 8]
         # tambem os decks das gardens 114/115 (mesmas tabuas verticais, x 7000..7440, y 3550..4950), ja limpos

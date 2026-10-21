@@ -84,7 +84,8 @@ dist_cm = dt[v[ok].astype(int), u[ok].astype(int)] * cm_por_px_img
 res = dict(imagem=a.imagem, pagina=a.pagina, clip_pt=list(clip), anisotropia=round(sx / sy, 4),
            cm_por_px_img_reduzida=round(cm_por_px_img, 3), fator_reducao=fat,
            chamfer_mediana_cm=round(float(np.median(dist_cm)), 1), chamfer_p90_cm=round(float(np.percentile(dist_cm, 90)), 1),
-           frac_divisas_ate_15cm=round(float(np.mean(dist_cm <= 15)), 3), A=[[sx, 0, tx], [0, sy, ty]])
+           frac_divisas_ate_15cm=round(float(np.mean(dist_cm <= 15)), 3), A=[[sx, 0, tx], [0, sy, ty]],
+           parametros=dict(pdf=a.pdf, escala=a.escala, zoom=a.zoom, limiar=a.limiar, cm_px_img=a.cm_px_img))  # reproduzir o QC
 json.dump(res, open(a.prefixo + '_registro.json', 'w'), indent=1)
 
 ov = cv2.cvtColor(gs, cv2.COLOR_GRAY2BGR)
