@@ -138,8 +138,10 @@ if P == 'TER':
     vg = cv2.morphologyEx(((_fl[..., 1] > _fl[..., 0] + 15) & (_fl[..., 1] > _fl[..., 2] + 15)).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((81, 81), np.uint8)) > 0
     # grama do lancamento so onde o Legal tem jardim (simbolos verdes); onde o Legal tem vaga, e piso
     _nv, _lv = cv2.connectedComponents((ext & vg).astype(np.uint8), connectivity=8)
-    _ok = np.zeros(_nv, bool); _ok[np.unique(_lv[simb & (_lv > 0)])] = True; _ok[0] = False
-    gram = cv2.morphologyEx((ext & (simb | _ok[_lv])).astype(np.uint8), cv2.MORPH_OPEN, np.ones((15, 15), np.uint8)) > 0
+    _ok = np.ones(_nv, bool); _ok[0] = False
+    for _px, _py in ((1800, 850),): _ok[_lv[_py, _px]] = False      # frente da Unidade 11: no Legal e estacionamento
+    _ok[0] = False
+    gram = cv2.morphologyEx((ext & ((simb & ~(_lv == _lv[850, 1800]) if _lv[850, 1800] else simb) | _ok[_lv])).astype(np.uint8), cv2.MORPH_OPEN, np.ones((15, 15), np.uint8)) > 0
     _n, _l, _s, _ = cv2.connectedComponentsWithStats((ext & ~gram).astype(np.uint8), 4)
     for i in range(1, _n):
         if _s[i, 4] > 250000: continue
@@ -750,6 +752,10 @@ img[y0:y1, x0:x1] = (LA[y0:y1, x0:x1, :3] * _a + img[y0:y1, x0:x1] * (1 - _a)).a
 # fora das zonas que mudaram no projeto o executivo R10 = lancamento (paredes, portas, soleiras, loucas, box, chuveiro):
 # usa a representacao do lancamento tal qual, sem os rotulos; redesenho so nas zonas (Legal) e na area externa
 _lr, _, _ = tira_rotulos.tira(LA[..., :3], LA[..., 3])
+# a limpeza de rotulos so vale dentro das caixas azuis do lancamento; no resto fica o lancamento original
+_lb = (np.abs(LA[..., :3].astype(np.int16) - np.array([57, 66, 94])).sum(axis=2) < 40) & (LA[..., 3] > 200)
+_lbd = cv2.dilate(_lb.astype(np.uint8), np.ones((25, 25), np.uint8)).astype(bool)
+_lr = np.where(_lbd[..., None], _lr[..., :3], LA[..., :3])
 _pred = cv2.dilate(((A0['ids'] > 0) | A0['paredes'] | A0['vidro'] | A0['soleira']).astype(np.uint8), np.ones((31 if P != 'TER' else 5, 31 if P != 'TER' else 5), np.uint8)).astype(bool)
 _pred &= LA[..., 3] > 0
 ZDES = {'TER': [(2205, 1085, 3290, 2420)], '02P': [(1790, 395, 5025, 1392)]}[P]   # onde o desenho e meu (o resto = lancamento)
@@ -759,13 +765,21 @@ _zd = cv2.dilate(_zz, np.ones((5, 5), np.uint8))
 _wz = cv2.GaussianBlur((1 - _zd).astype(np.float32), (0, 0), 2)
 _a = (_pred * _wz)[..., None]
 img[:] = (_lr[..., :3] * _a + img * (1 - _a)).astype(np.uint8); alfa[_pred] = 255
+if P == 'TER':   # furos transparentes dentro do lote viram piso externo (eram os contornos brancos nos gradis)
+    _gap = lote & (alfa < 250) & ~cv2.dilate(_pred.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
+    img[_gap & gram] = GR[_gap & gram]; img[_gap & ~gram] = PX[_gap & ~gram]; alfa[_gap] = 255
 if P == 'TER':   # area externa: sem linha branca solta (vira o piso externo)
     _ee = ext & ~_pred & ~plat & ~esc_ac & ~grad & ~lixo
     _f = img.astype(np.int16); _wh = _ee & (_f.mean(axis=2) > 225) & ((_f.max(axis=2) - _f.min(axis=2)) < 14)
     _wh = cv2.dilate(_wh.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool) & _ee
     img[_wh & gram] = GR[_wh & gram]; img[_wh & ~gram] = PX[_wh & ~gram]
 if P != 'TER':   # pavimento tipo: nada fora do contorno da fachada do lancamento (a janela ja e a parede)
-    _fora = LA[..., 3] == 0; img[_fora] = 255; alfa[_fora] = 0
+    # acima da fachada (janela) nao vai nada: corta por coluna no primeiro pixel opaco do lancamento que nao e rotulo
+    _okp = (LA[..., 3] > 250) & ~_lbd
+    _top = np.where(_okp.any(axis=0), _okp.argmax(axis=0), H)
+    _cx = np.arange(H)[:, None] < _top[None, :]
+    img[_cx] = 255; alfa[_cx] = 0
+    _fora = LA[..., 3] < 250; img[_fora] = LA[..., :3][_fora]; alfa[_fora] = LA[..., 3][_fora]   # borda/sombra da fachada = lancamento
 Image.fromarray(np.dstack([img, alfa])).save(sai)
 np.savez_compressed(P + '_hib_amb.npz', ids=ids); json.dump(dict(ambientes={str(k): dict(nome=v) for k, v in amb.items()}), open(P + '_hib_amb.json', 'w', encoding='utf8'), ensure_ascii=False)
 print(P, 'ambientes', len(amb), 'loucas', n_l, 'moveis', n_o, 'descartados', n_x, 'portas', len(portas))
