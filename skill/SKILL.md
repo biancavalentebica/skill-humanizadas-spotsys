@@ -1,11 +1,11 @@
 ---
 name: atualiza-humanizadas-spotsys
-description: Gera ou atualiza as plantas humanizadas de pavimento de um empreendimento Seazone de acordo com o projeto aprovado (Autodoc), recorta por unidade e prepara a carga no SpotSys e os pins do 360, com conferência e travas de validação em cada etapa. Dois cenários: A (corrigir a humanizada existente quando a mudança é pontual, como no Batel Spot) e B (humanizada do zero sobre o aprovado com o layout do interiores, como no Cachoeira e no Campeche). Use quando pedirem "atualizar humanizada", "humanizada x projeto aprovado", "humanizada do zero", "planta sem texto", "recorte por unidade", "planta desatualizada no SpotSys", "pins do 360" ou citarem um empreendimento com is_outdated_area.
+description: Gera ou atualiza as plantas humanizadas de pavimento de um empreendimento Seazone pela versão mais nova do projeto (aprovado no Autodoc ou executivo), recorta por unidade com a skill recortar-plantas da Bianca e prepara a carga no SpotSys e os pins do 360, com conferência e travas de validação em cada etapa. Dois cenários: A (corrigir a humanizada existente quando a mudança é pontual, como no Batel Spot) e B (método híbrido do Lagoa Spot: lançamento tal qual onde o projeto não mudou, redesenho só nas zonas que mudaram). Use quando pedirem "atualizar humanizada", "humanizada x projeto aprovado", "humanizada do zero", "planta sem texto", "recorte por unidade", "planta desatualizada no SpotSys", "pins do 360" ou citarem um empreendimento com is_outdated_area.
 ---
 
 # Skill: plantas humanizadas pelo projeto aprovado (SpotSys / 360)
 
-Versão do procedimento: **16/10/2026**. Ela substitui as seções A–L da versão de 15/10. As regras técnicas foram mantidas e reorganizadas; o histórico está na seção 11.
+Versão do procedimento: **22/10/2026 (MVP)**, fechada depois do Lagoa Spot, que foi o primeiro empreendimento a passar de ponta a ponta até o recorte e os pins. Comece pelo **roteiro MVP** (seção 0.1); as seções seguintes detalham cada etapa. O histórico está na seção 11.
 
 Arquivos que compõem a skill (mantenha-os consistentes entre si):
 
@@ -14,7 +14,10 @@ Arquivos que compõem a skill (mantenha-os consistentes entre si):
 | `skill/SKILL.md` (este) | procedimento: cenários, hierarquia, etapas, travas, checklist |
 | `skill/modelos/CHECKLIST_PAVIMENTO.md` | ficha que é preenchida e salva em `01_diagnostico/` para **cada pavimento**; é a prova de cada etapa |
 | `skill/CASO_BATEL_SPOT.md` | caso de referência do Cenário A, etapa por etapa, com os testes de 16/10 |
-| `skill/scripts/do_zero/LEIA-ME.md` | geradores do Cenário B (Cachoeira, Campeche) |
+| `skill/scripts/do_zero/lagoa/LEIA-ME.md` | **modelo validado do Cenário B** (método híbrido do Lagoa), com a ordem de execução |
+| `skill/scripts/recorte/config_recorte_bianca.py` + `skill/exemplos/lagoa-spot_recorte.json` | configs da skill da Bianca e pins do 360 a partir da geometria da planta |
+| skill `recortar-plantas` (Bianca), branch `pr-1-recortar-plantas` | recorte por unidade (obrigatória) |
+| `skill/scripts/do_zero/LEIA-ME.md` | geradores do zero completo (Cachoeira, Campeche), não validados |
 | `skill/UNIFICACAO_PLANTAS_HUMANIZADAS.md` | relação com as skills da Raquel (recorte/texto), do Arthur (Planta Viva) e da Carol |
 | `skill/COMPARACAO_SKILL_CAROL.md` | comparação com a `atualizar-humanizada` (Carol), conflitos em aberto e proposta de integração em fases |
 
@@ -33,6 +36,27 @@ Arquivos que compõem a skill (mantenha-os consistentes entre si):
 
 **Python neste ambiente (Windows):** use `py` (o comando `python` não está instalado). Todos os comandos abaixo são rodados **a partir da pasta do empreendimento** (ex.: `BATEL-SPOT/`), com os scripts em `../skill/scripts/`.
 
+**Como a Rachel trabalha [OBRIGATÓRIO]:**
+- Tarefas mecânicas dentro das pastas do projeto (arquivar versão superada em `04_saida/_DESCARTADO/`, regerar, organizar) são feitas sem perguntar. Publicar no SpotSys, no 360 ou no Drive, apagar originais, commitar e fazer push exigem o OK dela.
+- Cada rodada de ajustes termina com as **plantas enviadas** a ela (prévia JPG) e com o LEIA-ME da entrega atualizado. Não responda "está gerando" sem mostrar o resultado quando ele existir.
+- Toda regra nova que ela der vai para esta `SKILL.md` no mesmo dia, escrita de forma geral (não presa ao empreendimento), e o repositório `rachelsouto-source/skill-humanizadas-spotsys` é atualizado.
+- A planta é para **leigo**: se alguém puder ficar em dúvida ao ler, está reprovada.
+
+### 0.1 Roteiro MVP (próximo empreendimento)
+
+| # | Etapa | O que fazer | Quem decide | Sai |
+|---|---|---|---|---|
+| 1 | Abrir o caso (0) | pastas + `RETOMAR_AQUI.md` + ficha por pavimento | — | estrutura |
+| 2 | Entradas (1) | Autodoc 2.1.c.a (maior revisão) + executivo DWG/IFC/RVT + humanizada de lançamento em alta + interiores + export do SpotSys **com `id`** | **[VALIDAÇÃO HUMANA]** Rachel diz qual é a versão de referência (executivo ou legal) | `00_entradas/` |
+| 3 | Áreas (2) | SpotSys × referência × arquivo base, unidade a unidade | Rachel aceita diferenças | CSVs |
+| 4 | Diferenças e cenário (3) | registrar a referência no quadro do lançamento; overlay zona a zona; lista de tudo que mudou | **[VALIDAÇÃO HUMANA]** Rachel confirma lista e cenário | zonas que mudaram |
+| 5 | Planta do pavimento (4A ou 4B) | A: corrigir só os itens. B: método híbrido do Lagoa (`scripts/do_zero/lagoa/`), regras de representação 1–17 | — | `*_SEM-TEXTO.png` |
+| 6 | Nomes (5) | só "UNIDADE NN" dentro de cada unidade (`escreve_unidades.py`) | — | `*_FINAL.png` |
+| 7 | QC e rodadas (6–7) | comparar trecho a trecho com o lançamento; mandar prévias; cada rodada superada vai para `_DESCARTADO/` com o defeito no nome | **[VALIDAÇÃO HUMANA]** Rachel aprova as plantas | plantas aprovadas |
+| 8 | Recorte (8) | **sempre a skill `recortar-plantas` da Bianca**: config gerado da geometria (`scripts/recorte/config_recorte_bianca.py`), teste com 2–3 unidades | **[VALIDAÇÃO HUMANA]** Rachel aprova o teste, depois todas | `Plantas unidades/<pavimento>/` |
+| 9 | Pins e pacote (9) | `pins_360_AGUARDANDO_VALIDACAO.json` dos mesmos contornos + cópia exata da planta do pavimento | — | `04_PUBLICACAO/` |
+| 10 | SpotSys e 360 (10–13) | manual, por quem tem acesso; pins nunca testados no 360 | quem administra o 360 | — |
+
 ---
 
 ## 1. Objetivo e cadeia ponta a ponta
@@ -46,17 +70,17 @@ projeto aprovado (Autodoc) ─► planta humanizada do PAVIMENTO ─► validaç
 
 O processo de **lançamento** é o mesmo, partindo do anteprojeto e criando os pins (em vez de reajustá-los).
 
-**Estado real de cada elo (16/10/2026):**
+**Estado real de cada elo (22/10/2026):**
 
 | Elo | Situação | Prova |
 |---|---|---|
-| 1. Planta do pavimento, Cenário A | **executável** (Batel térreo) | `CASO_BATEL_SPOT.md`; sobreposição da entrada conferida em 16/10 |
-| 1. Planta do pavimento, Cenário B | **executável, aguardando validação** (Cachoeira e Campeche térreo) | `scripts/do_zero/`; nenhuma planta B foi validada até agora |
-| 2. Validação da planta | **procedimento definido** (seção 5 + ficha) | — |
-| 3. Recorte por unidade | **executável no padrão de rótulo do Cachoeira** (87 unidades na R04, base antiga). No Batel, o nosso extrator leu 0 de 99 (E12). Com a segmentação da Carol (fase 1) + `poligonos_carol.py` (fase 2), saíram **99 recortes e 99 pins com `szi_unit_id`** em teste (16/10), depois das correções de 16/10 sem falhas (C8 OK; gardens, terraço da 211 e 113 corrigidos), mas com 2º/tipo ainda com texto e o térreo sem validação | `COMPARACAO_SKILL_CAROL.md`, seções 6 e 7 |
+| 1. Planta do pavimento, Cenário A | **executável** (Batel térreo) | `CASO_BATEL_SPOT.md` |
+| 1. Planta do pavimento, Cenário B | **validado no Lagoa Spot** (térreo e 2º pav., aprovados pela Rachel em 22/10, depois de 8 rodadas). Cachoeira e Campeche (do zero completo) ficaram sem validação | `scripts/do_zero/lagoa/`; `LAGOA-SPOT/04_saida/LAGOA-SPOT_DO-ZERO_SKILL-CAROL_EXECUTIVO-R10_AGUARDANDO-VALIDACAO/LEIA-ME.md` (rodadas) |
+| 2. Validação da planta | **feita no Lagoa** (rodadas com prévia + aprovação) | idem |
+| 3. Recorte por unidade | **validado no Lagoa com a skill `recortar-plantas` da Bianca** (21 de 21 unidades, C8 OK, teste com 3 unidades aprovado antes). Também usada no Batel | `LAGOA-SPOT/Plantas unidades/`, `LAGOA-SPOT/configs/` |
 | 4. Upload das unidades no SpotSys | **manual**, por quem tem acesso de escrita. A skill não escreve no sistema | — |
-| 5. Troca da planta do pavimento | **manual**. Antes de trocar, é preciso saber qual imagem do SpotSys corresponde a cada pavimento (Batel: 854–859, das quais 857 e 859 não foram mapeadas) | — |
-| 6. Pins do 360 | **não testado.** `gera_pacote_publicacao.py` gera `pins_360.json` (polígonos 0–1 por `szi_unit_id`), mas o arquivo nunca foi carregado no 360. O reposicionamento automático é uma **hipótese**: os pins saem da mesma geometria do recorte, o que deveria mantê-los no lugar, mas isso ainda não foi provado | — |
+| 5. Troca da planta do pavimento | **manual**. Antes de trocar, é preciso saber qual imagem do SpotSys corresponde a cada pavimento | — |
+| 6. Pins do 360 | **gerados, não testados.** `config_recorte_bianca.py` gera `pins_360_AGUARDANDO_VALIDACAO.json` (polígonos 0–1 por `szi_unit_id`) com os mesmos contornos do recorte, mas o arquivo nunca foi carregado no 360. Que os pins fiquem no lugar é **hipótese** até o teste da etapa 12 | — |
 | 7. 360 validado | **não testado** | — |
 
 > Ninguém pode afirmar que os pins funcionam enquanto o teste da etapa 12 não for feito e registrado.
@@ -69,7 +93,7 @@ O processo de **lançamento** é o mesmo, partindo do anteprojeto e criando os p
 
 | Tipo de informação | Manda (prevalece) | Complementa (só se compatível com quem manda) | Nunca usar para isso |
 |---|---|---|---|
-| Revisão vigente do projeto | PDF assinado do **Autodoc 2.1.c.a**, maior revisão | — | cópias do Drive (`*APROVADO*.pdf`, "Arquivos - Investidores") |
+| Revisão vigente do projeto | PDF assinado do **Autodoc 2.1.c.a**, maior revisão. **Quando há executivo ou legal mais novo que o aprovado, a Rachel diz qual é a referência** (Lagoa: PDF "Legal" rev. 27/11/2024 nas zonas que mudaram + DWG do executivo R10 no resto) | — | cópias do Drive (`*APROVADO*.pdf`, "Arquivos - Investidores") sem conferir a revisão |
 | Perímetro e divisas das unidades, paredes externas, núcleo (escada, elevador, shafts), circulações, acessos, vagas, equipamentos técnicos (E.T.) | **PDF aprovado** (vetor) | DWG/IFC/RVT **da mesma revisão** e com as **mesmas áreas** (etapa 2). O executivo serve para nomes, usos e representação (pilares, núcleo), nunca para mover o que o aprovado desenha | humanizada de lançamento, IA, medida "no olho" |
 | Numeração e áreas das unidades (privativa, garden, sacada, mezanino) | **PDF aprovado** (A. COMP. etc.) **=** SpotSys | quadro de áreas xlsx | texto escrito na humanizada |
 | Áreas que a prancha não escreve (ex.: total do garden no Batel) | **SpotSys** | — | humanizada |
@@ -90,7 +114,7 @@ O processo de **lançamento** é o mesmo, partindo do anteprojeto e criando os p
 
 A escolha é feita **por pavimento**, ao fim da etapa 3, com base na lista de diferenças entre a humanizada de lançamento e o aprovado. **[VALIDAÇÃO HUMANA]** A Rachel confirma o cenário antes da etapa 4.
 
-| Critério (todos lidos na etapa 3) | Cenário A: atualizar a existente | Cenário B: do zero |
+| Critério (todos lidos na etapa 3) | Cenário A: atualizar a existente | Cenário B: método híbrido (do zero onde mudou) |
 |---|---|---|
 | Existe humanizada de lançamento do pavimento, em alta resolução | sim | não importa (sem ela, é sempre B) |
 | Numeração e número de unidades = aprovado | sim | não, ou não importa |
@@ -98,7 +122,7 @@ A escolha é feita **por pavimento**, ao fim da etapa 3, com base na lista de di
 | Área privativa do interiores = A. COMP. do aprovado | sim | não, em várias unidades |
 | Diferenças da leitura zona a zona | **poucas e localizadas** (uma entrada, um E.T., um WC, uma vaga, rótulos) | acessos de unidades mudados, banheiros reposicionados, unidades que mudaram de lugar, pavimento reorganizado |
 | Régua da seção 9 | nível 1 ou 2 | nível 3 ou 4 |
-| Exemplo | **Batel Spot** (térreo: entrada, vaga de embarque, E.T., WC; demais pavimentos sem alteração) | **Cachoeira Spot** (82 de 87 unidades alteradas, térreo e mezanino reorganizados); **Campeche Spot** |
+| Exemplo | **Batel Spot** (térreo: entrada, vaga de embarque, E.T., WC; demais pavimentos sem alteração) | **Lagoa Spot** (modelo validado: Administração/Rouparia/PNE no térreo, unidades 12/13 no 2º pav., área externa); **Cachoeira Spot** e **Campeche Spot** (do zero completo, sem lançamento aproveitável) |
 
 Se um único critério cair na coluna B, use B **naquele pavimento**. Um empreendimento pode ter pavimentos A e B.
 
@@ -114,16 +138,23 @@ Pastas por empreendimento (os originais nunca são sobrescritos):
                                interiores/, spotsys_publicadas/
 <EMP>/00_entradas/spotsys/     export do SpotSys (CSV com id)
 <EMP>/01_diagnostico/          DIAGNOSTICO_<EMP>.md, PENDENCIAS_<EMP>.md, CHECKLIST_<PAV>.md, conferências .csv, INVENTARIO_AMBIENTES_<PAV>.md
-<EMP>/03_trabalho/             intermediários, scripts específicos do empreendimento
-<EMP>/04_saida/<EMP>_<SITUAÇÃO>-<REV>/   01_PLANTAS, 02_COMPARATIVO, 02_UNIDADES, 03_CONFERENCIA, 04_PUBLICACAO
+<EMP>/03_trabalho/             intermediários, scripts específicos do empreendimento (cópia ajustada dos modelos)
+<EMP>/04_saida/<EMP>_<SITUAÇÃO>_AGUARDANDO-VALIDACAO/
+                               LEIA-ME.md (fontes, método, rodadas, pendências), 00_PREVIAS (JPG), 01_PLANTAS (_FINAL com
+                               "UNIDADE NN" e _SEM-TEXTO), 02_CONFERENCIA (lançamento × final, folhas de recorte), 04_PUBLICACAO
+                               (planta do pavimento exata + pins_360)
+<EMP>/04_saida/_DESCARTADO/    cada rodada superada: <EMP>_v<NN>_<defeito-em-poucas-palavras>_<data>/
+<EMP>/configs/                 recorte.json + <pav>.json (skill da Bianca)
+<EMP>/Plantas unidades/<pavimento>/   "<Empreendimento> - <NN>.png" (uma subpasta por pavimento: Térreo, 2º Pavimento…)
 <EMP>/05_qc/                   registros, sobreposições, alta/ (mosaicos zona a zona)
+<EMP>/RETOMAR_AQUI.md          onde parou, próximo passo, comandos (atualizar ao fim de cada sessão)
 ```
 
 ### Etapa 0. Abrir o caso
 
 - **Objetivo:** ter uma ficha por pavimento onde cada etapa deixa a sua prova.
 - **Entrada:** nome do empreendimento; lista de pavimentos do SpotSys.
-- **Ação:** crie as pastas acima. Copie `skill/modelos/CHECKLIST_PAVIMENTO.md` para `01_diagnostico/CHECKLIST_<PAV>.md` (uma por pavimento ou por grupo de pavimentos tipo). Crie `PENDENCIAS_<EMP>.md`.
+- **Ação:** crie as pastas acima. Copie `skill/modelos/CHECKLIST_PAVIMENTO.md` para `01_diagnostico/CHECKLIST_<PAV>.md` (uma por pavimento ou por grupo de pavimentos tipo). Crie `PENDENCIAS_<EMP>.md` e `RETOMAR_AQUI.md`. Instale a skill da Bianca se ela não aparecer na sessão: `git archive pr-1-recortar-plantas recortar-plantas | tar -x -C ~/.claude/skills/` (rodado na raiz deste repositório).
 - **Critérios:** um pavimento tipo pode ter uma ficha só, desde que as variantes do aprovado (ex.: Batel 3º/7º, 4º/6º/8º, 5º) sejam listadas e conferidas uma a uma.
 - **Validação:** existe uma ficha para cada imagem de pavimento que vai para o SpotSys.
 - **Erros comuns:** esquecer pavimentos com mais de uma imagem publicada (com texto, sem texto, estudo solar). Batel: 6 imagens (854–859) para 4 pavimentos.
@@ -205,11 +236,18 @@ WHERE b.short_name = '<Nome do Spot>' AND u.is_active = true ORDER BY u.code;
 - **Erros comuns:** primeira versão com textura "desenhada", rejeitada pela Rachel no Batel ("quero as texturas realistas!!"); esquecer de aplicar a correção na versão com estudo solar; refazer elementos que estavam certos.
 - **Saída:** `04_saida/<EMP>_CONFORME-APROVADO-<REV>/01_PLANTAS/<EMP>_<PAV>_HUM-COM-TEXTO_APROVADO-<REV>.png` (+ variantes) e `_entrada_log.json`.
 
-### Etapa 4B. Cenário B: humanizada do zero
+### Etapa 4B. Cenário B: método híbrido (padrão) ou do zero completo
 
-- **Objetivo:** desenhar o pavimento inteiro sobre a geometria do aprovado, com o layout do interiores e o acabamento do lançamento.
-- **Entrada:** PDF aprovado (e DWG/IFC/RVT da mesma revisão, se tiver passado na etapa 2); tabela de tipologias e plantas de tipologia do interiores; kit de estilo do lançamento.
-- **Ação, nesta ordem:**
+- **Objetivo:** desenhar o pavimento na geometria da versão de referência, com o layout de interiores e o acabamento do lançamento, sem nenhuma parede, porta ou linha que confunda um leigo.
+- **Entrada:** versão de referência (PDF legal/aprovado e DWG/IFC/RVT do executivo, se tiver passado na etapa 2); humanizada de lançamento em alta; tabela de tipologias e plantas de tipologia do interiores.
+- **Método híbrido [RECOMENDADO], sempre que existir humanizada de lançamento em alta** (modelo validado: `skill/scripts/do_zero/lagoa/`, com a ordem de execução no `LEIA-ME.md` da pasta):
+  1. Rasterize o executivo e registre-o no quadro do lançamento; confira o overlay zona a zona.
+  2. Marque as zonas em que o projeto mudou (diferença executivo/legal × lançamento + leitura humana). Todo o resto usa o desenho do lançamento **tal qual**, só sem as caixas de rótulo.
+  3. Redesenhe só as zonas que mudaram, com as regras 1 a 17 abaixo; a emenda passa no núcleo preto de uma parede comum às duas fontes (regra 14).
+  4. Área externa: use a do lançamento quando ela bater com a referência (regra 17); redesenhe só o que mudou (acesso, plataforma, lixo).
+  5. Rode por pavimento, em paralelo e em segundo plano (8 a 10 minutos cada no Lagoa); grave sempre no rascunho e só copie para a entrega depois de conferir.
+- **Do zero completo (Cachoeira, Campeche)** só quando não há lançamento aproveitável ou quando o pavimento foi reorganizado (régua nível 4). Geradores: `skill/scripts/do_zero/cachoeira/` e `campeche/`. Nenhum dos dois foi validado pela Rachel.
+- **Nos dois casos, nesta ordem:**
   1. **Fluxos de circulação:** leia na prancha por onde se chega a cada unidade, loja, escada, elevador e WC. Registre na ficha.
   2. **Inventário de ambientes [OBRIGATÓRIO]:** `01_diagnostico/INVENTARIO_AMBIENTES_<PAV>.md`. Cada área do aprovado (e do executivo, só para nome e uso) entra com o que ela é, como será representada e de onde vem a textura: passeio, rua, concregrama, canteiro, deck, gramado, laje técnica, escada, bicicletário.
   3. **Tipologia por unidade [OBRIGATÓRIO]:** procure primeiro a tabela de tipologias (Cachoeira: abas "VERSÃO LANÇAMENTOS" e "VERSÃO PROJETO LEGAL") → `01_diagnostico/tipologias_unidades_<emp>.csv`. **Não deduza a tipologia pela forma** (no Cachoeira, a dedução trocou B/C e errou F). **Se não existir tabela** (Campeche), registre o que existe, ex.: "Unidades mezanino 38 m²", e leve o mapeamento à validação **[VALIDAÇÃO HUMANA]**. Se não houver nenhum layout de interiores para uma unidade, **não invente**: a unidade fica PENDENTE Interiores.
@@ -222,7 +260,7 @@ WHERE b.short_name = '<Nome do Spot>' AND u.is_active = true ORDER BY u.code;
      - unidade sem sanitário, ou sem jardineira/terraço quando ≥ 60% das irmãs têm;
      - sanitário sem louça; jardineira cortada pela metade;
      - **nível de fidelidade do mobiliário por unidade:** `interiores` / `lancamento` / `adaptado` / `regra` / `minimo` / `sem cama`. Os níveis `regra`, `minimo` e `sem cama` vão para **[VALIDAÇÃO HUMANA]**, com o que faltou.
-- **REGRAS DE REPRESENTAÇÃO [OBRIGATÓRIAS] (Rachel, Lagoa Spot 20–21/10/2026, todo empreendimento):** a humanizada é planta de venda para leigo, não desenho técnico. Modelo: `LAGOA-SPOT/03_trabalho/carol/render_hibrido.py`.
+- **REGRAS DE REPRESENTAÇÃO [OBRIGATÓRIAS] (Rachel, Lagoa Spot 20–22/10/2026, todo empreendimento):** a humanizada é planta de venda para leigo, não desenho técnico. Modelo: `skill/scripts/do_zero/lagoa/render_hibrido.py`.
   1. **Versão de referência:** é a última versão do projeto, que varia por caso: executivo mais recente ou legal aprovado. Rachel indica qual. O lançamento é a referência de **representação e layout**, não de geometria.
   2. **Onde a geometria da versão de referência = lançamento** (confira por overlay, zona a zona), use a **representação do lançamento tal qual**, só sem os rótulos. Isso vale para paredes, portas, soleiras, louças, box e chuveiro. Redesenhar o que já está certo gerou paredes desalinhadas, linhas na frente das paredes e portas sobrepostas.
   3. **Redesenhe só as zonas que mudaram** (`ZONAS_LEGAL`/`ZDES`). Dentro delas use os mesmos símbolos e texturas do lançamento, com o layout de interiores do lançamento readaptado.
@@ -232,7 +270,7 @@ WHERE b.short_name = '<Nome do Spot>' AND u.is_active = true ORDER BY u.code;
   7. **Bancadas e móveis:** sempre encostados na parede preta, no fundo e na lateral. Nunca atravessam parede, folha, giro da porta ou soleira. Cuba e vaso nunca dentro da parede nem no giro.
   8. **WC:** box = uma linha reta de vidro de parede a parede. O símbolo do chuveiro do lançamento fica **na mesma parede do vaso**, do outro lado do vidro, em todo box. Sem ralo solto.
   9. **Escadas:** degraus reais e iguais, sem eixo nem seta. A escada de acesso tem piso claro com degraus e corrimão.
-  10. **Elevador:** porta do lançamento (0,80 m, inox). Não redesenhar quando a geometria não mudou.
+  10. **Elevador:** porta do lançamento, com a moldura escalonada e a soleira de granito na metade do vão, como está desenhada lá. Não redesenhe o elevador quando a geometria não mudou: tire-o da zona redesenhada.
   11. **Área externa:** grama do lançamento só onde a versão de referência tem jardim. Onde tem vaga, entra o piso (sem demarcação). Muro e gradil no padrão do lançamento, sem linha solta.
   12. **Conferência:** antes de entregar, compare cada trecho em zoom com o lançamento (porta, soleira, bancada, box, parede, fachada, acesso). Se um leigo puder ficar em dúvida, está reprovado.
   13. **(Lagoa, 22/10) Paredes nas zonas redesenhadas:** nunca some a parede da versão nova (Legal) à do executivo ou do lançamento. O Legal vem 1 a 3 cm deslocado e mais grosso, e a soma deixa parede dupla. Desenhe retângulos retos com a espessura e o alinhamento do executivo (= lançamento), e use o Legal só para saber o que mudou. Parede fina nunca fica só com o contorno, com o miolo no tom do piso: núcleo preto sempre.
@@ -242,13 +280,13 @@ WHERE b.short_name = '<Nome do Spot>' AND u.is_active = true ORDER BY u.code;
   17. **(Lagoa, 22/10) Área externa legível para leigo:** se o lançamento já mostra a área externa como a versão de referência (lixo, garden com mureta + gradil de divisa, jardim, escada de acesso, plataforma), use o lançamento tal qual, sem rótulos, e ponha grama ou asfalto onde havia caixa ou texto de rótulo. Redesenhar pelas camadas do CAD deixa linhas sobrando. O garden de cada unidade tem de aparecer fechado pelo muro de divisa.
 - **Critérios técnicos:** proporção real (banheiros e WCs de loja não podem ser espremidos); orientação igual à do lançamento quando a Rachel pedir (Campeche: legal girado −45°).
 - **Validação:** etapa 3 sobre a planta nova (divisas nas paredes, leitura zona a zona). Por unidade: a porta de acesso está na circulação do aprovado e a tipologia é a da tabela.
-- **Erros comuns:** acesso de unidade copiado do lançamento (Cachoeira 110/111); interiores aplicado sem conferir a área; frente "confusa" ou com aparência de desenho técnico (Campeche).
-- **Saída:** planta do pavimento + inventário + CSV de tipologias + overlay.
+- **Erros comuns:** acesso de unidade copiado do lançamento (Cachoeira 110/111); interiores aplicado sem conferir a área; frente "confusa" ou com aparência de desenho técnico (Campeche); no Lagoa, as rodadas 1 a 8 corrigiram, nesta ordem: portas de tamanhos desiguais, ponta da circulação torta, paredes desalinhadas e sobrepostas, janelas cortadas sob as caixas de rótulo, parede de WC no tom do piso, shaft claro, garden sem muro de divisa, porta do elevador diferente do lançamento. Confira esses pontos antes de mandar a primeira prévia.
+- **Saída:** `01_PLANTAS/<EMP>_<PAV>_DO-ZERO_SEM-TEXTO.png` + inventário + CSV de tipologias + overlay + máscara de ambientes (`<P>_hib_amb.npz/json`, usada no recorte).
 
 ### Etapa 5. Textos e rótulos
 
 - **Objetivo:** produzir as versões de texto que o SpotSys e o 360 usam, sem mexer na geometria.
-- **REGRA [OBRIGATÓRIA] (Rachel, 19/10/2026, todo empreendimento):** a planta **não leva as caixas de rótulo do lançamento** ("Aloj 02 / 20,23 m² / 03 Hóspedes") nem áreas de garden. O único texto de unidade é **"Unidade NN"**, **dentro do ambiente** da respectiva unidade (modelo: `LAGOA-SPOT/03_trabalho/do_zero/tira_rotulos.py` + `escreve_unidades.py`). Paredes só as do executivo/aprovado: nada de traço de parede do lançamento sobrando ao lado (Rachel: "paredes sobrepostas... confusa").
+- **REGRA [OBRIGATÓRIA] (Rachel, 19/10/2026, todo empreendimento):** a planta **não leva as caixas de rótulo do lançamento** ("Aloj 02 / 20,23 m² / 03 Hóspedes") nem áreas de garden. O único texto de unidade é **"UNIDADE NN"** (código do SpotSys), **dentro do ambiente** da respectiva unidade, com fonte, tamanho e cor iguais em todas, no maior trecho de piso livre perto do centro (modelo: `skill/scripts/do_zero/lagoa/tira_rotulos.py` + `escreve_unidades.py`). Paredes só as do executivo/aprovado: nada de traço de parede do lançamento sobrando ao lado (Rachel: "paredes sobrepostas... confusa").
 - **Entrada:** planta da etapa 4; valores corretos (etapa 2).
 - **Ação (conforme o pedido):**
   - **Corrigir valores de área escritos:** `py ../skill/scripts/corrige_rotulos_area.py <img.png> <rotulos.json> <saida.png> [--debug pasta]`. Troca só o número, com glifos recortados da própria imagem.
@@ -271,45 +309,46 @@ WHERE b.short_name = '<Nome do Spot>' AND u.is_active = true ORDER BY u.code;
 
 - **Objetivo:** ninguém recorta nem publica uma planta que não foi aprovada por uma pessoa.
 - **Ação [VALIDAÇÃO HUMANA]:** envie a ficha + o comparativo à Rachel, ou a quem ela indicar. Registre na ficha: validado S/N, validador, data e observações. Para o pacote automático, registre também em `VALIDACAO_PLANTAS.csv` (pavimento, validado, validador, data, observação).
+- **Rodadas de ajuste (como foi no Lagoa):** cada pedido da Rachel vira uma rodada. Antes de substituir a entrega, a versão anterior vai para `04_saida/_DESCARTADO/<EMP>_v<NN>_<defeito>_<data>/`. Regere no rascunho, confira o trecho apontado e o pavimento inteiro contra o lançamento, copie para a entrega e mande as prévias. O LEIA-ME da entrega ganha uma seção "Ajustes de <data> (<N>ª rodada)" com o que mudou, em linguagem simples. Quando ela marcar o defeito num print, corrija a causa (regra) e não só o ponto, e registre a regra nesta `SKILL.md`.
 - **Trava:** sem validação registrada, **não existe etapa 8**. Reprovação → volta para a etapa 4 com as observações.
 - **Saída:** ficha assinada.
 
-### Etapa 8. Recorte por unidade
+### Etapa 8. Recorte por unidade (skill da Bianca)
 
-- **Objetivo:** uma imagem por unidade, recortada pelo polígono do aprovado e encaixada nas paredes reais da planta validada.
-- **REGRA (Rachel, 22/10/2026) [OBRIGATÓRIO]:** o recorte das humanizadas é feito **sempre, em qualquer caso, pela skill da Bianca**. Não escreva recortador próprio. Se a skill não estiver disponível na sessão, **pare e peça** o caminho dela. Os scripts abaixo valem só como referência e conferência.
-  - **Onde está:** `recortar-plantas/`, enviada pela Bianca Valente (commit 6ed51b0, branch `pr-1-recortar-plantas` deste repositório). Instalação: `git archive pr-1-recortar-plantas recortar-plantas | tar -x -C ~/.claude/skills/`. Siga o `SKILL.md` dela: nome `<Empreendimento> - <NN>.png`, pasta `<EMP>/Plantas unidades/`, configs em `<EMP>/configs/<pav>.json`, teste com 2 ou 3 unidades e aprovação antes de gerar todas.
-  - **Qualidade [OBRIGATÓRIO]:** o recorte sai na resolução original da planta. Nunca redimensione nem amplie.
-  - **Config a partir da planta do zero (Lagoa, 22/10):** quando a planta foi desenhada por nós, os contornos do config saem da mesma geometria que a desenhou (máscara de ambientes), e não de medição à mão. Modelo: `LAGOA-SPOT/03_trabalho/carol/config_bianca.py`. Ele também gera o `pins_360` com os mesmos contornos, para o pin e o recorte coincidirem. Confira sempre com o `grade.py --config` da skill.
-  - **Regras de contorno (Lagoa, 22/10):** entre duas unidades, o contorno passa no meio da parede. Na fachada e no corredor, vai até a face externa da parede, com a **parede e a soleira da porta de entrada inteiras** (cortar a soleira ao meio deixou a porta "desconfigurada"). O vão da porta é achado por geometria (a parede do corredor fechada em linha reta sobre o vão), não por cor: granito, asfalto e porcelanato se confundem, e a detecção por cor chegou a gerar recortes do pavimento quase inteiro. O WC é o da unidade para a qual a porta dele abre. O garden entra só nas unidades que têm garden no SpotSys.
-  - **OCR:** `verif.py` e `tem_numero.py` exigem o Tesseract (`C:\\Program Files\\Tesseract-OCR`). Sem ele, confira a numeração nas folhas de contato e registre. O `tem_numero.py` espera códigos de três dígitos.
-- **Entrada:** planta **validada** sem texto; polígonos das unidades; registro PDF→imagem; export do SpotSys.
-- **Ação (padrão de rótulo `101 | 20,22 m²`, como no Cachoeira):**
-  1. `py ../skill/scripts/extrai_rotulos_pdf.py <pdf> <págs> <spotsys.csv> rotulos.json conferencia.csv`
-  2. `py ../skill/scripts/celulas_pdf.py <pdf> <pág> rotulos.json celulas.json debug.png [--janela ... --esc 6] [--correcoes corr.json]`
-  3. `py ../skill/scripts/registra_pdf_imagem.py <pdf> celulas.json <sem_texto.png> 05_qc/registro/<PAV> [--escala 100]`
-  4. `config_recortes.json` → `py ../skill/scripts/gera_recortes.py config.json`
-  5. `py ../skill/scripts/folha_contato.py <pasta> <saida.jpg>` → revisão em `revisao_visual.json`
-  - Alternativa com DWG que tenha zonas de área: `gera_cfg_recorte.py` + recorte da Raquel (`UNIFICACAO_PLANTAS_HUMANIZADAS.md`).
-- **Antes de rodar em um empreendimento novo [OBRIGATÓRIO]:** confira se o padrão de rótulo do PDF é reconhecido. Rode o passo 1 e veja a contagem `OK`. **Se for 0 ou muito menor que o número de unidades, pare**: o extrator precisa ser adaptado. No Batel, o rótulo é `UNIDADE 01 / A. COMP.=19,17m²` e o pavimento vem da prancha; o teste de 16/10 deu 0 de 99 (E12). Solução testada para o Batel: a segmentação da skill da Carol (`prefixos_unidade: ["UNIDADE"]` + `andares` por página → código `{andar}{nn}`) leu 99 de 99. Ela exige (a) um PDF com uma planta por página (recorte por redação) e (b) `classes` no config ignorando o poché recortado por clip path. O adaptador `poligonos_carol.py` leva esses polígonos à humanizada pelo registro validado e gera recortes + `pins_360` (fase 2, `COMPARACAO_SKILL_CAROL.md`, seção 7). Ele aplica regras de anexo pela hierarquia (sanitário órfão descartado quando a unidade já = A. COMP.; grama pela maior divisa; anexo externo pelo SpotSys) e registra cada ajuste. Antes de usar o resultado: conferir `*_poligonos.jpg` zona a zona e a coluna `observacao` do log; qualquer `FALHA` bloqueia.
-- **Pavimento tipo e andar real:** quando o SpotSys/360 usar uma planta por andar, gere **um arquivo por andar real** com o número exato de cada unidade (ex.: 301…312, …, 801…812), a partir da mesma planta validada do tipo. A planta de tipo ("UND. FINAL 01…12") pode continuar existindo como imagem do pavimento. **[VALIDAÇÃO HUMANA]** Confirme com quem administra o 360 qual das duas os pins usam.
-- **Conteúdo do recorte:** unidade + sanitário + jardineira/garden/terraço/sacada da própria unidade.
-- **Critérios técnicos:** recorte pela face externa das paredes da própria unidade; nada do vizinho; cantos retos; PNG RGBA com fundo transparente; resolução de origem (mínimo de 400 px no maior lado); nome com o código do SpotSys.
-- **Validação:** C1, C6, C7 e **C8 (número de recortes = número de unidades ativas do SpotSys, por pavimento)**; folha de contato revisada; nenhuma unidade sem polígono ou com `falhou_poligono_com_folga` sem revisão. Confira os PNG grandes no disco (data e hash), não as prévias. No OneDrive, o cliente de sincronização às vezes devolve a versão anterior (lição da Carol).
-- **Erros comuns:** recorte que pega duas unidades (Cachoeira 103); número da unidade ausente no DWG do térreo e do mezanino; faixas sem divisa no aprovado (108, L3), que ficam pendentes.
-- **Saída:** `02_UNIDADES/<PAV>/<EMP>_<PAV>_UN-<código>_HUM-SEM-TEXTO_<REV>.png` + `recortes_log.json` + folhas de contato.
-
-### Etapa 9. QC por unidade e pacote de publicação
-
-- **Objetivo:** só entram no pacote as unidades aprovadas no QC **e** validadas por uma pessoa.
+- **Objetivo:** uma imagem por unidade, na resolução original da planta aprovada, com a unidade, o WC dela e o garden/terraço/sacada dela.
+- **REGRA (Rachel, 22/10/2026) [OBRIGATÓRIO]:** o recorte das humanizadas é feito **sempre, em qualquer caso, pela skill `recortar-plantas` da Bianca Valente**. Não escreva recortador próprio (no Lagoa, um script próprio foi descartado por isso). Se a skill não estiver disponível na sessão, instale-a (abaixo) ou **pare e peça** o caminho.
+- **Onde está:** pasta `recortar-plantas/` na branch `pr-1-recortar-plantas` deste repositório (commit 6ed51b0). Instalação, na raiz do repositório: `git archive pr-1-recortar-plantas recortar-plantas | tar -x -C ~/.claude/skills/`. Siga o `SKILL.md` dela.
+- **Entrada:** planta do pavimento **aprovada** (etapa 7) com "UNIDADE NN"; máscara de ambientes que desenhou a planta (`<P>_hib_amb.npz/json`, etapa 4B); export do SpotSys com `id`.
 - **Ação:**
-  1. `py ../skill/scripts/relatorio_qc.py config.json spotsys.csv conferencia.csv revisao_visual.json 05_qc/registro 03_trabalho/sem_texto` → `QC_RELATORIO.md`, `qc_unidades.csv`
-  2. `py ../skill/scripts/gera_pacote_publicacao.py config.json spotsys.csv [--aceitar-ressalva]` → sai como `AGUARDANDO_VALIDACAO` com `VALIDACAO_HUMANA.csv`
-  3. **[VALIDAÇÃO HUMANA]** Uma pessoa preenche `validado`, `validador`, `data` e `observacao` por unidade.
-  4. Rode de novo com `--validacao VALIDACAO_HUMANA.csv` → `pins_360.json` + `manifesto_publicacao.csv` só com as validadas; o resto vai para `BLOQUEADOS.csv`.
-- **Atalho:** `roda_pipeline.py <emp>.json` encadeia as etapas 8–9 (e remove texto com `remove_texto.py`). **Só use depois da etapa 7**, porque ele recorta.
-- **Validação:** cada unidade do SpotSys aparece no manifesto ou em `BLOQUEADOS.csv`, com motivo. `szi_unit_id` preenchido em todas as linhas do `pins_360.json` (exige o `id` no export).
-- **Saída:** `04_PUBLICACAO/` validado.
+  1. Escreva `<EMP>/configs/recorte.json` (modelo: `skill/exemplos/lagoa-spot_recorte.json`): nome do empreendimento, metros por pixel, export do SpotSys, padrão do nome do ambiente da unidade (`regex_unidade`, ex.: `ALOJ ([0-9]+)`) e do WC, e, por pavimento, a planta, a máscara de ambientes, o andar do SpotSys e a subpasta de saída.
+  2. Gere os configs da skill e os pins com a mesma geometria: `py ../skill/scripts/recorte/config_recorte_bianca.py configs/recorte.json`. O terminal mostra a contagem por pavimento × SpotSys (**C8**) e cada WC atribuído por contato (sem vão direto), para conferir.
+  3. Confira os contornos com a skill: `py ~/.claude/skills/recortar-plantas/scripts/grade.py <planta> --config configs/<pav>.json --saida <rascunho>/c.png` (Read).
+  4. **Teste com 2 ou 3 unidades** (uma comum, uma com garden, uma da zona redesenhada), gravando no rascunho, e mande para a Rachel. **[VALIDAÇÃO HUMANA]** Só gere todas depois da aprovação.
+  5. Gere todas: `py ~/.claude/skills/recortar-plantas/scripts/recortar.py configs/<pav>.json --folha <rascunho>/folha_<pav>.png`, um pavimento por vez. Copie as folhas para `02_CONFERENCIA/<PAV>_folha_recortes_skill-bianca.png`.
+  6. Revise as folhas (Read): porta de entrada inteira, nada do vizinho, garden certo, número visível. Corrija o config e rode só a unidade com problema (`recortar.py cfg.json 12`).
+- **Regras de contorno (Lagoa, 22/10) [OBRIGATÓRIO]:**
+  - entre duas unidades, o contorno passa no **meio** da parede;
+  - no corredor e na fachada, vai até a **face externa** da parede, com a **parede e a soleira da porta de entrada inteiras** (cortar a soleira ao meio deixou a porta "desconfigurada");
+  - o vão da porta e o dono do WC são achados por **geometria**, nunca por cor (granito, asfalto e porcelanato se confundem; a detecção por cor chegou a gerar recortes do pavimento quase inteiro). O WC é da unidade cujo piso encosta direto no dele, o que só acontece pelo vão da porta;
+  - fora do prédio (asfalto, gramado comum) nada entra; o garden entra só nas unidades que têm garden no SpotSys, limitado pelo gradil.
+- **Padrão de entrega (Rachel):** `<EMP>/Plantas unidades/<pavimento>/<Empreendimento> - <NN>.png`, **uma subpasta por pavimento** (Térreo, 2º Pavimento…), o que difere do padrão da skill (pasta única) por pedido da Rachel em 22/10. Fundo branco, sem girar, sem texto de área, com o "UNIDADE NN".
+- **Qualidade [OBRIGATÓRIO]:** resolução original da planta. Nunca redimensione, amplie, gire ou passe filtro.
+- **OCR:** `verif.py` e `tem_numero.py` da skill exigem o Tesseract (`C:\Program Files\Tesseract-OCR`), e o `tem_numero.py` espera códigos de três dígitos. Sem eles, confira a numeração nas folhas e registre no LEIA-ME.
+- **Pavimento tipo e andar real:** quando o SpotSys/360 usar uma planta por andar, gere **um arquivo por andar real** com o número exato de cada unidade (ex.: 301…312, …, 801…812), a partir da mesma planta validada do tipo (a skill da Bianca faz isso com ids "101 - 701"). **[VALIDAÇÃO HUMANA]** Confirme com quem administra o 360 qual das duas os pins usam.
+- **Validação:** C1, C7 e **C8 (número de recortes = unidades ativas do SpotSys, por pavimento)**; folhas revisadas; teste aprovado pela Rachel. Confira os PNG grandes no disco, não as prévias.
+- **Erros comuns:** porta de entrada cortada no meio da soleira (Lagoa 12); faixa de asfalto acima da fachada no recorte (Lagoa 02); WC atribuído à unidade errada por contato (Lagoa 10/11); emenda da planta aparecendo dentro do recorte (corrigir a planta, etapa 4B regra 14, e não o recorte).
+- **Saída:** `Plantas unidades/<pavimento>/` + `configs/` + folhas em `02_CONFERENCIA/`.
+- **Métodos anteriores (só referência):** extrator de rótulos do Cachoeira (`extrai_rotulos_pdf.py` → `celulas_pdf.py` → `registra_pdf_imagem.py` → `gera_recortes.py`), segmentação da Carol + `poligonos_carol.py` (Batel, teste de 16/10) e `gera_cfg_recorte.py` + recorte da Raquel. Podem servir para gerar os **polígonos** de um config quando não houver máscara de ambientes (Cenário A), mas o recorte é sempre o `recortar.py` da Bianca.
+
+### Etapa 9. Pins do 360 e pacote de publicação
+
+- **Objetivo:** deixar pronto, sem publicar, o que a pessoa com acesso vai subir.
+- **Ação:**
+  1. O `config_recorte_bianca.py` (etapa 8) já grava `04_PUBLICACAO/pins_360_AGUARDANDO_VALIDACAO.json`: um pin poligonal por unidade, com `szi_unit_id`, `codigo`, `andar`, `planta`, tamanho da imagem, vértices de 0 a 1 e centroide, com os **mesmos contornos** dos recortes.
+  2. Copie para `04_PUBLICACAO/` a planta do pavimento **exata** que serviu de base (mesmo arquivo, mesma resolução, com "UNIDADE NN") e confira por hash que é igual à de `01_PLANTAS/`. Se a planta mudar depois, regere configs e pins.
+  3. Pacote com validação por unidade (opcional, quando pedirem): `gera_pacote_publicacao.py` sai como `AGUARDANDO_VALIDACAO` com `VALIDACAO_HUMANA.csv`; **[VALIDAÇÃO HUMANA]** uma pessoa preenche; rodando de novo com `--validacao`, saem `pins_360.json` e `manifesto_publicacao.csv` só com as validadas.
+- **Validação:** `szi_unit_id` preenchido em todos os pins (o script avisa e sai com erro se faltar); número de pins = número de recortes; planta de `04_PUBLICACAO/` com o mesmo hash da entrega.
+- **Saída:** `04_PUBLICACAO/` com planta(s) do pavimento + `pins_360_AGUARDANDO_VALIDACAO.json`. **Nada é publicado.**
 
 ### Etapa 10. Upload das unidades no SpotSys (manual)
 
@@ -387,7 +426,9 @@ Status: **APROVADO** (tudo ok) · **APROVADO_COM_RESSALVA** (C4/C5 fora, área c
 | X7 | Item do aprovado ausente sem decisão ou pendência registrada | 6 |
 | X8 | Planta sem validação humana registrada | 7 |
 | X9 | Extrator de rótulos com contagem `OK` ≈ 0 | 8 |
-| X10 | Imagem do pavimento que sobe ≠ imagem base dos pins | 11 |
+| X10 | Imagem do pavimento que sobe ≠ imagem base dos pins | 9, 11 |
+| X11 | Recorte que não saiu do `recortar.py` da skill da Bianca, ou redimensionado | 8 |
+| X12 | Recortes de todas as unidades gerados sem o teste de 2–3 unidades aprovado | 8 |
 
 ---
 
@@ -413,6 +454,11 @@ Status: **APROVADO** (tudo ok) · **APROVADO_COM_RESSALVA** (C4/C5 fora, área c
 | E15 | Salvador (Carol) | Traço de 0,3 pt (vidro, divisa entre ambientes abertos) não virou barreira, e recepção/hall viraram jardim | ler os tipos de ambiente por página no debug; barreiras explícitas onde o traço é fino |
 | E16 | Cachoeira (Carol) | Leitura do mobiliário do lançamento em faixa/prévia saiu errada duas vezes | ler só em zoom de 2–3x por unidade (etapa 3.7) |
 | E19 | Lagoa, 20–21/10 | Paredes do PDF Legal com cunhas/"V" (hachura e shaft do CAD); redesenho de trechos iguais ao lançamento gerou paredes desalinhadas, portas duplicadas, soleira passando da porta, bancada solta, chuveiro na parede errada, parede fora da janela | geometria limpa (DWG) fora das zonas alteradas; nessas áreas, a representação do lançamento tal qual; regras 4B.1–12 |
+| E20 | Lagoa, 22/10 | Legal somado ao executivo nas zonas redesenhadas: parede dupla, parede de WC no tom do piso, janelas cortadas sob as caixas de rótulo | regras 4B.13–15: retângulos no alinhamento do executivo; emenda no núcleo da parede; janela refeita com a faixa limpa vizinha |
+| E21 | Lagoa, 22/10 | Área externa redesenhada pelas camadas do CAD ficou confusa ("linhas sobrando", garden sem muro de divisa) | regra 4B.17: lançamento tal qual quando bate com a referência |
+| E22 | Lagoa, 22/10 | Recorte feito com script próprio em vez da skill da Bianca | etapa 8: sempre `recortar-plantas`; config gerado da geometria |
+| E23 | Lagoa, 22/10 | Recorte cortou a soleira da porta de entrada ao meio; detecção da soleira por cor gerou recortes enormes; WC atribuído por contato à unidade errada | contorno até a face do corredor com o vão por geometria; WC pelo contato direto de piso (vão da porta) |
+| E24 | Lagoa, 22/10 | Planta do pavimento em `04_PUBLICACAO/` ficou de uma rodada anterior à última correção | conferir por hash a planta base dos pins com a da entrega (etapa 9) |
 | E13 | Batel | Scripts com coordenadas fixas do Batel (`redesenha_entrada_terreo.py`, `remove_rotulos_terreo.py`, `limpa_garden113.py`) ficam em `skill/scripts/` como se fossem genéricos | marcados como **modelo** na seção 8; copiar e ajustar, nunca rodar em outro empreendimento sem isso |
 
 ---
@@ -427,10 +473,14 @@ Status: **APROVADO** (tudo ok) · **APROVADO_COM_RESSALVA** (C4/C5 fora, área c
 | `corrige_rotulos_area.py` | 5 | `<img> <rotulos.json> <saida> [--debug]` | genérico (rótulo branco) |
 | `remove_texto.py` | 5 | `<png> <saida> <debug> [--fundo-min 60]` | genérico (texto preto) |
 | `confere_areas_base_x_aprovado.py` | 2 | `<dxf> <quadro.json> <transform.json> <rotulos.json> <saida.csv>` | genérico (DWG com zonas) |
+| skill `recortar-plantas` (Bianca): `recortar.py`, `grade.py`, `montagem.py`, `paredes.py` | 8 | ver etapa 8 e o `SKILL.md` dela; instalada em `~/.claude/skills/recortar-plantas` | **obrigatória para recorte** |
+| `recorte/config_recorte_bianca.py` | 8, 9 | `<configs/recorte.json>` (modelo: `exemplos/lagoa-spot_recorte.json`) → configs da skill da Bianca + `pins_360_AGUARDANDO_VALIDACAO.json` | genérico (máscara de ambientes); validado no Lagoa |
+| `do_zero/lagoa/` | 4B, 5 | ver `do_zero/lagoa/LEIA-ME.md` (ordem de execução) | **modelo do método híbrido** (validado) |
 | `extrai_rotulos_pdf.py`, `celulas_pdf.py`, `registra_pdf_imagem.py`, `registra_translacao.py` | 2, 8 | ver etapa 8 | **padrão de rótulo do Cachoeira** (E12) |
 | `prepara_pdf_carol.py` | 8 | `<config.json>` (modelo: `BATEL-SPOT/03_trabalho/prepara_pdf_carol_batel.json`): uma planta por página, recorte por redação, contorno opcional | genérico |
 | `poligonos_carol.py` | 8, 9 | `<config.json>` (modelo: `BATEL-SPOT/03_trabalho/poligonos_carol_teste.json`): polígonos da Carol → recortes + `pins_360` | genérico; testado no Batel (fase 2) |
-| `gera_recortes.py`, `folha_contato.py`, `relatorio_qc.py`, `gera_pacote_publicacao.py`, `roda_pipeline.py` | 8, 9 | ver etapas 8–9 | genéricos, dependem dos anteriores |
+| `gera_recortes.py`, `folha_contato.py`, `relatorio_qc.py`, `roda_pipeline.py` | 8 | recorte antigo | **substituídos pela skill da Bianca** (só referência) |
+| `gera_pacote_publicacao.py` | 9 | pacote com validação por unidade | genérico |
 | `gera_humanizada_dwg.py`, `gera_cfg_recorte.py`, `roda_unificado.py` | 4B, 8 | DWG com blocos e zonas | genéricos para DWG completo |
 | `do_zero/cachoeira/`, `do_zero/campeche/` | 4B | ver `do_zero/LEIA-ME.md` | **modelos** por empreendimento |
 | `redesenha_entrada_terreo.py`, `remove_rotulos_terreo.py`, `limpa_garden113.py` | 4A, 5 | coordenadas do térreo do Batel | **modelos** (E13) |
@@ -452,7 +502,7 @@ Status: **APROVADO** (tudo ok) · **APROVADO_COM_RESSALVA** (C4/C5 fora, área c
 
 ## 10. Saída, nomes e exceções
 
-- **Nomes:** `<EMP>_<PAV>_HUM-<COM-TEXTO|SEM-TEXTO|NUMERACAO-UND|COM-TEXTO-SOLAR>_APROVADO-<REV>.png`; unidades `<EMP>_<PAV>_UN-<código SpotSys>_HUM-SEM-TEXTO_<REV>.png`. Códigos de pavimento: `PAV-01`/`TERREO`, `MEZ`, `PAV-02`…, `COB`/`ROOFTOP`. Nunca sobrescrever uma revisão anterior.
+- **Nomes:** Cenário A: `<EMP>_<PAV>_HUM-<COM-TEXTO|SEM-TEXTO|NUMERACAO-UND|COM-TEXTO-SOLAR>_APROVADO-<REV>.png`. Cenário B: `<EMP>_<PAV>_DO-ZERO_FINAL.png` (com "UNIDADE NN") e `<EMP>_<PAV>_DO-ZERO_SEM-TEXTO.png`. Unidades: `Plantas unidades/<pavimento>/<Empreendimento> - <NN>.png` (padrão da skill da Bianca). Códigos de pavimento: `PAV-01`/`TERREO`, `MEZ`, `PAV-02`…, `COB`/`ROOFTOP`. Nunca sobrescrever uma revisão anterior.
 - **Resolução:** a da imagem que será substituída; sem reamostragem.
 - **Exceções:**
   - pavimentos repetitivos: conferir cada variante do aprovado;
@@ -471,4 +521,4 @@ Status: **APROVADO** (tudo ok) · **APROVADO_COM_RESSALVA** (C4/C5 fora, área c
 - A remoção de texto é reconstrução de fundo e exige revisão visual.
 - Conector do Drive limitado a cerca de 10 MB; o Slack só é lido com acesso ao canal.
 - A skill não escreve no SpotSys nem no 360.
-- **Histórico das regras:** 06/10, método do Fernando (ponta a ponta, sem texto, uma imagem por unidade e por pavimento) → 12–13/10, colagem e IA descartadas; base DWG do aprovado → 13/10, validação humana obrigatória antes da carga; conferência de áreas do arquivo base → 15/10, Autodoc sempre; humanizada do zero com o layout do interiores (Cachoeira); leitura zona a zona; texturas reais (Batel) → 16/10, inventário de ambientes (Campeche); **dois cenários** (A atualização pontual × B do zero, alinhado com a Bianca); hierarquia de referências; travas e ficha por pavimento; incorporadas as regras compatíveis da skill da Carol (auditoria pré-render, fidelidade do mobiliário, andar real, contagem de recortes, comparação de revisões). O estilo "desenho técnico humanizado" (render vetorial com paleta própria) continua como próxima etapa; estilizar o raster foi testado e rejeitado.
+- **Histórico das regras:** 06/10, método do Fernando (ponta a ponta, sem texto, uma imagem por unidade e por pavimento) → 12–13/10, colagem e IA descartadas; base DWG do aprovado → 13/10, validação humana obrigatória antes da carga; conferência de áreas do arquivo base → 15/10, Autodoc sempre; humanizada do zero com o layout do interiores (Cachoeira); leitura zona a zona; texturas reais (Batel) → 16/10, inventário de ambientes (Campeche); **dois cenários** (A atualização pontual × B do zero, alinhado com a Bianca); hierarquia de referências; travas e ficha por pavimento; incorporadas as regras compatíveis da skill da Carol (auditoria pré-render, fidelidade do mobiliário, andar real, contagem de recortes, comparação de revisões). O estilo "desenho técnico humanizado" (render vetorial com paleta própria) continua como próxima etapa; estilizar o raster foi testado e rejeitado. → 19/10, só "UNIDADE NN" dentro do ambiente, sem caixas de rótulo (Lagoa) → 20–21/10, regras de representação 1–12 e método híbrido (lançamento tal qual onde não mudou) → 22/10, regras 13–17, plantas do Lagoa aprovadas na 8ª rodada; recorte sempre pela skill `recortar-plantas` da Bianca, com config gerado da geometria e pins dos mesmos contornos; unidades em subpasta por pavimento; **versão MVP fechada**.

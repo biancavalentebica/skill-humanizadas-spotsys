@@ -1,0 +1,15 @@
+{
+ "empreendimento": "Lagoa Spot",
+ "m_px": 0.004022375816200381,
+ "spotsys_csv": "00_entradas/spotsys/spotsys_lagoa_2026-10-16.csv",
+ "regex_unidade": "ALOJ ([0-9]+)",
+ "regex_wc": "^WC",
+ "digitos": 2,
+ "configs": "configs",
+ "unidades": "Plantas unidades",
+ "pins": "04_saida/LAGOA-SPOT_DO-ZERO_SKILL-CAROL_EXECUTIVO-R10_AGUARDANDO-VALIDACAO/04_PUBLICACAO/pins_360_AGUARDANDO_VALIDACAO.json",
+ "pavimentos": [
+  {"id": "terreo", "pasta": "Térreo", "andar": "1", "planta": "04_saida/LAGOA-SPOT_DO-ZERO_SKILL-CAROL_EXECUTIVO-R10_AGUARDANDO-VALIDACAO/01_PLANTAS/LAGOA-SPOT_TERREO_DO-ZERO_FINAL.png", "ambientes": "03_trabalho/carol/TER_hib_amb"},
+  {"id": "pav02", "pasta": "2º Pavimento", "andar": "2", "planta": "04_saida/LAGOA-SPOT_DO-ZERO_SKILL-CAROL_EXECUTIVO-R10_AGUARDANDO-VALIDACAO/01_PLANTAS/LAGOA-SPOT_PAV-02_DO-ZERO_FINAL.png", "ambientes": "03_trabalho/carol/02P_hib_amb"}
+ ]
+}

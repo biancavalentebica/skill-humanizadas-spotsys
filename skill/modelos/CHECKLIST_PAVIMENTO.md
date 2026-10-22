@@ -42,11 +42,23 @@ Legenda: `[x]` feito e conferido · `[!]` reprovado (anote o motivo) · `[P]` pe
 - Script(s) usado(s) e log: ______
 - 4A: [ ] só os itens da tabela foram alterados · [ ] diferença 0 fora das caixas do log · [ ] aplicado em todas as versões da imagem
 - 4B: [ ] fluxos de circulação · [ ] `INVENTARIO_AMBIENTES_<PAV>.md` · [ ] `tipologias_unidades_<emp>.csv` (fonte: ______) · [ ] escala real
+- 4B híbrido: zonas que mudaram (coordenadas) ______ · [ ] fora delas, lançamento tal qual · [ ] emendas no núcleo preto de parede comum
 - 4B.7 auditoria pré-render (achado → explicação):
 - Fidelidade do mobiliário por unidade (`interiores`/`lancamento`/`adaptado`/`regra`/`minimo`/`sem cama`):
+- Regras de representação 1–17 (conferir em zoom contra o lançamento, trecho a trecho):
+  - [ ] paredes pretas, retas, no perfil do lançamento; sem parede dupla, cunha ou parede no tom do piso
+  - [ ] portas com a largura do executivo, lado do lançamento, uma por vão; soleira só no vão
+  - [ ] bancadas e móveis encostados; nada atravessando parede, folha ou giro
+  - [ ] box em linha de vidro; chuveiro na parede do vaso
+  - [ ] escadas com degraus reais; elevador e porta iguais ao lançamento
+  - [ ] janelas inteiras (inclusive sob as antigas caixas de rótulo)
+  - [ ] shafts fechados em preto
+  - [ ] área externa legível: garden com muro de divisa, sem linhas soltas, grama só onde há jardim
+  - [ ] leigo leria sem dúvida
 
 ## Etapa 5: textos
 - Versões geradas: com texto / sem texto / só numeração / solar
+- [ ] Só "UNIDADE NN" (código SpotSys), dentro do ambiente, fonte e tamanho iguais; nenhuma caixa de rótulo do lançamento
 - [ ] Cada rótulo restante confere com a etapa 2 · [ ] rótulos removidos inspecionados a 100%
 
 ## Etapa 6: checklist de qualidade (SKILL.md, seção 5)
@@ -66,13 +78,17 @@ Legenda: `[x]` feito e conferido · `[!]` reprovado (anote o motivo) · `[P]` pe
 | Q12 fidelidade do mobiliário | | |
 
 ## Etapa 7: validação do pavimento (TRAVA X8)
+- Rodadas (nº, data, o que mudou, pasta em `_DESCARTADO/`): ______
 - Validado: S / N · validador ______ · data ______ · observações ______
 
-## Etapas 8–9: recorte e pacote
-- [ ] Extrator: ___ de ___ unidades com `OK` (X9)
-- [ ] Recortes: ___ = unidades do SpotSys ___ (C8) · andares reais gerados: sim / não se aplica
-- [ ] `QC_RELATORIO.md`: aprovados ___ · ressalva ___ · pendentes ___
-- [ ] `VALIDACAO_HUMANA.csv` preenchida por ______ em ___ · `pins_360.json` com `szi_unit_id` em todas as linhas
+## Etapas 8–9: recorte (skill da Bianca) e pins
+- [ ] Skill `recortar-plantas` instalada em `~/.claude/skills/` (X11)
+- [ ] `configs/recorte.json` escrito · `config_recorte_bianca.py` rodado: C8 ___ = SpotSys ___ · WCs por contato conferidos: ______
+- [ ] Contornos conferidos com `grade.py --config`
+- [ ] Teste com 2–3 unidades (______) aprovado por ______ em ___ (X12)
+- [ ] Todas geradas com `recortar.py` em `Plantas unidades/<pavimento>/`, resolução original · folhas revisadas (porta de entrada inteira, nada do vizinho, garden)
+- [ ] OCR (`verif`/`tem_numero`) rodado / sem Tesseract: numeração conferida nas folhas
+- [ ] `pins_360_AGUARDANDO_VALIDACAO.json`: ___ pins, `szi_unit_id` em todos · planta de `04_PUBLICACAO/` com o mesmo hash da entrega (X10)
 
 ## Etapas 10–13: SpotSys e 360 (manuais)
 - [ ] URLs antigas guardadas (unidades e pavimento) em ______
