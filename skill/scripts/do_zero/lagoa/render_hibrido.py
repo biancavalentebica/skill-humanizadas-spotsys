@@ -20,6 +20,16 @@ H, W = LA.shape[:2]
 PONTA = {'TER': (6122, 1960, 6888, 2810), '02P': (5712, 1180, 6478, 2030)}[P]
 zona = np.zeros((H, W), bool)
 for x0, y0, x1, y1 in ZONAS_LEGAL: zona[y0:y1, x0:x1] = True
+# trecho redesenhado (o resto e o lancamento tal qual). As bordas caem no nucleo preto de paredes que o executivo e o
+# lancamento tem no mesmo lugar, para a emenda nao aparecer; as soleiras das entradas no corredor ficam do lancamento.
+# (2o pav.: o WC da 13 nao mudou e fica do lancamento; a emenda passa no nucleo da parede de cima e da esquerda dele)
+ZG = {'TER': [(2190, 1150, 3290, 2420), (3138, 1100, 3268, 1150)], '02P': [(1790, 395, 5025, 1068), (1790, 1068, 4570, 1425)]}[P]
+ZG_FORA = {'TER': [], '02P': [(2640, 1380, 2910, 1425),     # entrada da 12: soleira e pontas de parede do lancamento
+ (4120, 1392, 4365, 1425), (4550, 1085, 4570, 1285),
+                                (3385, 930, 3950, 1425)]}[P]     # elevador e porta dele = lancamento (emenda no nucleo da parede de cima e da direita; a da esquerda vem inteira)
+zg = np.zeros((H, W), bool)
+for x0, y0, x1, y1 in ZG: zg[y0:y1, x0:x1] = True
+for x0, y0, x1, y1 in ZG_FORA: zg[y0:y1, x0:x1] = False
 A0 = np.load(DZ + P + '_amb.npz'); J0 = json.load(open(DZ + P + '_amb.json', encoding='utf8'))
 AL = np.load(P + '_legal_amb.npz'); JL = json.load(open(P + '_legal_amb.json', encoding='utf8'))
 Z = np.load(f'legal_{P}_masks.npz'); camada = lambda k: (Z[k] > 15) if k in Z.files else np.zeros((H, W), bool)
@@ -33,10 +43,6 @@ par |= (A0['paredes'] | AL['parede_so']) & _borda & cv2.dilate(A0['paredes'].ast
 PAREDE_ADD = {'TER': [], '02P': [(5010, 1370, 5056, 1430)]}[P]
 PAREDE_DEL = {'TER': [], '02P': [(5058, 1325, 5260, 1360)]}[P]
 for x0, y0, x1, y1 in PAREDE_ADD: par[y0:y1, x0:x1] = True
-if P == 'TER':   # WC PNE (Legal): paredes retas, vao de 0,75 m embaixo a esquerda
-    par[1762:2215, 2690:3290] = False
-    par[1762:1792, 2690:3262] = True; par[1762:2208, 2690:2742] = True; par[1762:2208, 3233:3262] = True
-    par[2160:2208, 2690:3262] = True; par[2160:2208, 2742:2930] = False
 for x0, y0, x1, y1 in PAREDE_DEL: par[y0:y1, x0:x1] = False
 # so paredes de verdade: tira tracos finos (diagonais de hachura/shaft do CAD) com abertura de 9 px (~3,6 cm)
 par = cv2.morphologyEx(par.astype(np.uint8), cv2.MORPH_OPEN, np.ones((15, 15), np.uint8)) > 0
@@ -47,7 +53,27 @@ if P != 'TER':   # pavimento tipo: sem pilares/projecao do terreo fora da lamina
     par &= cv2.dilate(_env.astype(np.uint8), np.ones((15, 15), np.uint8)).astype(bool)
 vid = (A0['vidro'] & ~zona) | (AL['vidro'] & zona)
 sol = (A0['soleira'] & ~zona) | (AL['soleira'] & zona)
-if P == 'TER': vid[1762:2160, 2742:3233] = False; sol[2160:2208, 2742:2930] = True; sol[1762:2160, 2742:3233] = False; sol[2160:2208, 2505:2668] = True; par[2160:2208, 2505:2668] = False
+# trecho redesenhado: paredes em retangulos retos com a espessura e o alinhamento do executivo (= lancamento); o Legal so
+# diz o que mudou. Somar o Legal ao executivo deixava parede dupla: o Legal vem 1 a 3 cm deslocado e mais grosso.
+def _ret(L_):
+    m_ = np.zeros((H, W), bool)
+    for x0, y0, x1, y1 in L_: m_[y0:y1, x0:x1] = True
+    return m_
+if P == 'TER':
+    # Administracao aberta para o hall (pilar de 0,50 m na fachada), Rouparia e WC PNE com porta de 0,80 m abrindo para fora
+    par_z = _ret([(2176, 1074, 2221, 2219), (3215, 1105, 3265, 1216), (3135, 1105, 3265, 1150), (2176, 1756, 3265, 1801), (2673, 1756, 2718, 2219),
+                  (3215, 1756, 3265, 2219), (2167, 2174, 2500, 2219), (2930, 2174, 3265, 2219)])
+    sol_z = _ret([(2500, 2174, 2673, 2219), (2718, 2174, 2930, 2219)])
+    vid_z = np.zeros((H, W), bool)
+else:
+    # Unidade 12 maior (divisa com a 13 deslocada 0,45 m) e WC PNE maior, com a porta na parede lateral
+    par_z = A0['paredes'].copy(); sol_z = A0['soleira'].copy(); vid_z = A0['vidro'].copy()
+    for x0, y0, x1, y1 in [(1809, 1045, 2282, 1092), (2235, 1092, 2281, 1400), (1809, 1351, 2012, 1400), (3073, 469, 3118, 908), (3073, 908, 3188, 953),
+                           (4605, 1330, 5009, 1400)]:   # shaft do executivo dentro do WC da 13 (o lancamento nao tem)
+        par_z[y0:y1, x0:x1] = False
+    par_z |= _ret([(1809, 983, 2363, 1027), (2303, 1229, 2348, 1400), (2812, 469, 3233, 515), (3188, 469, 3233, 953)])
+    sol_z[1080:1300, 2220:2300] = False; vid_z[1080:1300, 2220:2300] = False; sol_z |= _ret([(2303, 1027, 2348, 1229)])
+par[zg] = par_z[zg]; sol[zg] = sol_z[zg]; vid[zg] = vid_z[zg]
 for pt in J0['portas']:
     if 'CORTAFOGO' not in pt['nome']: continue
     # soleira so na espessura da parede (o bloco da porta corta-fogo marcava o vao inteiro como soleira)
@@ -126,6 +152,56 @@ comum = (ids > 0) & ~alojs & ~wcs & ~elev & ~esc_int
 alojs &= ~esc_int
 interno = ids > 0
 img = np.full((H, W, 3), 255, np.uint8); alfa = np.zeros((H, W), np.uint8)
+# lancamento sem as caixas de rotulo; na faixa da fachada que a caixa cobria, a esquadria e refeita na horizontal (abaixo)
+LR, LRA, _LOG = tira_rotulos.tira(LA[..., :3], LA[..., 3]); LR = LR[..., :3].copy(); LRA = np.asarray(LRA, np.uint8).copy()
+def repara_fachada():
+    """a tira_rotulos copia o fundo de cima (terreo: asfalto no lugar do peitoril) ou um trecho com pilar (2o pav.); aqui as
+    linhas da fachada sob cada caixa sao copiadas do mesmo pavimento deslocadas na horizontal, sem pilar na fonte e com
+    emenda continua nas duas bordas, como as faixas de peitoril/vidro do lancamento"""
+    cx_ = [tuple(int(v) for v in c['caixa']) for c in _LOG]
+    rot = np.zeros((H, W), bool)
+    for x0, y0, x1, y1 in cx_: rot[max(y0 - 4, 0):y1 + 5, max(x0 - 4, 0):x1 + 5] = True
+    pred_ = cv2.dilate(((A0['ids'] > 0) | A0['paredes'] | A0['vidro']).astype(np.uint8), np.ones((61, 61), np.uint8)).astype(bool)
+    L4 = np.dstack([LA[..., :3], LA[..., 3]]).astype(np.float32)
+    for x0, y0, x1, y1 in cx_:
+        xm = (x0 + x1) // 2
+        if P == 'TER':     # so as linhas de baixo/de cima da caixa que encostam na fachada
+            if pred_[min(y1 + 2, H - 1), xm] and not pred_[y0, xm]: ya, yb = max(y0, y1 - 24), y1 + 3
+            elif pred_[max(y0 - 2, 0), xm] and not pred_[y1, xm]: ya, yb = y0 - 2, min(y1, y0 + 24)
+            else: continue
+        else:          # 2o pav.: so as linhas em que a fachada continua dos dois lados (o resto e fundo transparente)
+            LRA[y0:y1 + 3, x0:x1 + 1] = 0                # sem sobra da copia da tira_rotulos (pilar/peitoril de outro trecho)
+            _o = np.nonzero((LA[y0:y1 + 3, max(x0 - 5, 0), 3] > 0) | (LA[y0:y1 + 3, min(x1 + 4, W - 1), 3] > 0))[0]
+            if not len(_o): continue
+            ya, yb = max(y0 + _o.min() - 3, 0), min(y0 + _o.max() + 4, H)
+        if not (pred_[ya:yb, x0:x1].any()): continue
+        # a fachada e escalonada e entre as caixas nao sobra trecho limpo da largura da caixa: pega a faixa limpa mais
+        # proxima de cada lado (todas as colunas com o mesmo perfil vertical da coluna vizinha: sem pilar, sem degrau) e
+        # repete espelhada; se os dois lados tem perfis diferentes, cada lado preenche a sua metade
+        def assin(xc):
+            c_ = L4[ya:yb, xc]; lm = c_[:, :3].mean(axis=1)
+            verde = (c_[:, 1] > c_[:, 0] + 15) & (c_[:, 1] > c_[:, 2] + 15)          # grama x asfalto/peitoril
+            return np.stack([c_[:, 3] > 0, lm < 70, lm > 235, verde], axis=1)
+        SW = 90
+        def faixa(lado):
+            ref = assin(x0 - 4 if lado < 0 else min(x1 + 4, W - 1))
+            for k in range(4, 900, 6):
+                s0 = x0 - k - SW if lado < 0 else x1 + 1 + k
+                if s0 < 2 or s0 + SW > W - 2 or rot[ya:yb, s0:s0 + SW].any(): continue
+                if all((assin(xx) != ref).any(axis=1).sum() <= 2 for xx in range(s0, s0 + SW, 3)): return s0, ref
+            return None
+        fe, fd = faixa(-1), faixa(1)
+        if fe is None and fd is None: print('  fachada sob rotulo sem fonte', x0, y0, x1, y1); continue
+        if fe is None: fe = fd
+        if fd is None: fd = fe
+        igual = (fe[1] != fd[1]).any(axis=1).sum() <= 2
+        xm = x1 + 1 if igual else (x0 + x1 + 1) // 2
+        per = np.r_[np.arange(SW), np.arange(SW)[::-1]]
+        for xx in range(x0, x1 + 1):
+            s0 = fe[0] if xx < xm else fd[0]
+            xs = s0 + per[(xx - x0) % (2 * SW)]
+            LR[ya:yb, xx] = LA[ya:yb, xs, :3]; LRA[ya:yb, xx] = LA[ya:yb, xs, 3]
+repara_fachada()
 def tile(f, hw): h, w = f.shape[:2]; return np.tile(f, (hw[0] // h + 2, hw[1] // w + 2, 1))[:hw[0], :hw[1]]
 # ---- area externa (Legal) -------------------------------------------------------------------------------------------
 esc_ac = (AL['ids'] > 0) & np.isin(AL['ids'], [k for k, v in nomeL.items() if v == 'ESCADA_ACESSO']) if P == 'TER' else np.zeros((H, W), bool)
@@ -134,7 +210,7 @@ if P == 'TER':
     pred = cv2.dilate((interno | par | vid | sol).astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
     ext = lote & ~pred & ~muro
     simb = cv2.dilate(camada('cor_0_00_0_72_0_00_txt').astype(np.uint8), np.ones((61, 61), np.uint8)).astype(bool)
-    _lr, _, _ = tira_rotulos.tira(LA[..., :3], LA[..., 3]); _fl = _lr.astype(np.int16)
+    _fl = LR.astype(np.int16)
     vg = cv2.morphologyEx(((_fl[..., 1] > _fl[..., 0] + 15) & (_fl[..., 1] > _fl[..., 2] + 15)).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((81, 81), np.uint8)) > 0
     # grama do lancamento so onde o Legal tem jardim (simbolos verdes); onde o Legal tem vaga, e piso
     _nv, _lv = cv2.connectedComponents((ext & vg).astype(np.uint8), connectivity=8)
@@ -243,7 +319,8 @@ def peso(k): nm = amb.get(int(k), ''); return 3 if nm.startswith(('WC', 'PNE')) 
 for pt in J0['portas']:
     x0, y0, x1, y1 = pt['caixa']
     if pt['tipo'] != 'abrir' or re.search(r'BASCULANTE', pt['nome']): continue
-    if zona[(y0 + y1) // 2, (x0 + x1) // 2]: continue
+    if P == 'TER' and zona[(y0 + y1) // 2, (x0 + x1) // 2]: continue
+    if P == '02P' and 2200 <= (x0 + x1) / 2 <= 2320 and 1080 <= (y0 + y1) / 2 <= 1300: continue   # porta antiga do WC da 12
     hz = pt['horiz'] if int(round(pt['rot'])) % 90 == 0 else None
     if 'CORTAFOGO' in pt['nome']:
         # porta corta-fogo da escada (executivo): vao = soleira dentro da caixa do bloco
@@ -323,9 +400,10 @@ for x0, y0, x1, y1, horiz in list(portas):
     sg = -1 if dp(-1) <= dp(1) else 1
     hx, hy = cx + ex * sg * L / 2 + nx * esp / 2, cy + ey * sg * L / 2 + ny * esp / 2
     portas[portas.index((x0, y0, x1, y1, horiz))] = (hx, hy, nx, ny, -ex * sg, -ey * sg, L)
-for a in arcosL:
+for a in (arcosL if P == 'TER' else []):     # 2o pav.: as portas do executivo ja estao nos vaos certos
     p0, p1, p2, p3, c = [np.array(q) for q in a]
     if not zona[int(c[1]), int(c[0])]: continue
+    if np.hypot(c[0] - 2667, c[1] - 2160) < 40: portas.append((2673.0, 2174.0, 0.0, -1.0, -1.0, 0.0, 166.0)); continue   # rouparia, no vao
     L = float(np.hypot(*(p0 - c)))
     na = lambda q: par[max(int(q[1]) - 15, 0):int(q[1]) + 15, max(int(q[0]) - 15, 0):int(q[0]) + 15].sum()
     ab, fe = (p0, p3) if na(p0) < na(p3) else (p3, p0)
@@ -362,7 +440,7 @@ for k, nm in amb.items():   # todo WC tem porta: se faltou (zonas do Legal), poe
     portas.append(best[1]); print('  porta do WC posta no vao da soleira', nm)
 if P == 'TER':   # porta do PNE: uma so, dobradica no batente direito, abre para fora (Legal)
     portas = [q for q in portas if not (2700 <= q[0] + q[2] * q[6] / 2 <= 2990 and 1990 <= q[1] + q[3] * q[6] / 2 <= 2420)]
-    portas.append((2930.0, 2208.0, 0.0, 1.0, -1.0, 0.0, 188.0))
+    portas.append((2930.0, 2219.0, 0.0, 1.0, -1.0, 0.0, 199.0))
 _g = np.zeros((H, W), np.uint8)
 for hx, hy, nx, ny, ex, ey, L in portas:
     a0 = np.degrees(np.arctan2(ny, nx)); a1 = np.degrees(np.arctan2(ey, ex)); d = ((a1 - a0 + 180) % 360) - 180
@@ -439,10 +517,17 @@ for k, nm in amb.items():
     if P == 'TER' and nm == 'PNE':
         sala = ids == k
         _vf = (VASO[0], cv2.GaussianBlur(_va.astype(np.float32), (0, 0), 1.0))
-        for sp_, k90, cx_, cy_ in ((_vf, 2, 2810, 1792), (LAV, 1, 3233, 1885)):
+        for sp_, k90, cx_, cy_ in ((_vf, 2, 2810, 1799), (LAV, 1, 3215, 1885)):
             al2 = np.rot90(sp_[1], k90) > 0.5; hh_, ww_ = al2.shape
             x0_, y0_ = (int(cx_ - ww_ / 2), int(cy_) + 2) if sp_ is _vf else (int(cx_ - ww_), int(cy_ - hh_ / 2))
             cola(sp_[0], sp_[1], x0_, y0_, k90); n_l += 1
+        continue
+    if P == '02P' and (ids == k)[1200, 2050]:
+        # WC PNE da Unidade 12 (Legal): sem box; vaso no canto de baixo a direita, lavatorio na parede esquerda
+        _vf = (VASO[0], cv2.GaussianBlur(_va.astype(np.float32), (0, 0), 1.0))
+        hv, wv = _vf[1].shape; cola(_vf[0], _vf[1], 2200 - wv // 2, 1400 - hv - 2, 0); n_l += 1
+        al2 = np.rot90(LAV[1], 3) > 0.5; hh_, ww_ = al2.shape
+        cola(LAV[0], LAV[1], 1809, 1190 - hh_ // 2, 3); n_l += 1
         continue
     sala = ids == k
     # nucleo do WC: maior pedaco depois de abrir 15 px (frestas herdadas do vizinho nao contam para o box)
@@ -641,6 +726,11 @@ if P == 'TER':
 p8 = par.astype(np.uint8)
 e2 = cv2.erode(p8, np.ones((7, 7), np.uint8)) > 0; e6 = cv2.erode(p8, np.ones((21, 21), np.uint8)) > 0   # perfil do lancamento: contorno 3 px, branco 7 px, nucleo preto
 img[par] = (12, 12, 13); img[e2 & ~e6] = (244, 244, 244); img[e6] = (12, 12, 13); alfa[par] = 255
+# parede fina (sem nucleo de 21 px): filete branco estreito e nucleo preto, nunca so o contorno com miolo claro
+_fina = par & ~(cv2.dilate(e6.astype(np.uint8), np.ones((23, 23), np.uint8)) > 0)
+_e11 = cv2.erode(p8, np.ones((11, 11), np.uint8))
+img[_fina & (_e11 > 0)] = (12, 12, 13)
+img[_fina & ~(cv2.dilate(_e11, np.ones((13, 13), np.uint8)) > 0)] = (12, 12, 13)    # muito fina: preta inteira
 # area externa no padrao do lancamento: muro de divisa = faixa de concreto clara com contorno fino;
 # gradil = barra azul-acinzentada fina com contorno, sem linhas soltas no jardim
 if P == 'TER' and muro.any():
@@ -751,20 +841,26 @@ _a = (_m * _w)[..., None]
 img[y0:y1, x0:x1] = (LA[y0:y1, x0:x1, :3] * _a + img[y0:y1, x0:x1] * (1 - _a)).astype(np.uint8)
 # fora das zonas que mudaram no projeto o executivo R10 = lancamento (paredes, portas, soleiras, loucas, box, chuveiro):
 # usa a representacao do lancamento tal qual, sem os rotulos; redesenho so nas zonas (Legal) e na area externa
-_lr, _, _ = tira_rotulos.tira(LA[..., :3], LA[..., 3])
 # a limpeza de rotulos so vale dentro das caixas azuis do lancamento; no resto fica o lancamento original
 _lb = (np.abs(LA[..., :3].astype(np.int16) - np.array([57, 66, 94])).sum(axis=2) < 40) & (LA[..., 3] > 200)
 _lbd = cv2.dilate(_lb.astype(np.uint8), np.ones((25, 25), np.uint8)).astype(bool)
-_lr = np.where(_lbd[..., None], _lr[..., :3], LA[..., :3])
-_pred = cv2.dilate(((A0['ids'] > 0) | A0['paredes'] | A0['vidro'] | A0['soleira']).astype(np.uint8), np.ones((31 if P != 'TER' else 5, 31 if P != 'TER' else 5), np.uint8)).astype(bool)
-_pred &= LA[..., 3] > 0
-ZDES = {'TER': [(2205, 1085, 3290, 2420)], '02P': [(1790, 395, 5025, 1392)]}[P]   # onde o desenho e meu (o resto = lancamento)
-_zz = np.zeros((H, W), np.uint8)
-for a_, b_, c_, d_ in ZDES: _zz[b_:d_, a_:c_] = 1
-_zd = cv2.dilate(_zz, np.ones((5, 5), np.uint8))
+_lr = np.where(_lbd[..., None], LR, LA[..., :3]); _lra = np.where(_lbd, LRA, LA[..., 3])
+_zd = cv2.dilate(zg.astype(np.uint8), np.ones((5, 5), np.uint8))     # onde o desenho e meu (o resto = lancamento)
 _wz = cv2.GaussianBlur((1 - _zd).astype(np.float32), (0, 0), 2)
-_a = (_pred * _wz)[..., None]
-img[:] = (_lr[..., :3] * _a + img * (1 - _a)).astype(np.uint8); alfa[_pred] = 255
+if P == 'TER':
+    _pred = cv2.dilate(((A0['ids'] > 0) | A0['paredes'] | A0['vidro'] | A0['soleira']).astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
+    _pred &= LA[..., 3] > 0
+    _a = (_pred * _wz)[..., None]
+    img[:] = (_lr * _a + img * (1 - _a)).astype(np.uint8); alfa[_pred] = 255
+else:            # pavimento tipo: o lancamento limpo inteiro (fachada, sombra e fundo transparente) fora do trecho redesenhado
+    _pred = _lra > 0
+    _a = _wz[..., None]
+    img[:] = (_lr * _a + img * (1 - _a)).astype(np.uint8)
+    alfa[:] = np.clip(_lra * _wz + alfa * (1 - _wz), 0, 255).astype(np.uint8)
+if P == 'TER':   # shaft entre os WCs das Unidades 02 e 03: o lancamento deixou com piso claro; fecha preto como a parede do
+    # corredor ao lado (perfil da coluna x=5000: nucleo preto ate 2223, filete branco, contorno e sombra), igual ao par de baixo
+    img[2176:2198, 5228:5652] = img[2210, 5000]
+    img[2198:2236, 5228:5652] = img[2198:2236, 5000][:, None]
 if P == 'TER':   # furos transparentes dentro do lote viram piso externo (eram os contornos brancos nos gradis)
     _gap = lote & (alfa < 250) & ~cv2.dilate(_pred.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
     img[_gap & gram] = GR[_gap & gram]; img[_gap & ~gram] = PX[_gap & ~gram]; alfa[_gap] = 255
@@ -773,13 +869,26 @@ if P == 'TER':   # area externa: sem linha branca solta (vira o piso externo)
     _f = img.astype(np.int16); _wh = _ee & (_f.mean(axis=2) > 225) & ((_f.max(axis=2) - _f.min(axis=2)) < 14)
     _wh = cv2.dilate(_wh.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool) & _ee
     img[_wh & gram] = GR[_wh & gram]; img[_wh & ~gram] = PX[_wh & ~gram]
-if P != 'TER':   # pavimento tipo: nada fora do contorno da fachada do lancamento (a janela ja e a parede)
-    # acima da fachada (janela) nao vai nada: corta por coluna no primeiro pixel opaco do lancamento que nao e rotulo
-    _okp = (LA[..., 3] > 250) & ~_lbd
-    _top = np.where(_okp.any(axis=0), _okp.argmax(axis=0), H)
-    _cx = np.arange(H)[:, None] < _top[None, :]
-    img[_cx] = 255; alfa[_cx] = 0
-    _fora = LA[..., 3] < 250; img[_fora] = LA[..., :3][_fora]; alfa[_fora] = LA[..., 3][_fora]   # borda/sombra da fachada = lancamento
+if P == 'TER':
+    # faixa externa de cima (lixo, garden da 11 com mureta + gradil de divisa, jardim permeavel, escada de acesso social e
+    # plataforma): o lancamento e claro para leigo e bate com o Legal; o redesenho pelas camadas do Legal deixava linhas
+    # sobrando. Usa o lancamento sem rotulos; onde havia caixa/texto de rotulo vai o piso em volta (grama ou asfalto)
+    ex0, ey0, ex1, ey1 = 960, 0, 4480, 1104
+    _src = LR.copy(); _sa = LRA.copy()
+    _gr = (LA[..., 1].astype(np.int16) > LA[..., 0] + 15) & (LA[..., 1].astype(np.int16) > LA[..., 2] + 15)
+    for c in _LOG:
+        bx0, by0, bx1, by1 = [int(v) for v in c['caixa']]
+        if bx1 < ex0 or bx0 > ex1 or by0 > ey1: continue
+        yb_ = min(by1 - 24, ey1)
+        anel = np.zeros((H, W), bool); anel[max(by0 - 30, 0):yb_, max(bx0 - 30, 0):bx1 + 31] = True; anel[by0:yb_, bx0:bx1 + 1] = False
+        _t = GR if _gr[anel].mean() > 0.5 else PX
+        _src[by0:yb_, bx0:bx1 + 1] = _t[by0:yb_, bx0:bx1 + 1]; _sa[by0:yb_, bx0:bx1 + 1] = 255
+    _m = np.zeros((H, W), np.float32); _m[ey0:ey1, ex0:ex1] = 1
+    _m = cv2.GaussianBlur(_m, (0, 0), 6) * (_m > 0)                # emenda suave so para dentro (asfalto x asfalto)
+    _m[ey1 - 30:ey1, ex0 + 30:ex1 - 30] = 1                         # junto da fachada sem esfumado (dos dois lados e lancamento)
+    _m3 = _m[..., None]
+    img[:] = (_src * _m3 + img * (1 - _m3)).astype(np.uint8)
+    alfa[:] = np.clip(_sa * _m + alfa * (1 - _m), 0, 255).astype(np.uint8)
 Image.fromarray(np.dstack([img, alfa])).save(sai)
 np.savez_compressed(P + '_hib_amb.npz', ids=ids); json.dump(dict(ambientes={str(k): dict(nome=v) for k, v in amb.items()}), open(P + '_hib_amb.json', 'w', encoding='utf8'), ensure_ascii=False)
 print(P, 'ambientes', len(amb), 'loucas', n_l, 'moveis', n_o, 'descartados', n_x, 'portas', len(portas))
